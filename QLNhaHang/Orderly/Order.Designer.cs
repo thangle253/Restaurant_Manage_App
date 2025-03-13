@@ -97,7 +97,7 @@
             this.pnlBan.Controls.Add(this.btnBan1);
             this.pnlBan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlBan.Location = new System.Drawing.Point(3, 0);
-            this.pnlBan.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnlBan.Margin = new System.Windows.Forms.Padding(5);
             this.pnlBan.Name = "pnlBan";
             this.pnlBan.Size = new System.Drawing.Size(827, 1258);
             this.pnlBan.TabIndex = 0;
@@ -106,7 +106,7 @@
             // 
             this.btnBan20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan20.Location = new System.Drawing.Point(571, 888);
-            this.btnBan20.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan20.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan20.Name = "btnBan20";
             this.btnBan20.Size = new System.Drawing.Size(149, 147);
             this.btnBan20.TabIndex = 19;
@@ -118,7 +118,7 @@
             // 
             this.btnBan19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan19.Location = new System.Drawing.Point(413, 888);
-            this.btnBan19.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan19.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan19.Name = "btnBan19";
             this.btnBan19.Size = new System.Drawing.Size(149, 147);
             this.btnBan19.TabIndex = 18;
@@ -130,7 +130,7 @@
             // 
             this.btnBan18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan18.Location = new System.Drawing.Point(254, 888);
-            this.btnBan18.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan18.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan18.Name = "btnBan18";
             this.btnBan18.Size = new System.Drawing.Size(149, 147);
             this.btnBan18.TabIndex = 17;
@@ -142,7 +142,7 @@
             // 
             this.btnBan17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan17.Location = new System.Drawing.Point(96, 888);
-            this.btnBan17.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan17.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan17.Name = "btnBan17";
             this.btnBan17.Size = new System.Drawing.Size(149, 147);
             this.btnBan17.TabIndex = 16;
@@ -154,7 +154,7 @@
             // 
             this.btnBan16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan16.Location = new System.Drawing.Point(571, 682);
-            this.btnBan16.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan16.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan16.Name = "btnBan16";
             this.btnBan16.Size = new System.Drawing.Size(149, 147);
             this.btnBan16.TabIndex = 15;
@@ -166,7 +166,7 @@
             // 
             this.btnBan15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan15.Location = new System.Drawing.Point(413, 682);
-            this.btnBan15.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan15.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan15.Name = "btnBan15";
             this.btnBan15.Size = new System.Drawing.Size(149, 147);
             this.btnBan15.TabIndex = 14;
@@ -178,7 +178,7 @@
             // 
             this.btnBan14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan14.Location = new System.Drawing.Point(254, 682);
-            this.btnBan14.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan14.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan14.Name = "btnBan14";
             this.btnBan14.Size = new System.Drawing.Size(149, 147);
             this.btnBan14.TabIndex = 13;
@@ -190,7 +190,7 @@
             // 
             this.btnBan13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan13.Location = new System.Drawing.Point(96, 682);
-            this.btnBan13.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan13.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan13.Name = "btnBan13";
             this.btnBan13.Size = new System.Drawing.Size(149, 147);
             this.btnBan13.TabIndex = 12;
@@ -202,7 +202,7 @@
             // 
             this.btnBan12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan12.Location = new System.Drawing.Point(571, 475);
-            this.btnBan12.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan12.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan12.Name = "btnBan12";
             this.btnBan12.Size = new System.Drawing.Size(149, 147);
             this.btnBan12.TabIndex = 11;
@@ -214,7 +214,7 @@
             // 
             this.btnBan11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan11.Location = new System.Drawing.Point(413, 475);
-            this.btnBan11.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan11.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan11.Name = "btnBan11";
             this.btnBan11.Size = new System.Drawing.Size(149, 147);
             this.btnBan11.TabIndex = 10;
@@ -226,7 +226,7 @@
             // 
             this.btnBan10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan10.Location = new System.Drawing.Point(254, 475);
-            this.btnBan10.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan10.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan10.Name = "btnBan10";
             this.btnBan10.Size = new System.Drawing.Size(149, 147);
             this.btnBan10.TabIndex = 9;
@@ -238,7 +238,7 @@
             // 
             this.btnBan9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan9.Location = new System.Drawing.Point(96, 475);
-            this.btnBan9.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan9.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan9.Name = "btnBan9";
             this.btnBan9.Size = new System.Drawing.Size(149, 147);
             this.btnBan9.TabIndex = 8;
@@ -250,7 +250,7 @@
             // 
             this.btnBan8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan8.Location = new System.Drawing.Point(571, 274);
-            this.btnBan8.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan8.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan8.Name = "btnBan8";
             this.btnBan8.Size = new System.Drawing.Size(149, 147);
             this.btnBan8.TabIndex = 7;
@@ -262,7 +262,7 @@
             // 
             this.btnBan7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan7.Location = new System.Drawing.Point(413, 274);
-            this.btnBan7.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan7.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan7.Name = "btnBan7";
             this.btnBan7.Size = new System.Drawing.Size(149, 147);
             this.btnBan7.TabIndex = 6;
@@ -274,7 +274,7 @@
             // 
             this.btnBan6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan6.Location = new System.Drawing.Point(254, 274);
-            this.btnBan6.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan6.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan6.Name = "btnBan6";
             this.btnBan6.Size = new System.Drawing.Size(149, 147);
             this.btnBan6.TabIndex = 5;
@@ -286,7 +286,7 @@
             // 
             this.btnBan5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan5.Location = new System.Drawing.Point(96, 274);
-            this.btnBan5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan5.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan5.Name = "btnBan5";
             this.btnBan5.Size = new System.Drawing.Size(149, 147);
             this.btnBan5.TabIndex = 4;
@@ -298,7 +298,7 @@
             // 
             this.btnBan4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan4.Location = new System.Drawing.Point(571, 69);
-            this.btnBan4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan4.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan4.Name = "btnBan4";
             this.btnBan4.Size = new System.Drawing.Size(149, 147);
             this.btnBan4.TabIndex = 3;
@@ -310,7 +310,7 @@
             // 
             this.btnBan3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan3.Location = new System.Drawing.Point(413, 69);
-            this.btnBan3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan3.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan3.Name = "btnBan3";
             this.btnBan3.Size = new System.Drawing.Size(149, 147);
             this.btnBan3.TabIndex = 2;
@@ -322,7 +322,7 @@
             // 
             this.btnBan2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
             this.btnBan2.Location = new System.Drawing.Point(254, 69);
-            this.btnBan2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan2.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan2.Name = "btnBan2";
             this.btnBan2.Size = new System.Drawing.Size(149, 147);
             this.btnBan2.TabIndex = 1;
@@ -332,13 +332,16 @@
             // 
             // btnBan1
             // 
-            this.btnBan1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(216)))), ((int)(((byte)(202)))));
+            this.btnBan1.BackColor = System.Drawing.Color.White;
+            this.btnBan1.Image = ((System.Drawing.Image)(resources.GetObject("btnBan1.Image")));
+            this.btnBan1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBan1.Location = new System.Drawing.Point(96, 69);
-            this.btnBan1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBan1.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan1.Name = "btnBan1";
             this.btnBan1.Size = new System.Drawing.Size(149, 147);
             this.btnBan1.TabIndex = 0;
             this.btnBan1.Text = "Bàn 1";
+            this.btnBan1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBan1.UseVisualStyleBackColor = false;
             this.btnBan1.Click += new System.EventHandler(this.btnBan20_Click);
             // 
@@ -346,7 +349,7 @@
             // 
             this.cmbLoai.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbLoai.Location = new System.Drawing.Point(878, 242);
-            this.cmbLoai.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmbLoai.Margin = new System.Windows.Forms.Padding(5);
             this.cmbLoai.Name = "cmbLoai";
             this.cmbLoai.Size = new System.Drawing.Size(521, 57);
             this.cmbLoai.TabIndex = 0;
@@ -355,7 +358,7 @@
             // 
             this.cmbMon.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMon.Location = new System.Drawing.Point(878, 342);
-            this.cmbMon.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmbMon.Margin = new System.Windows.Forms.Padding(5);
             this.cmbMon.Name = "cmbMon";
             this.cmbMon.Size = new System.Drawing.Size(521, 57);
             this.cmbMon.TabIndex = 1;
@@ -366,7 +369,7 @@
             this.numericUpDownSoLuong.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownSoLuong.ForeColor = System.Drawing.Color.White;
             this.numericUpDownSoLuong.Location = new System.Drawing.Point(1488, 242);
-            this.numericUpDownSoLuong.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.numericUpDownSoLuong.Margin = new System.Windows.Forms.Padding(5);
             this.numericUpDownSoLuong.Name = "numericUpDownSoLuong";
             this.numericUpDownSoLuong.Size = new System.Drawing.Size(282, 57);
             this.numericUpDownSoLuong.TabIndex = 3;
@@ -377,7 +380,7 @@
             this.btnThemMon.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemMon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(44)))), ((int)(((byte)(33)))));
             this.btnThemMon.Location = new System.Drawing.Point(1488, 342);
-            this.btnThemMon.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnThemMon.Margin = new System.Windows.Forms.Padding(5);
             this.btnThemMon.Name = "btnThemMon";
             this.btnThemMon.Size = new System.Drawing.Size(282, 62);
             this.btnThemMon.TabIndex = 4;
@@ -395,7 +398,7 @@
             this.ColUnitPrice,
             this.ColIntoMoney});
             this.dgvOrder.Location = new System.Drawing.Point(840, 456);
-            this.dgvOrder.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dgvOrder.Margin = new System.Windows.Forms.Padding(5);
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.RowHeadersWidth = 51;
             this.dgvOrder.RowTemplate.Height = 24;
@@ -432,7 +435,7 @@
             this.cmbChonBanDoi.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbChonBanDoi.FormattingEnabled = true;
             this.cmbChonBanDoi.Location = new System.Drawing.Point(856, 1101);
-            this.cmbChonBanDoi.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmbChonBanDoi.Margin = new System.Windows.Forms.Padding(5);
             this.cmbChonBanDoi.Name = "cmbChonBanDoi";
             this.cmbChonBanDoi.Size = new System.Drawing.Size(305, 63);
             this.cmbChonBanDoi.TabIndex = 6;
@@ -453,7 +456,7 @@
             // 
             this.txtTongTien.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTongTien.Location = new System.Drawing.Point(1219, 990);
-            this.txtTongTien.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtTongTien.Margin = new System.Windows.Forms.Padding(5);
             this.txtTongTien.Multiline = true;
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Size = new System.Drawing.Size(442, 55);
@@ -465,7 +468,7 @@
             this.btnDoiBan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDoiBan.ForeColor = System.Drawing.Color.White;
             this.btnDoiBan.Location = new System.Drawing.Point(1219, 1094);
-            this.btnDoiBan.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnDoiBan.Margin = new System.Windows.Forms.Padding(5);
             this.btnDoiBan.Name = "btnDoiBan";
             this.btnDoiBan.Size = new System.Drawing.Size(250, 86);
             this.btnDoiBan.TabIndex = 9;
@@ -479,7 +482,7 @@
             this.btnThanhToan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThanhToan.ForeColor = System.Drawing.Color.White;
             this.btnThanhToan.Location = new System.Drawing.Point(1525, 1094);
-            this.btnThanhToan.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnThanhToan.Margin = new System.Windows.Forms.Padding(5);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(245, 86);
             this.btnThanhToan.TabIndex = 10;
@@ -503,7 +506,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(840, 35);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(218, 181);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -532,7 +535,7 @@
             this.Controls.Add(this.pnlBan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Order";
             this.Text = "Order";
             this.Load += new System.EventHandler(this.Order_Load);

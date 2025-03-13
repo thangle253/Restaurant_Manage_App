@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Orderly.Model;
 using System.Data.Entity;
+using System.IO;
+
 namespace Orderly
 {
     public partial class Food : Form
     {
         private QLNhaHangDB context; // Khai báo DbContext
-        
+
         public Food()
         {
             InitializeComponent();
@@ -61,43 +63,49 @@ namespace Orderly
                 FoodItemCard card = new FoodItemCard();
 
                 // Gọi phương thức SetData để gán dữ liệu lên từng label trong UserControl
-                card.SetData(food.MaMon, food.TenMon, food.LoaiMon.TenLoaiMon, food.GiaTien,food.HinhAnh);
+                card.SetData(food.MaMon, food.TenMon, food.LoaiMon.TenLoaiMon, food.GiaTien, food.HinhAnh);
+
+                // 🔹 Lắng nghe sự kiện OnFoodSelected từ FoodItemCard
+                card.OnFoodSelected += FoodItemCard_OnFoodSelected;
 
                 flpFoodList.Controls.Add(card);
             }
         }
 
-
-
-        private void cmbLoai_SelectedIndexChanged(object sender, EventArgs e)
+        private void FoodItemCard_OnFoodSelected(object sender, EventArgs e)
         {
-            try
+            if (sender is FoodItemCard selectedCard)
             {
-                // Lấy Mã Loại Món được chọn trong ComboBox
-                var selectedLoai = (LoaiMon)cmbLoai.SelectedItem;
-                if (selectedLoai != null)
+                // Hiển thị thông tin món ăn lên giao diện bên phải
+                txtMaMon.Text = selectedCard.foodID.ToString();
+                txtTenMon.Text = selectedCard.foodName;
+                cmbLoai.Text = selectedCard.foodType;
+                txtGiaTien.Text = selectedCard.foodPrice.ToString("N0");
+
+                // Hiển thị ảnh món ăn nếu có
+                if (!string.IsNullOrEmpty(selectedCard.imagePath))
                 {
-                    int maLoaiMon = selectedLoai.MaLoaiMon;
-
-                    // Lọc danh sách món ăn theo Mã Loại Món
-                    var filteredFoodList = context.MonAns
-                                                   .Where(ma => ma.MaLoaiMon == maLoaiMon)
-                                                   .ToList();
-
-                    // Đổ dữ liệu vào DataGridView
-                    dgvFood.Rows.Clear();
-                    foreach (var food in filteredFoodList)
+                    string fullImagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, selectedCard.imagePath);
+                    if (File.Exists(fullImagePath))
                     {
-                        dgvFood.Rows.Add(food.MaMon, food.TenMon, food.MaLoaiMon, food.GiaTien);
+                        pbImageFood.Image = Image.FromFile(fullImagePath);
+                    }
+                    else
+                    {
+                        pbImageFood.Image = null;
                     }
                 }
+                else
+                {
+                    pbImageFood.Image = null;
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
-            }
-
         }
+
+
+
+
+
 
         private void dgvFood_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -134,75 +142,6 @@ namespace Orderly
             }
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Kiểm tra tính hợp lệ của dữ liệu
-                if (string.IsNullOrWhiteSpace(txtMaMon.Text) ||
-                    string.IsNullOrWhiteSpace(txtTenMon.Text) ||
-                    cmbLoai.SelectedValue == null ||
-                    string.IsNullOrWhiteSpace(txtGiaTien.Text))
-                {
-                    MessageBox.Show("Vui lòng điền đầy đủ thông tin trước khi thêm món!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Kiểm tra Mã Món chỉ chứa số
-                if (!int.TryParse(txtMaMon.Text.Trim(), out int maMon))
-                {
-                    MessageBox.Show("Mã món ăn phải là số và không chứa ký tự đặc biệt hoặc khoảng trắng!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Loại bỏ định dạng " VND" và dấu chấm trước khi kiểm tra giá tiền
-                string giaTienText = txtGiaTien.Text.Replace(".", "");
-                if (!decimal.TryParse(giaTienText, out decimal giaTien) || giaTien <= 0)
-                {
-                    MessageBox.Show("Giá tiền phải là một số hợp lệ lớn hơn 0!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Lấy dữ liệu từ các trường nhập liệu
-                string tenMon = txtTenMon.Text;
-                int maLoaiMon = (int)cmbLoai.SelectedValue;
-
-                // Kiểm tra món ăn đã tồn tại chưa
-                var existingMon = context.MonAns.FirstOrDefault(m => m.MaMon == maMon);
-                if (existingMon != null)
-                {
-                    MessageBox.Show("Mã món đã tồn tại! Vui lòng nhập mã khác.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Tạo đối tượng món ăn mới
-                var newMon = new MonAn
-                {
-                    MaMon = maMon,
-                    TenMon = tenMon,
-                    MaLoaiMon = maLoaiMon,
-                    GiaTien = giaTien
-                };
-
-                // Thêm món ăn vào cơ sở dữ liệu
-                context.MonAns.Add(newMon);
-                context.SaveChanges();
-
-                // Hiển thị thông báo và cập nhật lại danh sách món ăn
-                MessageBox.Show("Thêm món mới thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadFoodData(); // Phương thức để load lại dữ liệu món ăn vào dgvFood
-
-                // Xóa các trường nhập liệu sau khi thêm
-                txtMaMon.Clear();
-                txtTenMon.Clear();
-                txtGiaTien.Clear();
-                cmbLoai.SelectedIndex = 0;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi thêm món: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
         private void LoadFoodData()
         {
             try
@@ -222,152 +161,6 @@ namespace Orderly
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi tải dữ liệu món ăn: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Kiểm tra xem người dùng đã chọn dòng nào trong DataGridView chưa
-                if (dgvFood.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("Vui lòng chọn món ăn cần xóa!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Lấy thông tin món ăn từ dòng được chọn
-                DataGridViewRow selectedRow = dgvFood.SelectedRows[0];
-                int maMon = int.Parse(selectedRow.Cells[0].Value.ToString());
-                string tenMon = selectedRow.Cells[1].Value.ToString();
-
-                // Hiển thị thông báo xác nhận
-                DialogResult confirmResult = MessageBox.Show(
-                    $"Bạn có chắc chắn muốn xóa món ăn \"{tenMon}\" (Mã: {maMon})?",
-                    "Xác Nhận Xóa",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question
-                );
-
-                if (confirmResult == DialogResult.Yes)
-                {
-                    // Tìm món ăn trong cơ sở dữ liệu
-                    var monAn = context.MonAns.FirstOrDefault(m => m.MaMon == maMon);
-                    if (monAn != null)
-                    {
-                        // Xóa món ăn khỏi cơ sở dữ liệu
-                        context.MonAns.Remove(monAn);
-                        context.SaveChanges();
-
-                        // Hiển thị thông báo và cập nhật lại danh sách món ăn
-                        MessageBox.Show("Xóa món ăn thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadFoodData();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không tìm thấy món ăn cần xóa!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Không xóa được món ăn vì đang có món trong Order !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Kiểm tra xem người dùng đã chọn dòng nào trong DataGridView chưa
-                if (dgvFood.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("Vui lòng chọn món ăn cần sửa!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Lấy thông tin từ các trường nhập liệu
-                if (string.IsNullOrWhiteSpace(txtMaMon.Text) ||
-                    string.IsNullOrWhiteSpace(txtTenMon.Text) ||
-                    cmbLoai.SelectedValue == null ||
-                    string.IsNullOrWhiteSpace(txtGiaTien.Text))
-                {
-                    MessageBox.Show("Vui lòng điền đầy đủ thông tin trước khi sửa món!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Kiểm tra tính hợp lệ của Mã Món
-                if (!int.TryParse(txtMaMon.Text.Trim().Replace(",", ""), out int maMon))
-                {
-                    MessageBox.Show("Mã món ăn phải là số và không chứa ký tự đặc biệt hoặc khoảng trắng!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Kiểm tra món ăn có đang được sử dụng trong đơn hàng chưa thanh toán không
-                var ordersWithFood = context.DonHangs
-                    .Where(dh => dh.TrangThai == "Đã Đặt" && dh.ChiTietDonHangs.Any(ct => ct.MaMon == maMon))
-                    .Select(dh => dh.MaDonHang)  // Lấy mã đơn hàng
-                    .ToList();
-
-                if (ordersWithFood.Any())
-                {
-                    string orderList = string.Join(", ", ordersWithFood);  // Danh sách mã đơn hàng
-                    MessageBox.Show($"Không thể sửa món ăn này vì món đã có trong các đơn hàng đã đặt: {orderList}", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Cập nhật thông tin món ăn
-                var monAn = context.MonAns.FirstOrDefault(m => m.MaMon == maMon);
-                if (monAn == null)
-                {
-                    MessageBox.Show("Không tìm thấy món ăn cần sửa!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Kiểm tra và xử lý giá tiền
-                if (!decimal.TryParse(txtGiaTien.Text.Replace(",", "").Replace(".", ""), out decimal giaTien))
-                {
-                    MessageBox.Show("Giá tiền không hợp lệ!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Cập nhật thông tin món ăn
-                monAn.TenMon = txtTenMon.Text;
-                monAn.MaLoaiMon = (int)cmbLoai.SelectedValue;
-                monAn.GiaTien = giaTien;
-
-                // Lưu thay đổi vào cơ sở dữ liệu
-                context.SaveChanges();
-
-                // Hiển thị thông báo và tải lại danh sách món ăn
-                MessageBox.Show("Sửa thông tin món ăn thành công! Danh sách món ăn đã được cập nhật.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadFoodData();
-
-                // Xóa các trường nhập liệu sau khi sửa
-                txtMaMon.Clear();
-                txtTenMon.Clear();
-                txtGiaTien.Clear();
-                cmbLoai.SelectedIndex = 0;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi khi sửa món ăn: {ex.Message}\n{ex.StackTrace}", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnXem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Đặt lại ComboBox về trạng thái mặc định (chẳng hạn "Khai Vị")
-                cmbLoai.SelectedIndex = 0; // Giả sử trạng thái mặc định là "Khai Vị"
-
-                // Tải lại tất cả các món ăn (bao gồm tất cả các loại)
-                LoadFoodData();  // Gọi phương thức LoadFoodData mà không có lọc loại món
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tải lại dữ liệu: " + ex.Message);
             }
         }
 
@@ -461,5 +254,388 @@ namespace Orderly
         {
 
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnChooseImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Ảnh món ăn (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pbImageFood.Image = Image.FromFile(openFileDialog.FileName);
+                pbImageFood.Tag = openFileDialog.FileName; // Lưu đường dẫn ảnh để sử dụng sau
+            }
+        }
+
+        private void cbbLoai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                // Lấy Mã Loại Món được chọn trong ComboBox
+                var selectedLoai = (LoaiMon)cmbLoai.SelectedItem;
+                if (selectedLoai != null)
+                {
+                    int maLoaiMon = selectedLoai.MaLoaiMon;
+
+                    // Lọc danh sách món ăn theo Mã Loại Món
+                    var filteredFoodList = context.MonAns
+                                                   .Where(ma => ma.MaLoaiMon == maLoaiMon)
+                                                   .ToList();
+
+                    // Đổ dữ liệu vào DataGridView
+                    dgvFood.Rows.Clear();
+                    foreach (var food in filteredFoodList)
+                    {
+                        dgvFood.Rows.Add(food.MaMon, food.TenMon, food.MaLoaiMon, food.GiaTien);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+            }
+        }
+
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 🔹 Kiểm tra tính hợp lệ của dữ liệu nhập
+                if (string.IsNullOrWhiteSpace(txtMaMon.Text) ||
+                    string.IsNullOrWhiteSpace(txtTenMon.Text) ||
+                    cmbLoai.SelectedValue == null ||
+                    string.IsNullOrWhiteSpace(txtGiaTien.Text))
+                {
+                    CustomMessageBox.ShowMessage("Vui lòng điền đầy đủ thông tin!");
+                    return;
+                }
+
+                // 🔹 Kiểm tra Mã Món là số
+                if (!int.TryParse(txtMaMon.Text.Trim(), out int maMon))
+                {
+                    MessageBox.Show("Mã món ăn phải là số!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 🔹 Loại bỏ dấu chấm, định dạng số tiền
+                string giaTienText = txtGiaTien.Text.Replace(".", "");
+                if (!decimal.TryParse(giaTienText, out decimal giaTien) || giaTien <= 0)
+                {
+                    MessageBox.Show("Giá tiền phải là một số hợp lệ!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 🔹 Lấy dữ liệu từ các trường nhập liệu
+                string tenMon = txtTenMon.Text;
+                int maLoaiMon = (int)cmbLoai.SelectedValue;
+                string imagePath = pbImageFood.Tag?.ToString(); // Lấy đường dẫn ảnh từ Tag
+
+                // 🔹 Kiểm tra món ăn đã tồn tại chưa
+                var existingMon = context.MonAns.FirstOrDefault(m => m.MaMon == maMon);
+                if (existingMon != null)
+                {
+                    MessageBox.Show("Mã món đã tồn tại! Vui lòng nhập mã khác.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 🔹 Kiểm tra xem có ảnh không
+                string savedImagePath = ""; // Đường dẫn ảnh lưu trong DB
+                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                {
+                    // 🔹 Lấy thư mục lưu ảnh trong thư mục ứng dụng
+                    string imagesFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Food_Image");
+
+                    // 🔹 Tạo thư mục nếu chưa có
+                    if (!Directory.Exists(imagesFolder))
+                    {
+                        Directory.CreateDirectory(imagesFolder);
+                    }
+
+                    // 🔹 Lấy tên file từ đường dẫn gốc
+                    string fileName = Path.GetFileName(imagePath);
+
+                    // 🔹 Tạo đường dẫn mới trong thư mục `Food_Image`
+                    string newImagePath = Path.Combine(imagesFolder, fileName);
+
+                    // 🔹 Copy ảnh vào thư mục `Food_Image`
+                    File.Copy(imagePath, newImagePath, true);
+
+                    // 🔹 Lưu đường dẫn tương đối vào database
+                    savedImagePath = $"Food_Image\\{fileName}";
+                }
+
+                // 🔹 Tạo đối tượng món ăn mới
+                var newMon = new MonAn
+                {
+                    MaMon = maMon,
+                    TenMon = tenMon,
+                    MaLoaiMon = maLoaiMon,
+                    GiaTien = giaTien,
+                    HinhAnh = savedImagePath // Lưu đường dẫn ảnh tương đối
+                };
+
+                // 🔹 Thêm vào DB và lưu thay đổi
+                context.MonAns.Add(newMon);
+                context.SaveChanges();
+
+                // 🔹 Thêm món ăn mới vào DataGridView
+                dgvFood.Rows.Add(newMon.MaMon, newMon.TenMon, newMon.MaLoaiMon, newMon.GiaTien);
+
+                // 🔹 Tạo Card mới để hiển thị món ăn
+                FoodItemCard newCard = new FoodItemCard();
+                newCard.SetData(newMon.MaMon, newMon.TenMon, cmbLoai.Text, newMon.GiaTien, newMon.HinhAnh);
+                newCard.OnFoodSelected += FoodItemCard_OnFoodSelected; // Lắng nghe sự kiện chọn món
+
+                // 🔹 Thêm vào `FlowLayoutPanel` ở cuối danh sách
+                flpFoodList.Controls.Add(newCard);
+                flpFoodList.ScrollControlIntoView(newCard); // Cuộn xuống món mới thêm
+
+                // 🔹 Xóa dữ liệu nhập sau khi thêm thành công
+                txtMaMon.Clear();
+                txtTenMon.Clear();
+                txtGiaTien.Clear();
+                pbImageFood.Image = null;
+                pbImageFood.Tag = null;
+                cmbLoai.SelectedIndex = 0;
+
+                // 🔹 Hiển thị thông báo thành công
+                MessageBox.Show("Thêm món mới thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi thêm món: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 🔹 Kiểm tra xem có món ăn nào được chọn không
+                if (string.IsNullOrWhiteSpace(txtMaMon.Text))
+                {
+                    MessageBox.Show("Vui lòng chọn món ăn cần xóa!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int maMon = int.Parse(txtMaMon.Text);
+
+                // 🔹 Hiển thị hộp thoại xác nhận
+                DialogResult confirmResult = MessageBox.Show(
+                    $"Bạn có chắc chắn muốn xóa món ăn \"{txtTenMon.Text}\" (Mã: {maMon})?",
+                    "Xác Nhận Xóa",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (confirmResult != DialogResult.Yes)
+                {
+                    return;
+                }
+
+                // 🔹 Tìm món ăn trong database
+                var monAn = context.MonAns.FirstOrDefault(m => m.MaMon == maMon);
+                if (monAn == null)
+                {
+                    MessageBox.Show("Không tìm thấy món ăn!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // 🔹 Xóa ảnh nếu có
+                if (!string.IsNullOrEmpty(monAn.HinhAnh))
+                {
+                    string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, monAn.HinhAnh);
+                    if (File.Exists(imagePath))
+                    {
+                        File.Delete(imagePath); // Xóa ảnh trong thư mục
+                    }
+                }
+
+                // 🔹 Xóa món ăn khỏi Database
+                context.MonAns.Remove(monAn);
+                context.SaveChanges();
+
+                // 🔹 Xóa món ăn khỏi DataGridView
+                foreach (DataGridViewRow row in dgvFood.Rows)
+                {
+                    if (row.Cells[0].Value != null && int.Parse(row.Cells[0].Value.ToString()) == maMon)
+                    {
+                        dgvFood.Rows.Remove(row);
+                        break;
+                    }
+                }
+
+                // 🔹 Xóa `FoodItemCard` khỏi `FlowLayoutPanel`
+                FoodItemCard cardToRemove = null;
+                foreach (FoodItemCard card in flpFoodList.Controls)
+                {
+                    if (card.foodID == maMon)
+                    {
+                        cardToRemove = card;
+                        break;
+                    }
+                }
+
+                if (cardToRemove != null)
+                {
+                    flpFoodList.Controls.Remove(cardToRemove);
+                    cardToRemove.Dispose(); // Giải phóng bộ nhớ
+                }
+
+                // 🔹 Xóa thông tin trên giao diện
+                txtMaMon.Clear();
+                txtTenMon.Clear();
+                txtGiaTien.Clear();
+                pbImageFood.Image = null;
+                pbImageFood.Tag = null;
+                cmbLoai.SelectedIndex = 0;
+
+                // 🔹 Hiển thị thông báo thành công
+                MessageBox.Show("Xóa món ăn thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa món ăn: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnUpdateFood_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 🔹 Kiểm tra xem có món ăn nào được chọn không
+                if (string.IsNullOrWhiteSpace(txtMaMon.Text))
+                {
+                    MessageBox.Show("Vui lòng chọn món ăn cần sửa!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int maMon = int.Parse(txtMaMon.Text);
+
+                // 🔹 Tìm món ăn trong database
+                var monAn = context.MonAns.FirstOrDefault(m => m.MaMon == maMon);
+                if (monAn == null)
+                {
+                    MessageBox.Show("Không tìm thấy món ăn!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // 🔹 Lấy dữ liệu mới từ giao diện
+                string tenMon = txtTenMon.Text;
+                int maLoaiMon = (int)cmbLoai.SelectedValue;
+                string giaTienText = txtGiaTien.Text.Replace(".", "");
+                if (!decimal.TryParse(giaTienText, out decimal giaTien) || giaTien <= 0)
+                {
+                    MessageBox.Show("Giá tiền không hợp lệ!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 🔹 Xử lý cập nhật ảnh mới nếu có
+                string newImagePath = pbImageFood.Tag?.ToString();
+                string savedImagePath = monAn.HinhAnh; // Đường dẫn cũ
+
+                if (!string.IsNullOrEmpty(newImagePath) && File.Exists(newImagePath) && newImagePath != savedImagePath)
+                {
+                    // 🔹 Lấy thư mục lưu ảnh trong thư mục ứng dụng
+                    string imagesFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Food_Image");
+
+                    // 🔹 Tạo thư mục nếu chưa có
+                    if (!Directory.Exists(imagesFolder))
+                    {
+                        Directory.CreateDirectory(imagesFolder);
+                    }
+
+                    // 🔹 Lấy tên file từ đường dẫn gốc
+                    string fileName = Path.GetFileName(newImagePath);
+
+                    // 🔹 Tạo đường dẫn mới trong thư mục `Food_Image`
+                    string finalImagePath = Path.Combine(imagesFolder, fileName);
+
+                    // 🔹 Xóa ảnh cũ nếu có
+                    if (!string.IsNullOrEmpty(savedImagePath))
+                    {
+                        string oldImageFullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, savedImagePath);
+                        if (File.Exists(oldImageFullPath))
+                        {
+                            File.Delete(oldImageFullPath);
+                        }
+                    }
+
+                    // 🔹 Copy ảnh mới vào thư mục `Food_Image`
+                    File.Copy(newImagePath, finalImagePath, true);
+
+                    // 🔹 Lưu đường dẫn tương đối vào database
+                    savedImagePath = $"Food_Image\\{fileName}";
+                }
+
+                // 🔹 Cập nhật dữ liệu trong Database
+                monAn.TenMon = tenMon;
+                monAn.MaLoaiMon = maLoaiMon;
+                monAn.GiaTien = giaTien;
+                monAn.HinhAnh = savedImagePath;
+
+                context.SaveChanges();
+
+                // 🔹 Cập nhật dữ liệu trong DataGridView
+                foreach (DataGridViewRow row in dgvFood.Rows)
+                {
+                    if (row.Cells[0].Value != null && int.Parse(row.Cells[0].Value.ToString()) == maMon)
+                    {
+                        row.Cells[1].Value = tenMon;
+                        row.Cells[2].Value = maLoaiMon;
+                        row.Cells[3].Value = giaTien;
+                        break;
+                    }
+                }
+
+                // 🔹 Cập nhật `FoodItemCard` trong `FlowLayoutPanel`
+                foreach (FoodItemCard card in flpFoodList.Controls)
+                {
+                    if (card.foodID == maMon)
+                    {
+                        card.SetData(maMon, tenMon, cmbLoai.Text, giaTien, savedImagePath);
+                        break;
+                    }
+                }
+
+                // 🔹 Xóa thông tin nhập sau khi sửa xong
+                txtMaMon.Clear();
+                txtTenMon.Clear();
+                txtGiaTien.Clear();
+                pbImageFood.Image = null;
+                pbImageFood.Tag = null;
+                cmbLoai.SelectedIndex = 0;
+
+                // 🔹 Hiển thị thông báo thành công
+                MessageBox.Show("Sửa món ăn thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi sửa món ăn: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra trạng thái hiện tại của dgvFood
+            if (dgvFood.Visible)
+            {
+                // Nếu DataGridView đang hiển thị, ẩn nó và hiện FlowLayoutPanel
+                dgvFood.Visible = false;
+                flpFoodList.Visible = true;
+            }
+            else
+            {
+                // Nếu đang hiển thị FlowLayoutPanel, ẩn nó và hiện DataGridView
+                dgvFood.Visible = true;
+                flpFoodList.Visible = false;
+            }
+        }
     }
- }
+}
