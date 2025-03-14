@@ -335,10 +335,10 @@
             this.btnBan1.BackColor = System.Drawing.Color.White;
             this.btnBan1.Image = ((System.Drawing.Image)(resources.GetObject("btnBan1.Image")));
             this.btnBan1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnBan1.Location = new System.Drawing.Point(96, 69);
+            this.btnBan1.Location = new System.Drawing.Point(49, 69);
             this.btnBan1.Margin = new System.Windows.Forms.Padding(5);
             this.btnBan1.Name = "btnBan1";
-            this.btnBan1.Size = new System.Drawing.Size(149, 147);
+            this.btnBan1.Size = new System.Drawing.Size(196, 195);
             this.btnBan1.TabIndex = 0;
             this.btnBan1.Text = "Bàn 1";
             this.btnBan1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

@@ -65,7 +65,6 @@ namespace Orderly
                 // Gọi phương thức SetData để gán dữ liệu lên từng label trong UserControl
                 card.SetData(food.MaMon, food.TenMon, food.LoaiMon.TenLoaiMon, food.GiaTien, food.HinhAnh);
 
-                // 🔹 Lắng nghe sự kiện OnFoodSelected từ FoodItemCard
                 card.OnFoodSelected += FoodItemCard_OnFoodSelected;
 
                 flpFoodList.Controls.Add(card);
@@ -142,80 +141,10 @@ namespace Orderly
             }
         }
 
-        private void LoadFoodData()
-        {
-            try
-            {
-                // Lấy danh sách món ăn từ cơ sở dữ liệu
-                var foodList = context.MonAns.ToList();
+       
 
-                // Xóa các dòng hiện có trong DataGridView
-                dgvFood.Rows.Clear();
-
-                // Thêm từng món ăn vào DataGridView
-                foreach (var food in foodList)
-                {
-                    dgvFood.Rows.Add(food.MaMon, food.TenMon, food.MaLoaiMon, food.GiaTien);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tải dữ liệu món ăn: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Lấy tên món ăn người dùng nhập vào từ TextBox txtTimKiem
-                string searchTerm = txtTimKiem.Text.Trim().ToLower();
-
-                // Kiểm tra nếu TextBox không trống
-                if (!string.IsNullOrEmpty(searchTerm))
-                {
-                    // Tải lại dữ liệu và tìm kiếm món ăn theo tên
-                    LoadFoodData(searchTerm);
-                }
-                else
-                {
-                    // Nếu không có từ khóa tìm kiếm, tải tất cả món ăn
-                    LoadFoodData();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tìm kiếm món ăn: " + ex.Message);
-            }
-        }
-        private void LoadFoodData(string searchTerm = "")
-        {
-            try
-            {
-                // Lấy tất cả món ăn từ cơ sở dữ liệu
-                var foodList = context.MonAns.Include(f => f.LoaiMon).ToList();
-
-
-                // Nếu có từ khóa tìm kiếm, lọc danh sách món ăn theo tên món
-                if (!string.IsNullOrEmpty(searchTerm))
-                {
-                    foodList = foodList.Where(f => f.TenMon.ToLower().Contains(searchTerm)).ToList();
-                }
-
-                // Xóa các dòng cũ trước khi đổ dữ liệu mới
-                dgvFood.Rows.Clear();
-
-                // Duyệt qua danh sách món ăn và thêm vào DataGridView
-                foreach (var food in foodList)
-                {
-                    dgvFood.Rows.Add(food.MaMon, food.TenMon, food.MaLoaiMon, food.GiaTien);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
-            }
-        }
+       
+        
 
         private void txtGiaTien_TextChanged(object sender, EventArgs e)
         {
@@ -249,28 +178,11 @@ namespace Orderly
         }
 
 
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void btnChooseImage_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Ảnh món ăn (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                pbImageFood.Image = Image.FromFile(openFileDialog.FileName);
-                pbImageFood.Tag = openFileDialog.FileName; // Lưu đường dẫn ảnh để sử dụng sau
-            }
-        }
 
         private void cbbLoai_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -636,6 +548,69 @@ namespace Orderly
                 dgvFood.Visible = true;
                 flpFoodList.Visible = false;
             }
+        }
+        private void btnChooseImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Ảnh món ăn (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pbImageFood.Image = Image.FromFile(openFileDialog.FileName);
+                pbImageFood.Tag = openFileDialog.FileName; // Lưu đường dẫn ảnh để sử dụng sau
+            }
+        }
+
+        private void btnSearchFood_Click(object sender, EventArgs e)
+        {
+            string searchTerm = txbSearchFood.Text.Trim().ToLower(); // Lấy nội dung tìm kiếm và chuyển về chữ thường
+
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                LoadFoodCards(); // Nếu ô tìm kiếm trống, load lại toàn bộ danh sách
+                return;
+            }
+
+            // 🔹 Lấy danh sách món ăn từ database
+            var foodList = context.MonAns.Include(f => f.LoaiMon).ToList();
+
+            // 🔹 Dùng thuật toán tìm kiếm gần đúng (Approximate Search)
+            var filteredFoods = foodList.Where(food =>
+                food.MaMon.ToString().Contains(searchTerm) ||         // Tìm kiếm theo ID món
+                food.TenMon.ToLower().Contains(searchTerm) ||         // Tìm kiếm theo Tên món
+                food.LoaiMon.TenLoaiMon.ToLower().Contains(searchTerm) || // Tìm kiếm theo Loại món
+                food.GiaTien.ToString().Contains(searchTerm)          // Tìm kiếm theo Giá tiền
+            ).ToList();
+
+            // 🔹 Cập nhật giao diện FlowLayoutPanel
+            flpFoodList.Controls.Clear();
+
+            foreach (var food in filteredFoods)
+            {
+                FoodItemCard card = new FoodItemCard();
+                card.SetData(food.MaMon, food.TenMon, food.LoaiMon.TenLoaiMon, food.GiaTien, food.HinhAnh);
+                card.OnFoodSelected += FoodItemCard_OnFoodSelected;
+
+                flpFoodList.Controls.Add(card);
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            // Xóa nội dung các ô nhập liệu
+            txtMaMon.Clear();
+            txtTenMon.Clear();
+            txtGiaTien.Clear();
+
+            // Đặt lại ComboBox về mặc định nếu có dữ liệu
+            if (cmbLoai.Items.Count > 0)
+            {
+                cmbLoai.SelectedIndex = 0;
+            }
+
+            // Xóa ảnh đang hiển thị
+            pbImageFood.Image = null;
+            pbImageFood.Tag = null;
         }
     }
 }

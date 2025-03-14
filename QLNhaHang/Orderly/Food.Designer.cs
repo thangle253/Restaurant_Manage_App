@@ -33,9 +33,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Food));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txbSearchFood = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClear = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSearchFood = new Guna.UI2.WinForms.Guna2Button();
+            this.btnChooseImage = new Guna.UI2.WinForms.Guna2Button();
             this.cmbLoai = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pbImageFood = new System.Windows.Forms.PictureBox();
-            this.btnChooseImage = new System.Windows.Forms.Button();
             this.txtGiaTien = new System.Windows.Forms.TextBox();
             this.txtMaMon = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,8 +51,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtTenMon = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtTimKiem = new System.Windows.Forms.TextBox();
-            this.btnTimKiem = new System.Windows.Forms.Button();
             this.dgvFood = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ColID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,9 +69,13 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.SandyBrown;
+            this.panel2.Controls.Add(this.txbSearchFood);
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Controls.Add(this.btnClear);
+            this.panel2.Controls.Add(this.btnSearchFood);
+            this.panel2.Controls.Add(this.btnChooseImage);
             this.panel2.Controls.Add(this.cmbLoai);
             this.panel2.Controls.Add(this.pbImageFood);
-            this.panel2.Controls.Add(this.btnChooseImage);
             this.panel2.Controls.Add(this.txtGiaTien);
             this.panel2.Controls.Add(this.txtMaMon);
             this.panel2.Controls.Add(this.label5);
@@ -81,8 +87,6 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.txtTenMon);
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.txtTimKiem);
-            this.panel2.Controls.Add(this.btnTimKiem);
             this.panel2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(1094, -1);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
@@ -90,6 +94,77 @@
             this.panel2.Size = new System.Drawing.Size(774, 1230);
             this.panel2.TabIndex = 5;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // txbSearchFood
+            // 
+            this.txbSearchFood.BackColor = System.Drawing.Color.SandyBrown;
+            this.txbSearchFood.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbSearchFood.ForeColor = System.Drawing.Color.Black;
+            this.txbSearchFood.Location = new System.Drawing.Point(266, 21);
+            this.txbSearchFood.Margin = new System.Windows.Forms.Padding(5);
+            this.txbSearchFood.Name = "txbSearchFood";
+            this.txbSearchFood.Size = new System.Drawing.Size(483, 37);
+            this.txbSearchFood.TabIndex = 24;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(44)))), ((int)(((byte)(33)))));
+            this.panel1.Location = new System.Drawing.Point(266, 66);
+            this.panel1.Margin = new System.Windows.Forms.Padding(5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(483, 5);
+            this.panel1.TabIndex = 23;
+            // 
+            // btnClear
+            // 
+            this.btnClear.BorderRadius = 10;
+            this.btnClear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClear.FillColor = System.Drawing.Color.Tomato;
+            this.btnClear.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.MintCream;
+            this.btnClear.Location = new System.Drawing.Point(292, 1122);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(197, 81);
+            this.btnClear.TabIndex = 21;
+            this.btnClear.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnSearchFood
+            // 
+            this.btnSearchFood.BorderRadius = 10;
+            this.btnSearchFood.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearchFood.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearchFood.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSearchFood.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSearchFood.FillColor = System.Drawing.Color.DarkViolet;
+            this.btnSearchFood.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFood.ForeColor = System.Drawing.Color.MintCream;
+            this.btnSearchFood.Location = new System.Drawing.Point(32, 7);
+            this.btnSearchFood.Name = "btnSearchFood";
+            this.btnSearchFood.Size = new System.Drawing.Size(168, 64);
+            this.btnSearchFood.TabIndex = 20;
+            this.btnSearchFood.Text = "Search";
+            this.btnSearchFood.Click += new System.EventHandler(this.btnSearchFood_Click);
+            // 
+            // btnChooseImage
+            // 
+            this.btnChooseImage.BorderRadius = 10;
+            this.btnChooseImage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnChooseImage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnChooseImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnChooseImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChooseImage.FillColor = System.Drawing.Color.LimeGreen;
+            this.btnChooseImage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChooseImage.ForeColor = System.Drawing.Color.MintCream;
+            this.btnChooseImage.Location = new System.Drawing.Point(314, 595);
+            this.btnChooseImage.Name = "btnChooseImage";
+            this.btnChooseImage.Size = new System.Drawing.Size(166, 51);
+            this.btnChooseImage.TabIndex = 19;
+            this.btnChooseImage.Text = "Browse";
+            this.btnChooseImage.Click += new System.EventHandler(this.btnChooseImage_Click);
             // 
             // cmbLoai
             // 
@@ -113,25 +188,12 @@
             // pbImageFood
             // 
             this.pbImageFood.InitialImage = global::Orderly.Properties.Resources.lyruou;
-            this.pbImageFood.Location = new System.Drawing.Point(21, 169);
+            this.pbImageFood.Location = new System.Drawing.Point(21, 109);
             this.pbImageFood.Name = "pbImageFood";
-            this.pbImageFood.Size = new System.Drawing.Size(592, 498);
+            this.pbImageFood.Size = new System.Drawing.Size(728, 480);
             this.pbImageFood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImageFood.TabIndex = 17;
             this.pbImageFood.TabStop = false;
-            // 
-            // btnChooseImage
-            // 
-            this.btnChooseImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(104)))), ((int)(((byte)(96)))));
-            this.btnChooseImage.ForeColor = System.Drawing.Color.White;
-            this.btnChooseImage.Location = new System.Drawing.Point(621, 380);
-            this.btnChooseImage.Margin = new System.Windows.Forms.Padding(5);
-            this.btnChooseImage.Name = "btnChooseImage";
-            this.btnChooseImage.Size = new System.Drawing.Size(138, 51);
-            this.btnChooseImage.TabIndex = 16;
-            this.btnChooseImage.Text = "Browse";
-            this.btnChooseImage.UseVisualStyleBackColor = false;
-            this.btnChooseImage.Click += new System.EventHandler(this.btnChooseImage_Click);
             // 
             // txtGiaTien
             // 
@@ -244,29 +306,6 @@
             this.panel3.Size = new System.Drawing.Size(640, 5);
             this.panel3.TabIndex = 4;
             // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimKiem.Location = new System.Drawing.Point(205, 65);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(5);
-            this.txtTimKiem.Multiline = true;
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(492, 66);
-            this.txtTimKiem.TabIndex = 3;
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(104)))), ((int)(((byte)(96)))));
-            this.btnTimKiem.ForeColor = System.Drawing.Color.White;
-            this.btnTimKiem.Location = new System.Drawing.Point(21, 62);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(5);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(146, 69);
-            this.btnTimKiem.TabIndex = 2;
-            this.btnTimKiem.Text = "Search";
-            this.btnTimKiem.UseVisualStyleBackColor = false;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
-            // 
             // dgvFood
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -356,7 +395,7 @@
             this.flpFoodList.AutoScroll = true;
             this.flpFoodList.Location = new System.Drawing.Point(2, -1);
             this.flpFoodList.Name = "flpFoodList";
-            this.flpFoodList.Size = new System.Drawing.Size(1084, 1099);
+            this.flpFoodList.Size = new System.Drawing.Size(1089, 1099);
             this.flpFoodList.TabIndex = 10;
             // 
             // btnAddFood
@@ -456,8 +495,6 @@
 
         #endregion
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel6;
@@ -476,11 +513,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColPrice;
         private System.Windows.Forms.FlowLayoutPanel flpFoodList;
         private System.Windows.Forms.PictureBox pbImageFood;
-        private System.Windows.Forms.Button btnChooseImage;
         private Guna.UI2.WinForms.Guna2ComboBox cmbLoai;
         private Guna.UI2.WinForms.Guna2Button btnAddFood;
         private Guna.UI2.WinForms.Guna2Button btnDeleteFood;
         private Guna.UI2.WinForms.Guna2Button btnUpdateFood;
         private Guna.UI2.WinForms.Guna2Button btnView;
+        private Guna.UI2.WinForms.Guna2Button btnChooseImage;
+        private Guna.UI2.WinForms.Guna2Button btnSearchFood;
+        private Guna.UI2.WinForms.Guna2Button btnClear;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txbSearchFood;
     }
 }

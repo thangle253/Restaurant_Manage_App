@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|c:\\users\\apple\\documents\\restaurant_manage_app\\qlnhahang\\orderly\\custommessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\custommessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|c:\\users\\apple\\documents\\restaurant_manage_app\\qlnhahang\\orderly\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\custommessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\custommessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|c:\\users\\apple\\documents\\restaurant_manage_app\\qlnhahang\\orderly\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\fooditemcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\fooditemcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -27,16 +27,24 @@
       "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\fooditemcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\custommessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\custommessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|c:\\users\\apple\\documents\\restaurant_manage_app\\qlnhahang\\orderly\\custommessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\custommessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\fooditemcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\fooditemcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\formapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\formapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -98,24 +106,25 @@
       "DocumentGroups": [
         {
           "DockedHeight": 110,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Food.cs",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Food.cs",
               "RelativeDocumentMoniker": "Orderly\\Food.cs",
               "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Food.cs",
               "RelativeToolTip": "Orderly\\Food.cs",
-              "ViewState": "AgIAAFABAAAAAAAAAAAswDkBAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAFUCAAAAAAAAAAAAAFwCAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-13T13:39:51.84Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "FoodItemCard.cs [Design]",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\FoodItemCard.cs",
               "RelativeDocumentMoniker": "Orderly\\FoodItemCard.cs",
@@ -123,7 +132,37 @@
               "RelativeToolTip": "Orderly\\FoodItemCard.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-13T13:43:24.19Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Order.cs",
+              "RelativeDocumentMoniker": "Orderly\\Order.cs",
+              "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Order.cs",
+              "RelativeToolTip": "Orderly\\Order.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAwIIAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T02:02:23.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Table.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Table.cs",
+              "RelativeDocumentMoniker": "Orderly\\Table.cs",
+              "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Table.cs [Design]",
+              "RelativeToolTip": "Orderly\\Table.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T02:00:19.233Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Bookmark",
@@ -131,27 +170,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "CustomMessageBox.cs",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\CustomMessageBox.cs",
               "RelativeDocumentMoniker": "Orderly\\CustomMessageBox.cs",
               "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\CustomMessageBox.cs",
               "RelativeToolTip": "Orderly\\CustomMessageBox.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAQwCoAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-13T16:29:13.207Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "CustomMessageBox.cs [Design]",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\CustomMessageBox.cs",
               "RelativeDocumentMoniker": "Orderly\\CustomMessageBox.cs",
               "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\CustomMessageBox.cs [Design]",
               "RelativeToolTip": "Orderly\\CustomMessageBox.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T16:29:05.672Z"
+              "WhenOpened": "2025-03-13T16:29:05.672Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -161,9 +201,10 @@
               "RelativeDocumentMoniker": "Orderly\\FoodItemCard.cs",
               "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\FoodItemCard.cs",
               "RelativeToolTip": "Orderly\\FoodItemCard.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwFUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T13:47:51.112Z"
+              "WhenOpened": "2025-03-13T13:47:51.112Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -174,22 +215,36 @@
               "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Food.cs [Design]",
               "RelativeToolTip": "Orderly\\Food.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T13:31:28.265Z"
+              "WhenOpened": "2025-03-13T13:31:28.265Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
+              "Title": "Order.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Order.cs",
+              "RelativeDocumentMoniker": "Orderly\\Order.cs",
+              "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Order.cs [Design]",
+              "RelativeToolTip": "Orderly\\Order.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T09:59:29.647Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "FormApp.cs [Design]",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\FormApp.cs",
               "RelativeDocumentMoniker": "Orderly\\FormApp.cs",
               "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\FormApp.cs [Design]",
               "RelativeToolTip": "Orderly\\FormApp.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T08:44:18.479Z"
+              "WhenOpened": "2025-03-13T08:44:18.479Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "MonAn.cs",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Model\\MonAn.cs",
               "RelativeDocumentMoniker": "Orderly\\Model\\MonAn.cs",
@@ -201,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Food.Designer.cs",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Food.Designer.cs",
               "RelativeDocumentMoniker": "Orderly\\Food.Designer.cs",
@@ -209,22 +264,12 @@
               "RelativeToolTip": "Orderly\\Food.Designer.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAswOUBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T02:04:26.568Z"
+              "WhenOpened": "2025-03-13T02:04:26.568Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Order.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Order.cs",
-              "RelativeDocumentMoniker": "Orderly\\Order.cs",
-              "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Order.cs [Design]",
-              "RelativeToolTip": "Orderly\\Order.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T09:59:29.647Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "packages.config",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\packages.config",
               "RelativeDocumentMoniker": "Orderly\\packages.config",
@@ -236,7 +281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "Home.cs [Design]",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Home.cs",
               "RelativeDocumentMoniker": "Orderly\\Home.cs",
@@ -247,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Form1.cs",
               "RelativeDocumentMoniker": "Orderly\\Form1.cs",
@@ -258,7 +303,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "ChangePassword.cs [Design]",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\ChangePassword.cs",
               "RelativeDocumentMoniker": "Orderly\\ChangePassword.cs",
@@ -269,7 +314,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "Categogy.cs [Design]",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Categogy.cs",
               "RelativeDocumentMoniker": "Orderly\\Categogy.cs",
@@ -280,7 +325,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "App.config",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\App.config",
               "RelativeDocumentMoniker": "Orderly\\App.config",
@@ -288,11 +333,12 @@
               "RelativeToolTip": "Orderly\\App.config",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-03-12T14:56:04.339Z"
+              "WhenOpened": "2025-03-12T14:56:04.339Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "ChiTietHoaDon.cs",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\ChiTietHoaDon.cs",
               "RelativeDocumentMoniker": "Orderly\\ChiTietHoaDon.cs",
@@ -304,7 +350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Account.cs",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Account.cs",
               "RelativeDocumentMoniker": "Orderly\\Account.cs",
@@ -316,7 +362,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "QuanLyTaiKhoanDB.cs",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Model2\\QuanLyTaiKhoanDB.cs",
               "RelativeDocumentMoniker": "Orderly\\Model2\\QuanLyTaiKhoanDB.cs",
@@ -328,7 +374,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Form1.cs",
               "RelativeDocumentMoniker": "Orderly\\Form1.cs",
@@ -340,7 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "ChangePassword.cs",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\ChangePassword.cs",
               "RelativeDocumentMoniker": "Orderly\\ChangePassword.cs",
@@ -352,7 +398,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "Revenus.cs",
               "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Revenus.cs",
               "RelativeDocumentMoniker": "Orderly\\Revenus.cs",
