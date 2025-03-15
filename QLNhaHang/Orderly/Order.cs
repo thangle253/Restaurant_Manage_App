@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Orderly.Model;
+using Orderly.UC;
 namespace Orderly
 {
     public partial class Order : Form
@@ -17,53 +18,52 @@ namespace Orderly
         {
             InitializeComponent();
             context = new QLNhaHangDB(); // Khởi tạo DbContext
-            LoadButtons(); // Tải dữ liệu vào các nút
+            LoadTables();
         }
-        private void LoadButtons() //TaiDuLieuNutBan()
+
+        private void LoadTables()
         {
+            flpTable.Controls.Clear(); // Xóa bàn cũ trước khi load lại
+
             using (var context = new QLNhaHangDB())
             {
-                var banAnList = context.BanAns.ToList(); // Lấy danh sách bàn từ cơ sở dữ liệu
+                var banAnList = context.BanAns.ToList();
                 foreach (var ban in banAnList)
                 {
-                    Button btnBan = this.Controls.Find($"btnBan{ban.MaBan}", true).FirstOrDefault() as Button;
-                    if (btnBan != null)
+                    // Tạo một UserControl cho bàn ăn
+                    var uc = new ucTable
                     {
-                        // Cập nhật thông tin hiển thị của nút bàn
-                        btnBan.Text = $"{ban.TenBan}\n{ban.TrangThai}";
-                        btnBan.BackColor = ban.TrangThai == "Trống" ? Color.Green : Color.Red;
+                        TableID = ban.MaBan,
+                        TableName = ban.TenBan,
+                        Status = ban.TrangThai
+                    };
 
-                        // Đảm bảo sự kiện Click vẫn hoạt động
-                        btnBan.Click -= btnBan20_Click; // Xóa sự kiện cũ
-                        btnBan.Click += btnBan20_Click; // Gắn lại sự kiện
-                    }
+                    // Đặt hình ảnh bàn (có thể thay đổi theo trạng thái)
+                    uc.SetTableData(ban.MaBan, ban.TenBan, ban.TrangThai, Image.FromFile("C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Resources\\table_Oderr.png"));
+
+                    // Xử lý sự kiện khi chọn bàn
+                    uc.TableSelected += Uc_TableSelected;
+
+                    // Thêm UserControl vào FlowLayoutPanel
+                    flpTable.Controls.Add(uc);
                 }
             }
         }
-        public void UpdateButton(int maBan, string tenBan, string trangThai) //
+
+        // Sự kiện khi chọn bàn
+        private void Uc_TableSelected(object sender, EventArgs e)
         {
-            Button btnBan = this.Controls.Find($"btnBan{maBan}", true).FirstOrDefault() as Button;
-            if (btnBan != null)
-            {
-                btnBan.Text = $"{tenBan}\n{trangThai}";
-                btnBan.BackColor = trangThai == "Trống" ? Color.Green : Color.Red;
-            }
+            var selectedTable = sender as ucTable;
+            MessageBox.Show($"Bạn đã chọn {selectedTable.TableName} - Trạng thái: {selectedTable.Status}");
         }
+
         private void Order_Load(object sender, EventArgs e)
         {
             try
-            {
-                // Lấy danh sách loại món ăn từ cơ sở dữ liệu
-                List<LoaiMon> listLoaiMon = context.LoaiMons.ToList();
-                FillLoaiMonCombobox(listLoaiMon);
+            { 
 
-                // Lắng nghe sự kiện thay đổi loại món
-                cmbLoai.SelectedIndexChanged += (s, ev) => LoadMonAnBasedOnLoaiMon();
+                LoadTables();
 
-                // Cập nhật màu sắc các nút bàn dựa trên trạng thái từ cơ sở dữ liệu
-                UpdateTableColors();
-                //đổ dữ liệu tên các bàn vào cmb
-                LoadBanToCombobox();
 
             }
             catch (Exception ex)
@@ -71,6 +71,8 @@ namespace Orderly
                 MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
             }
         }
+
+
         private void FillLoaiMonCombobox(List<LoaiMon> listLoaiMon)
         {
 
@@ -80,150 +82,9 @@ namespace Orderly
             cmbLoai.SelectedIndex = 0;             // Chọn loại món đầu tiên mặc định
         }
 
-        private void LoadMonAnBasedOnLoaiMon()
-        {
-            try
-            {
-                // Lấy mã loại món đã chọn
-                int selectedMaLoaiMon = (int)cmbLoai.SelectedValue;
-
-                // Lấy danh sách món ăn thuộc loại đã chọn từ cơ sở dữ liệu
-                listMonAn = context.MonAns
-                                    .Where(m => m.MaLoaiMon == selectedMaLoaiMon)
-                                    .ToList();
-
-                // Đổ dữ liệu vào ComboBox MonAn
-                cmbMon.DataSource = listMonAn;
-                cmbMon.DisplayMember = "TenMon";  // Hiển thị tên món ăn
-                cmbMon.ValueMember = "MaMon";     // Giá trị là mã món ăn
-                cmbMon.SelectedIndex = 0;         // Chọn món ăn đầu tiên mặc định
-            }
-            catch
-            {
-                MessageBox.Show("Không có món ăn nào trong loại này, vui lòng thêm món ăn vào !", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void btnBan20_Click(object sender, EventArgs e) //code của lâm
-        {
-            Button btn = sender as Button;
-            if (btn != null)
-            {
-
-                string tableIdString = btn.Name.Replace("btnBan", "");
-                int tableNumber;
-
-                if (!int.TryParse(tableIdString, out tableNumber))
-                {
-                    MessageBox.Show("Lỗi: Mã bàn không hợp lệ. Vui lòng kiểm tra lại tên nút.");
-                    return;
-                }
-
-                using (var context = new QLNhaHangDB())
-                {
-                    var banAn = context.BanAns.FirstOrDefault(b => b.MaBan == tableNumber);
-                    if (banAn == null)
-                    {
-                        MessageBox.Show($"Bàn {tableNumber} không tồn tại trong hệ thống.");
-                        return;
-                    }
-
-                    // Phần còn lại xử lý dữ liệu
-                    var donHang = context.DonHangs
-                                         .FirstOrDefault(dh => dh.MaBan == tableNumber && dh.TrangThai == "Đã đặt");
-
-                    if (donHang != null)
-                    {
-                        LoadOrderDetailsToGridView(donHang.MaDonHang);
-                        txtTongTien.Text = $"{donHang.TongTien:N0} VND";
-                        selectedTable = tableNumber;
-                        MessageBox.Show($"Bàn {tableNumber} đã được đặt. Dữ liệu đã được hiển thị.");
-                    }
-                    else
-                    {
-                        // Bàn trống
-                        selectedTable = tableNumber;
-                        dgvOrder.Rows.Clear();
-                        txtTongTien.Text = "0 VND";
-                        MessageBox.Show($"Bạn đã chọn bàn {tableNumber}. Hiện tại bàn này trống.");
-                    }
-                }
-            }
-        }
-        private void LoadOrderDetailsToGridView(int maDonHang)
-        {
-            try
-            {
-                // Lấy danh sách chi tiết đơn hàng
-                var chiTietDonHangList = context.ChiTietDonHangs
-                                                .Where(ct => ct.MaDonHang == maDonHang)
-                                                .Select(ct => new
-                                                {
-                                                    TenMon = ct.MonAn.TenMon,
-                                                    SoLuong = ct.SoLuong,
-                                                    GiaTien = ct.MonAn.GiaTien,
-                                                    ThanhTien = ct.SoLuong * ct.MonAn.GiaTien
-                                                })
-                                                .ToList();
-
-                // Xóa dữ liệu cũ trên DataGridView
-                dgvOrder.Rows.Clear();
-
-                // Đổ dữ liệu mới lên DataGridView
-                foreach (var item in chiTietDonHangList)
-                {
-                    dgvOrder.Rows.Add(item.TenMon, item.SoLuong, item.GiaTien, item.ThanhTien);
-                }
-
-                // Cập nhật tổng tiền
-                CalculateTotalAmount();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tải chi tiết đơn hàng: " + ex.Message);
-            }
-        }
-
-        private void UpdateTableColors()
-        {
-            try
-            {
-                // Lấy danh sách bàn từ cơ sở dữ liệu
-                var banAnList = context.BanAns.ToList();
-
-                // Duyệt qua tất cả bàn và cập nhật màu sắc
-                foreach (var ban in banAnList)
-                {
-                    var btn = this.Controls.Find($"btnBan{ban.MaBan}", true).FirstOrDefault() as Button;
-                    if (btn != null)
-                    {
-                        // Kiểm tra nếu bàn có món
-                        bool hasOrder = context.DonHangs
-                                            .Any(dh => dh.MaBan == ban.MaBan && dh.TrangThai == "Đã đặt" &&
-                                                       context.ChiTietDonHangs.Any(ct => ct.MaDonHang == dh.MaDonHang));
-
-                        // Đặt màu sắc dựa trên trạng thái
-                        btn.BackColor = hasOrder ? Color.Yellow : SystemColors.Control;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi cập nhật màu bàn: " + ex.Message);
-            }
-        }
-        public void UpdateBanName(int maBan, string tenBan)//code của lâm
-        {
-            var btnBan = this.Controls.Find($"btnBan{maBan}", true).FirstOrDefault() as Button;
-            if (btnBan != null)
-            {
-                btnBan.Text = $"Bàn {maBan}: {tenBan}";
-            }
-            else
-            {
-                MessageBox.Show($"Không tìm thấy nút cho bàn {maBan} trong FormOrder.");
-            }
-        }
+      
+      
+     
 
         private void btnThemMon_Click(object sender, EventArgs e)
         {
@@ -377,25 +238,7 @@ namespace Orderly
             context?.Dispose();
             base.OnFormClosed(e);
         }
-        private void LoadBanToCombobox()
-        {
-            try
-            {
-                // Tạo danh sách bàn từ "Bàn 1" đến "Bàn 20"
-                List<string> danhSachBan = Enumerable.Range(1, 20)
-                                                     .Select(i => $"Bàn {i}")
-                                                     .Reverse() // Đảo ngược danh sách
-                                                     .ToList();
-
-                // Gán dữ liệu vào ComboBox
-                cmbChonBanDoi.DataSource = danhSachBan;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tải danh sách bàn: " + ex.Message);
-            }
-        }
-
+     
         private void btnDoiBan_Click(object sender, EventArgs e)
         {
             try
@@ -572,5 +415,9 @@ namespace Orderly
 
         }
 
+        private void flpTable_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

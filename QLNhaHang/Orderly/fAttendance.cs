@@ -22,33 +22,40 @@ namespace Orderly
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
+            if (Session.EmployeeID <= 0) // 🛑 Kiểm tra EmployeeID trước khi check-in
+            {
+                MessageBox.Show("Invalid EmployeeID. Please log in again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             using (SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=LoginDoAn;Integrated Security=True;TrustServerCertificate=True"))
             {
                 con.Open();
 
-                string checkQuery = "SELECT COUNT(*) FROM Attendance WHERE EmployeeID = @EmployeeID AND TimeCheckOut IS NULL";
-                using (SqlCommand cmd = new SqlCommand(checkQuery, con))
+                // 🔍 **Kiểm tra xem nhân viên đã check-in hôm nay chưa**
+                string checkQuery = "SELECT COUNT(*) FROM Attendance WHERE EmployeeID = @empID AND CAST(TimeCheckIn AS DATE) = CAST(GETDATE() AS DATE)";
+                using (SqlCommand checkCmd = new SqlCommand(checkQuery, con))
                 {
-                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                    int count = (int)cmd.ExecuteScalar();
+                    checkCmd.Parameters.AddWithValue("@empID", Session.EmployeeID);
+                    int count = (int)checkCmd.ExecuteScalar();
 
                     if (count > 0)
                     {
-                        MessageBox.Show("You have already checked in today!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("You have already checked in today!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }
 
-                string insertQuery = "INSERT INTO Attendance (EmployeeID, TimeCheckIn) VALUES (@EmployeeID, GETDATE())";
+                // ✅ **Thực hiện Check-in**
+                string insertQuery = "INSERT INTO Attendance (EmployeeID, TimeCheckIn) VALUES (@empID, GETDATE())";
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
-                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                    cmd.Parameters.AddWithValue("@empID", Session.EmployeeID);
                     cmd.ExecuteNonQuery();
                 }
-
-                MessageBox.Show("Check-in successful!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+            MessageBox.Show("Check-in successful!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadAttendanceHistory();
         }
 
@@ -163,5 +170,13 @@ namespace Orderly
             }
             return 0;
         }
+
+
+        private void btnViewInfo_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 
@@ -36,7 +37,28 @@ namespace Orderly
 
             this.reportViewer1.RefreshReport();
         }
+        public void SetReportData(string reportTitle, DataTable data)
+        {
+            try
+            {
+                ReportParameter[] parameters = new ReportParameter[]
+                {
+            new ReportParameter("ReportTitle", reportTitle)
+                };
+                reportViewer1.LocalReport.SetParameters(parameters);
 
-     
+                ReportDataSource reportDataSource = new ReportDataSource("DataSet1", data);
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.LocalReport.DataSources.Add(reportDataSource);
+
+                reportViewer1.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu vào báo cáo: " + ex.Message);
+            }
+        }
+
+
     }
 }

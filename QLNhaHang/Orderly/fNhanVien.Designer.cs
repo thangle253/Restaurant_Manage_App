@@ -151,7 +151,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTitle.Location = new System.Drawing.Point(349, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(635, 51);
+            this.lblTitle.Size = new System.Drawing.Size(848, 67);
             this.lblTitle.TabIndex = 6;
             this.lblTitle.Text = "Greetings, valued team member!";
             // 

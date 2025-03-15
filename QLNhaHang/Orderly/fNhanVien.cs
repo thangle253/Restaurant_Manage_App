@@ -16,7 +16,9 @@ namespace Orderly
         {
             InitializeComponent();
         }
-    
+      
+
+
         public void LoadFormNhanVien(Form form)
         {
             if (this.pnlMainContent.Controls.Count > 0)

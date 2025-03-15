@@ -365,6 +365,12 @@
     <Compile Include="Table.Designer.cs">
       <DependentUpon>Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC\ucTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\ucTable.Designer.cs">
+      <DependentUpon>ucTable.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Account.resx">
       <DependentUpon>Account.cs</DependentUpon>
     </EmbeddedResource>
@@ -423,6 +429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Table.resx">
       <DependentUpon>Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\ucTable.resx">
+      <DependentUpon>ucTable.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ChiTietHoaDon.datasource" />
