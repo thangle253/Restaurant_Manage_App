@@ -64,57 +64,20 @@ namespace Orderly
             {
                 con.Open();
 
-                // Kiểm tra tài khoản tồn tại trong bảng Login
-                string query = "SELECT COUNT(*) FROM Login WHERE username=@username AND password=@password";
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                // 1️⃣ **Kiểm tra tài khoản hợp lệ trước**
+                string loginQuery = "SELECT Type FROM Login WHERE username=@username AND password=@password";
+                int userType = -1; // Mặc định không hợp lệ
+
+                using (SqlCommand cmd = new SqlCommand(loginQuery, con))
                 {
                     cmd.Parameters.AddWithValue("@username", txtUserName.Text.Trim());
                     cmd.Parameters.AddWithValue("@password", txtPassWord.Text.Trim());
 
-                    int count = (int)cmd.ExecuteScalar();
-
-                    if (count > 0)
+                    object loginResult = cmd.ExecuteScalar();
+                    if (loginResult != null)
                     {
-                        // Lưu username vào session
-                        Session.CurrentUsername = txtUserName.Text.Trim();
-
-                        // Kiểm tra xem Username đã tồn tại trong bảng UserSession chưa
-                        string checkUserSessionQuery = "SELECT COUNT(*) FROM UserSession WHERE Username=@username";
-                        using (SqlCommand checkCmd = new SqlCommand(checkUserSessionQuery, con))
-                        {
-                            checkCmd.Parameters.AddWithValue("@username", txtUserName.Text.Trim());
-                            int sessionCount = (int)checkCmd.ExecuteScalar();
-
-                            if (sessionCount > 0)
-                            {
-                                // Nếu Username đã tồn tại, cập nhật thời gian đăng nhập
-                                string updateQuery = "UPDATE UserSession SET SessionTime = GETDATE() WHERE Username = @username";
-                                using (SqlCommand updateCmd = new SqlCommand(updateQuery, con))
-                                {
-                                    updateCmd.Parameters.AddWithValue("@username", txtUserName.Text.Trim());
-                                    updateCmd.ExecuteNonQuery();
-                                }
-                            }
-                            else
-                            {
-                                // Nếu Username chưa tồn tại, thêm bản ghi mới vào UserSession
-                                string insertQuery = "INSERT INTO UserSession (Username) VALUES (@username)";
-                                using (SqlCommand insertCmd = new SqlCommand(insertQuery, con))
-                                {
-                                    insertCmd.Parameters.AddWithValue("@username", txtUserName.Text.Trim());
-                                    insertCmd.ExecuteNonQuery();
-                                }
-                            }
-                        }
-
-                        // Mở form ứng dụng chính (FormApp)
-                        if (formApp == null || formApp.IsDisposed)
-                        {
-                            formApp = new FormApp(this);
-                        }
-
-                        formApp.Show();
-                        this.Hide();
+                        userType = Convert.ToInt32(loginResult); // Lưu loại tài khoản
+                        Session.CurrentUsername = txtUserName.Text.Trim(); // Lưu tên đăng nhập vào Session
                     }
                     else
                     {
@@ -122,12 +85,66 @@ namespace Orderly
                         txtUserName.Clear();
                         txtPassWord.Clear();
                         txtUserName.Focus();
+                        return; // ❌ Thoát khỏi hàm nếu đăng nhập không hợp lệ
                     }
                 }
 
-                con.Close();
+                // 2️⃣ **Lấy `EmployeeID` từ `Employees` sau khi xác thực tài khoản**
+                string employeeQuery = "SELECT EmployeeID FROM Employees WHERE FullName = @username";
+                using (SqlCommand cmd = new SqlCommand(employeeQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@username", Session.CurrentUsername);
+                    object empResult = cmd.ExecuteScalar();
+                    Session.EmployeeID = empResult != null ? Convert.ToInt32(empResult) : -1; // Lưu EmployeeID
+                }
+
+                // 3️⃣ **Cập nhật hoặc tạo phiên đăng nhập trong bảng `UserSession`**
+                string checkUserSessionQuery = "SELECT COUNT(*) FROM UserSession WHERE Username=@username";
+                int sessionCount = 0;
+                using (SqlCommand checkCmd = new SqlCommand(checkUserSessionQuery, con))
+                {
+                    checkCmd.Parameters.AddWithValue("@username", Session.CurrentUsername);
+                    sessionCount = (int)checkCmd.ExecuteScalar();
+                }
+
+                if (sessionCount > 0)
+                {
+                    string updateQuery = "UPDATE UserSession SET SessionTime = GETDATE() WHERE Username = @username";
+                    using (SqlCommand updateCmd = new SqlCommand(updateQuery, con))
+                    {
+                        updateCmd.Parameters.AddWithValue("@username", Session.CurrentUsername);
+                        updateCmd.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    string insertQuery = "INSERT INTO UserSession (Username, SessionTime) VALUES (@username, GETDATE())";
+                    using (SqlCommand insertCmd = new SqlCommand(insertQuery, con))
+                    {
+                        insertCmd.Parameters.AddWithValue("@username", Session.CurrentUsername);
+                        insertCmd.ExecuteNonQuery();
+                    }
+                }
+
+                // 4️⃣ **Mở form tương ứng với quyền**
+                if (userType == 1) // Admin
+                {
+                    if (formApp == null || formApp.IsDisposed)
+                    {
+                        formApp = new FormApp(this);
+                    }
+                    formApp.Show();
+                }
+                else // Nhân viên
+                {
+                    fNhanVien formNhanVien = new fNhanVien(Session.EmployeeID); // ✅ Truyền EmployeeID khi mở Form nhân viên
+                    formNhanVien.Show();
+                }
+
+                this.Hide(); // Ẩn form đăng nhập
             }
         }
+
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {

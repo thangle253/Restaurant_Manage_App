@@ -1,4 +1,6 @@
-﻿-- Sử dụng cơ sở dữ liệu vừa tạo
+﻿CREATE DATABASE LoginDoAn;
+GO
+-- Sử dụng cơ sở dữ liệu vừa tạo
 USE LoginDoAn;
 GO
 
@@ -24,3 +26,15 @@ VALUES
 ('admin', 'admin123', 1),  -- Admin
 ('user1', 'password1', 0), -- Nhân viên
 ('user2', 'password2', 0); -- Nhân viên
+
+--Tạo bảng check in/out cho nhân viên
+CREATE TABLE EmployeeAttendance (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Username NVARCHAR(50) NOT NULL,
+    Shift NVARCHAR(20) NOT NULL, -- Work shift
+    CheckInTime DATETIME NOT NULL,
+    CheckOutTime DATETIME NULL,
+    WorkStatus NVARCHAR(20) DEFAULT 'Pending', -- "Met" or "Not Met"
+    FOREIGN KEY (Username) REFERENCES Login(Username) ON DELETE CASCADE
+);
+GO

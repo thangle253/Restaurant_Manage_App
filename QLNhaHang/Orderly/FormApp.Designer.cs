@@ -30,6 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormApp));
             this.pnlSide = new System.Windows.Forms.Panel();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblQuayLai = new System.Windows.Forms.Label();
+            this.lblThoat = new System.Windows.Forms.Label();
+            this.pnlGiaoDienChin = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnAccount = new System.Windows.Forms.Button();
             this.btnRevenus = new System.Windows.Forms.Button();
             this.btnCategogy = new System.Windows.Forms.Button();
@@ -38,19 +45,12 @@
             this.btnFood = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblQuayLai = new System.Windows.Forms.Label();
-            this.lblThoat = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pnlGiaoDienChin = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlSide.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnlGiaoDienChin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSide
@@ -71,6 +71,89 @@
             this.pnlSide.Name = "pnlSide";
             this.pnlSide.Size = new System.Drawing.Size(233, 672);
             this.pnlSide.TabIndex = 0;
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(26)))), ((int)(((byte)(8)))));
+            this.pnlHeader.Controls.Add(this.label4);
+            this.pnlHeader.Controls.Add(this.lblQuayLai);
+            this.pnlHeader.Controls.Add(this.lblThoat);
+            this.pnlHeader.Controls.Add(this.pictureBox4);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(233, 0);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(926, 57);
+            this.pnlHeader.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label4.Location = new System.Drawing.Point(91, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(574, 45);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Restaurant Management System";
+            // 
+            // lblQuayLai
+            // 
+            this.lblQuayLai.AutoSize = true;
+            this.lblQuayLai.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.lblQuayLai.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuayLai.ForeColor = System.Drawing.Color.White;
+            this.lblQuayLai.Location = new System.Drawing.Point(849, 11);
+            this.lblQuayLai.Name = "lblQuayLai";
+            this.lblQuayLai.Size = new System.Drawing.Size(36, 41);
+            this.lblQuayLai.TabIndex = 6;
+            this.lblQuayLai.Text = "–";
+            this.lblQuayLai.Click += new System.EventHandler(this.lblQuayLai_Click);
+            // 
+            // lblThoat
+            // 
+            this.lblThoat.AutoSize = true;
+            this.lblThoat.BackColor = System.Drawing.Color.Red;
+            this.lblThoat.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThoat.ForeColor = System.Drawing.Color.White;
+            this.lblThoat.Location = new System.Drawing.Point(885, 12);
+            this.lblThoat.Name = "lblThoat";
+            this.lblThoat.Size = new System.Drawing.Size(36, 41);
+            this.lblThoat.TabIndex = 5;
+            this.lblThoat.Text = "x";
+            this.lblThoat.Click += new System.EventHandler(this.lblThoat_Click);
+            // 
+            // pnlGiaoDienChin
+            // 
+            this.pnlGiaoDienChin.BackColor = System.Drawing.Color.Cornsilk;
+            this.pnlGiaoDienChin.Controls.Add(this.pictureBox2);
+            this.pnlGiaoDienChin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlGiaoDienChin.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlGiaoDienChin.Location = new System.Drawing.Point(233, 57);
+            this.pnlGiaoDienChin.Name = "pnlGiaoDienChin";
+            this.pnlGiaoDienChin.Size = new System.Drawing.Size(926, 615);
+            this.pnlGiaoDienChin.TabIndex = 7;
+            this.pnlGiaoDienChin.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGiaoDienChin_Paint);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, -2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(926, 617);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(21, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(64, 51);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 4;
+            this.pictureBox4.TabStop = false;
             // 
             // btnAccount
             // 
@@ -200,89 +283,6 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // pnlHeader
-            // 
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(26)))), ((int)(((byte)(8)))));
-            this.pnlHeader.Controls.Add(this.label4);
-            this.pnlHeader.Controls.Add(this.lblQuayLai);
-            this.pnlHeader.Controls.Add(this.lblThoat);
-            this.pnlHeader.Controls.Add(this.pictureBox4);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(233, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(926, 57);
-            this.pnlHeader.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label4.Location = new System.Drawing.Point(91, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(574, 45);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Restaurant Management System";
-            // 
-            // lblQuayLai
-            // 
-            this.lblQuayLai.AutoSize = true;
-            this.lblQuayLai.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.lblQuayLai.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuayLai.ForeColor = System.Drawing.Color.White;
-            this.lblQuayLai.Location = new System.Drawing.Point(849, 11);
-            this.lblQuayLai.Name = "lblQuayLai";
-            this.lblQuayLai.Size = new System.Drawing.Size(36, 41);
-            this.lblQuayLai.TabIndex = 6;
-            this.lblQuayLai.Text = "–";
-            this.lblQuayLai.Click += new System.EventHandler(this.lblQuayLai_Click);
-            // 
-            // lblThoat
-            // 
-            this.lblThoat.AutoSize = true;
-            this.lblThoat.BackColor = System.Drawing.Color.Red;
-            this.lblThoat.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThoat.ForeColor = System.Drawing.Color.White;
-            this.lblThoat.Location = new System.Drawing.Point(885, 12);
-            this.lblThoat.Name = "lblThoat";
-            this.lblThoat.Size = new System.Drawing.Size(36, 41);
-            this.lblThoat.TabIndex = 5;
-            this.lblThoat.Text = "x";
-            this.lblThoat.Click += new System.EventHandler(this.lblThoat_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(21, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(64, 51);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 4;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pnlGiaoDienChin
-            // 
-            this.pnlGiaoDienChin.BackColor = System.Drawing.Color.Cornsilk;
-            this.pnlGiaoDienChin.Controls.Add(this.pictureBox2);
-            this.pnlGiaoDienChin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGiaoDienChin.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlGiaoDienChin.Location = new System.Drawing.Point(233, 57);
-            this.pnlGiaoDienChin.Name = "pnlGiaoDienChin";
-            this.pnlGiaoDienChin.Size = new System.Drawing.Size(926, 615);
-            this.pnlGiaoDienChin.TabIndex = 7;
-            this.pnlGiaoDienChin.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGiaoDienChin_Paint);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, -2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(926, 617);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
             // FormApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(27F, 67F);
@@ -300,12 +300,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormApp";
             this.pnlSide.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.pnlGiaoDienChin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
