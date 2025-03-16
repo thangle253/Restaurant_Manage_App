@@ -171,7 +171,6 @@ C:\Users\APPLE\Documents\Restaurant_Manage_App\QLNhaHang\Orderly\obj\Debug\Order
 C:\Users\APPLE\Documents\Restaurant_Manage_App\QLNhaHang\Orderly\obj\Debug\Orderly.Categogy.resources
 C:\Users\APPLE\Documents\Restaurant_Manage_App\QLNhaHang\Orderly\obj\Debug\Orderly.frmChangePassword.resources
 C:\Users\APPLE\Documents\Restaurant_Manage_App\QLNhaHang\Orderly\obj\Debug\Orderly.fAttendance.resources
-C:\Users\APPLE\Documents\Restaurant_Manage_App\QLNhaHang\Orderly\obj\Debug\Orderly.fCheckInOut.resources
 C:\Users\APPLE\Documents\Restaurant_Manage_App\QLNhaHang\Orderly\obj\Debug\Orderly.fNhanVien.resources
 C:\Users\APPLE\Documents\Restaurant_Manage_App\QLNhaHang\Orderly\obj\Debug\Orderly.Food.resources
 C:\Users\APPLE\Documents\Restaurant_Manage_App\QLNhaHang\Orderly\obj\Debug\Orderly.FoodItemCard.resources
@@ -382,3 +381,9 @@ D:\Restaurant_New\Restaurant_Manage_App\QLNhaHang\Orderly\obj\Debug\Orderly.cspr
 D:\Restaurant_New\Restaurant_Manage_App\QLNhaHang\Orderly\obj\Debug\Orderly.exe
 D:\Restaurant_New\Restaurant_Manage_App\QLNhaHang\Orderly\obj\Debug\Orderly.pdb
 D:\Restaurant_New\Restaurant_Manage_App\QLNhaHang\Orderly\obj\Debug\Orderly.Employee_Infor.resources
+C:\Users\APPLE\Documents\Restaurant_Manage_App\QLNhaHang\Orderly\obj\Debug\Orderly.Employee_Infor.resources
+C:\Users\APPLE\Documents\Restaurant_Manage_App\QLNhaHang\Orderly\bin\Debug\Bunifu.Licensing.dll
+C:\Users\APPLE\Documents\Restaurant_Manage_App\QLNhaHang\Orderly\bin\Debug\Bunifu.UI.WinForms.dll
+C:\Users\APPLE\Documents\Restaurant_Manage_App\QLNhaHang\Orderly\bin\Debug\System.CodeDom.dll
+C:\Users\APPLE\Documents\Restaurant_Manage_App\QLNhaHang\Orderly\bin\Debug\Bunifu.UI.WinForms.xml
+C:\Users\APPLE\Documents\Restaurant_Manage_App\QLNhaHang\Orderly\bin\Debug\System.CodeDom.xml

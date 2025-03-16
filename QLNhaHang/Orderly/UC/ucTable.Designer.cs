@@ -29,54 +29,67 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucTable));
-            this.picTable = new System.Windows.Forms.PictureBox();
+            this.panelTable = new Guna.UI2.WinForms.Guna2Panel();
             this.lblTableName = new System.Windows.Forms.Label();
+            this.picTable = new System.Windows.Forms.PictureBox();
+            this.panelTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTable)).BeginInit();
             this.SuspendLayout();
             // 
-            // picTable
+            // panelTable
             // 
-            this.picTable.BackColor = System.Drawing.Color.Transparent;
-            this.picTable.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picTable.BackgroundImage")));
-            this.picTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picTable.InitialImage = null;
-            this.picTable.Location = new System.Drawing.Point(38, 23);
-            this.picTable.Name = "picTable";
-            this.picTable.Size = new System.Drawing.Size(132, 97);
-            this.picTable.TabIndex = 1;
-            this.picTable.TabStop = false;
-            this.picTable.Click += new System.EventHandler(this.picTable_Click);
+            this.panelTable.Controls.Add(this.lblTableName);
+            this.panelTable.Controls.Add(this.picTable);
+            this.panelTable.Location = new System.Drawing.Point(3, 3);
+            this.panelTable.Name = "panelTable";
+            this.panelTable.Size = new System.Drawing.Size(230, 169);
+            this.panelTable.TabIndex = 10;
             // 
             // lblTableName
             // 
             this.lblTableName.BackColor = System.Drawing.Color.Transparent;
             this.lblTableName.Font = new System.Drawing.Font("Times New Roman", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTableName.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblTableName.Location = new System.Drawing.Point(31, 0);
+            this.lblTableName.Location = new System.Drawing.Point(27, 4);
             this.lblTableName.Name = "lblTableName";
-            this.lblTableName.Size = new System.Drawing.Size(139, 39);
-            this.lblTableName.TabIndex = 5;
+            this.lblTableName.Size = new System.Drawing.Size(175, 45);
+            this.lblTableName.TabIndex = 12;
             this.lblTableName.Text = "Bàn";
             this.lblTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // picTable
+            // 
+            this.picTable.BackColor = System.Drawing.Color.Transparent;
+            this.picTable.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picTable.BackgroundImage")));
+            this.picTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picTable.InitialImage = null;
+            this.picTable.Location = new System.Drawing.Point(25, 37);
+            this.picTable.Margin = new System.Windows.Forms.Padding(1);
+            this.picTable.Name = "picTable";
+            this.picTable.Size = new System.Drawing.Size(185, 122);
+            this.picTable.TabIndex = 11;
+            this.picTable.TabStop = false;
+            this.picTable.Click += new System.EventHandler(this.picTable_Click_2);
             // 
             // ucTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Transparent;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.lblTableName);
-            this.Controls.Add(this.picTable);
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.panelTable);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "ucTable";
-            this.Size = new System.Drawing.Size(205, 131);
+            this.Size = new System.Drawing.Size(238, 179);
+            this.Load += new System.EventHandler(this.ucTable_Load);
+            this.panelTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picTable)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox picTable;
+        private Guna.UI2.WinForms.Guna2Panel panelTable;
         private System.Windows.Forms.Label lblTableName;
+        private System.Windows.Forms.PictureBox picTable;
     }
 }

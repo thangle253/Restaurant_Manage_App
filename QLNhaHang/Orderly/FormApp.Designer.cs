@@ -45,24 +45,20 @@
             this.btnFood = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlSide.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.pnlGiaoDienChin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSide
             // 
             this.pnlSide.BackColor = System.Drawing.Color.SandyBrown;
-            this.pnlSide.Controls.Add(this.btnAccount);
-            this.pnlSide.Controls.Add(this.btnRevenus);
-            this.pnlSide.Controls.Add(this.btnCategogy);
-            this.pnlSide.Controls.Add(this.btnHome);
-            this.pnlSide.Controls.Add(this.btnTable);
-            this.pnlSide.Controls.Add(this.btnFood);
-            this.pnlSide.Controls.Add(this.btnOrder);
+            this.pnlSide.Controls.Add(this.flowLayoutPanel1);
             this.pnlSide.Controls.Add(this.pictureBox1);
             this.pnlSide.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSide.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -91,9 +87,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label4.Location = new System.Drawing.Point(91, 8);
+            this.label4.Location = new System.Drawing.Point(96, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(574, 45);
+            this.label4.Size = new System.Drawing.Size(773, 62);
             this.label4.TabIndex = 7;
             this.label4.Text = "Restaurant Management System";
             // 
@@ -105,7 +101,7 @@
             this.lblQuayLai.ForeColor = System.Drawing.Color.White;
             this.lblQuayLai.Location = new System.Drawing.Point(849, 11);
             this.lblQuayLai.Name = "lblQuayLai";
-            this.lblQuayLai.Size = new System.Drawing.Size(36, 41);
+            this.lblQuayLai.Size = new System.Drawing.Size(48, 55);
             this.lblQuayLai.TabIndex = 6;
             this.lblQuayLai.Text = "–";
             this.lblQuayLai.Click += new System.EventHandler(this.lblQuayLai_Click);
@@ -118,7 +114,7 @@
             this.lblThoat.ForeColor = System.Drawing.Color.White;
             this.lblThoat.Location = new System.Drawing.Point(885, 12);
             this.lblThoat.Name = "lblThoat";
-            this.lblThoat.Size = new System.Drawing.Size(36, 41);
+            this.lblThoat.Size = new System.Drawing.Size(48, 55);
             this.lblThoat.TabIndex = 5;
             this.lblThoat.Text = "x";
             this.lblThoat.Click += new System.EventHandler(this.lblThoat_Click);
@@ -162,7 +158,7 @@
             this.btnAccount.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnAccount.Image")));
             this.btnAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAccount.Location = new System.Drawing.Point(3, 609);
+            this.btnAccount.Location = new System.Drawing.Point(3, 370);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(230, 60);
             this.btnAccount.TabIndex = 10;
@@ -179,7 +175,7 @@
             this.btnRevenus.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRevenus.Image = ((System.Drawing.Image)(resources.GetObject("btnRevenus.Image")));
             this.btnRevenus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRevenus.Location = new System.Drawing.Point(3, 547);
+            this.btnRevenus.Location = new System.Drawing.Point(3, 308);
             this.btnRevenus.Name = "btnRevenus";
             this.btnRevenus.Size = new System.Drawing.Size(230, 56);
             this.btnRevenus.TabIndex = 9;
@@ -197,7 +193,7 @@
             this.btnCategogy.ForeColor = System.Drawing.SystemColors.WindowText;
             this.btnCategogy.Image = ((System.Drawing.Image)(resources.GetObject("btnCategogy.Image")));
             this.btnCategogy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategogy.Location = new System.Drawing.Point(3, 486);
+            this.btnCategogy.Location = new System.Drawing.Point(3, 247);
             this.btnCategogy.Name = "btnCategogy";
             this.btnCategogy.Size = new System.Drawing.Size(230, 55);
             this.btnCategogy.TabIndex = 8;
@@ -214,7 +210,7 @@
             this.btnHome.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 240);
+            this.btnHome.Location = new System.Drawing.Point(3, 3);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(230, 55);
             this.btnHome.TabIndex = 2;
@@ -231,7 +227,7 @@
             this.btnTable.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTable.Image = ((System.Drawing.Image)(resources.GetObject("btnTable.Image")));
             this.btnTable.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTable.Location = new System.Drawing.Point(3, 428);
+            this.btnTable.Location = new System.Drawing.Point(3, 186);
             this.btnTable.Name = "btnTable";
             this.btnTable.Size = new System.Drawing.Size(230, 55);
             this.btnTable.TabIndex = 5;
@@ -248,7 +244,7 @@
             this.btnFood.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFood.Image = ((System.Drawing.Image)(resources.GetObject("btnFood.Image")));
             this.btnFood.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFood.Location = new System.Drawing.Point(0, 367);
+            this.btnFood.Location = new System.Drawing.Point(3, 125);
             this.btnFood.Name = "btnFood";
             this.btnFood.Size = new System.Drawing.Size(230, 55);
             this.btnFood.TabIndex = 4;
@@ -265,7 +261,7 @@
             this.btnOrder.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnOrder.Image")));
             this.btnOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrder.Location = new System.Drawing.Point(0, 306);
+            this.btnOrder.Location = new System.Drawing.Point(3, 64);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(230, 55);
             this.btnOrder.TabIndex = 3;
@@ -283,9 +279,25 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel1.Controls.Add(this.btnHome);
+            this.flowLayoutPanel1.Controls.Add(this.btnOrder);
+            this.flowLayoutPanel1.Controls.Add(this.btnFood);
+            this.flowLayoutPanel1.Controls.Add(this.btnTable);
+            this.flowLayoutPanel1.Controls.Add(this.btnCategogy);
+            this.flowLayoutPanel1.Controls.Add(this.btnRevenus);
+            this.flowLayoutPanel1.Controls.Add(this.btnAccount);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 222);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(233, 450);
+            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            // 
             // FormApp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(27F, 67F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(36F, 87F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1159, 672);
@@ -306,6 +318,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -316,9 +329,7 @@
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label lblThoat;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblQuayLai;
         private System.Windows.Forms.Button btnTable;
         private System.Windows.Forms.Button btnFood;
         private System.Windows.Forms.Button btnOrder;
@@ -328,5 +339,8 @@
         private System.Windows.Forms.Button btnRevenus;
         private System.Windows.Forms.Panel pnlGiaoDienChin;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblQuayLai;
+        private System.Windows.Forms.Label lblThoat;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

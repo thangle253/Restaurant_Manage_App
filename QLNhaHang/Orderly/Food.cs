@@ -612,5 +612,10 @@ namespace Orderly
             pbImageFood.Image = null;
             pbImageFood.Tag = null;
         }
+
+        private void flpFoodList_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

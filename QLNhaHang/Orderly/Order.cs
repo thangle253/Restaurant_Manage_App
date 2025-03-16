@@ -23,14 +23,13 @@ namespace Orderly
 
         private void LoadTables()
         {
+            pnlMenuHeader.Visible = false; // Ẩn panel khi quay lại Order
             flpTable.Controls.Clear(); // Xóa bàn cũ trước khi load lại
-
             using (var context = new QLNhaHangDB())
             {
                 var banAnList = context.BanAns.ToList();
                 foreach (var ban in banAnList)
                 {
-                    // Tạo một UserControl cho bàn ăn
                     var uc = new ucTable
                     {
                         TableID = ban.MaBan,
@@ -38,30 +37,46 @@ namespace Orderly
                         Status = ban.TrangThai
                     };
 
-                    // Đặt hình ảnh bàn (có thể thay đổi theo trạng thái)
-                   uc.SetTableData(ban.MaBan, ban.TenBan, ban.TrangThai, Image.FromFile("C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Resources\\table_Oderr.png"));
+                    uc.SetTableData(ban.MaBan, ban.TenBan, ban.TrangThai, Image.FromFile("C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Resources\\table_Oderr.png"));
 
-
-                    // Xử lý sự kiện khi chọn bàn
                     uc.TableSelected += Uc_TableSelected;
-
-                    // Thêm UserControl vào FlowLayoutPanel
                     flpTable.Controls.Add(uc);
                 }
             }
         }
 
-        // Sự kiện khi chọn bàn
         private void Uc_TableSelected(object sender, EventArgs e)
         {
-            var selectedTable = sender as ucTable;
-            MessageBox.Show($"Bạn đã chọn {selectedTable.TableName} - Trạng thái: {selectedTable.Status}");
+            var clickedTable = sender as ucTable;
+            if (clickedTable != null)
+            {
+                // Nếu đã có bàn được chọn trước đó, bỏ chọn bàn cũ
+                if (selectedTable != -1 && selectedTable != clickedTable.TableID)
+                {
+                    var oldTable = flpTable.Controls.OfType<ucTable>()
+                        .FirstOrDefault(t => t.TableID == selectedTable);
+                    if (oldTable != null)
+                    {
+                        oldTable.IsSelected = false;
+                        oldTable.UpdateTableColor(); // ✅ Cập nhật màu bàn cũ
+                    }
+                }
+
+                // Cập nhật bàn mới
+                selectedTable = clickedTable.TableID;
+                clickedTable.IsSelected = true;
+                clickedTable.UpdateTableColor(); // ✅ Cập nhật màu bàn mới
+                clickedTable.Invalidate(); // ✅ Vẽ lại để phản ánh thay đổi màu
+            }
         }
+
+
+
 
         private void Order_Load(object sender, EventArgs e)
         {
             try
-            { 
+            {
 
                 LoadTables();
 
@@ -83,9 +98,9 @@ namespace Orderly
             cmbLoai.SelectedIndex = 0;             // Chọn loại món đầu tiên mặc định
         }
 
-      
-      
-     
+
+
+
 
         private void btnThemMon_Click(object sender, EventArgs e)
         {
@@ -239,7 +254,7 @@ namespace Orderly
             context?.Dispose();
             base.OnFormClosed(e);
         }
-     
+
         private void btnDoiBan_Click(object sender, EventArgs e)
         {
             try
@@ -417,6 +432,49 @@ namespace Orderly
         }
 
         private void flpTable_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            pnlMenuHeader.Visible = true;
+
+
+            LoadMenuItems(); // Load danh sách món ăn
+        }
+
+
+        private void LoadMenuItems()
+        {
+
+            flpTable.Controls.Clear(); // Xóa các item cũ
+
+            using (var context = new QLNhaHangDB())
+            {
+                var foodList = context.MonAns.Include(f => f.LoaiMon).ToList();
+
+                if (foodList.Count == 0)
+                {
+                    MessageBox.Show("Không có món ăn nào trong database!");
+                }
+
+                foreach (var food in foodList)
+                {
+                    FoodItemCard card = new FoodItemCard();
+                    card.SetData(food.MaMon, food.TenMon, food.LoaiMon.TenLoaiMon, food.GiaTien, food.HinhAnh);
+                    flpTable.Controls.Add(card); // Thêm vào FlowLayoutPanel
+                }
+            }
+        }
+
+
+        private void flpMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txbSearch_TextChanged(object sender, EventArgs e)
         {
 
         }
