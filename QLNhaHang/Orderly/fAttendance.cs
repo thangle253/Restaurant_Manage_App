@@ -17,12 +17,13 @@ namespace Orderly
         public fAttendance(int empID)
         {
             InitializeComponent();
-            this.employeeID = empID;
-        }
+            this.employeeID = empID; // Lưu EmployeeID vào biến instance
+        }   
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
-            if (Session.EmployeeID <= 0) // 🛑 Kiểm tra EmployeeID trước khi check-in
+            // Kiểm tra EmployeeID hợp lệ trước khi check-in
+            if (employeeID <= 0) 
             {
                 MessageBox.Show("Invalid EmployeeID. Please log in again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -32,11 +33,11 @@ namespace Orderly
             {
                 con.Open();
 
-                // 🔍 **Kiểm tra xem nhân viên đã check-in hôm nay chưa**
+                // Kiểm tra xem nhân viên đã check-in hôm nay chưa
                 string checkQuery = "SELECT COUNT(*) FROM Attendance WHERE EmployeeID = @empID AND CAST(TimeCheckIn AS DATE) = CAST(GETDATE() AS DATE)";
                 using (SqlCommand checkCmd = new SqlCommand(checkQuery, con))
                 {
-                    checkCmd.Parameters.AddWithValue("@empID", Session.EmployeeID);
+                    checkCmd.Parameters.AddWithValue("@empID", employeeID);
                     int count = (int)checkCmd.ExecuteScalar();
 
                     if (count > 0)
@@ -46,11 +47,11 @@ namespace Orderly
                     }
                 }
 
-                // ✅ **Thực hiện Check-in**
+                // Thực hiện Check-in
                 string insertQuery = "INSERT INTO Attendance (EmployeeID, TimeCheckIn) VALUES (@empID, GETDATE())";
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
-                    cmd.Parameters.AddWithValue("@empID", Session.EmployeeID);
+                    cmd.Parameters.AddWithValue("@empID", employeeID);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -77,10 +78,10 @@ namespace Orderly
                     {
                         if (reader.Read())
                         {
-                            lblFullName.Text = reader["FullName"].ToString();
-                            lblPhone.Text = reader["PhoneNumber"].ToString();
-                            lblAddress.Text = reader["Address"].ToString();
-                            lblBaseSalary.Text = $"Base Salary: {reader["BaseSalary"]} VND";
+                            txtFullName.Text = reader["FullName"].ToString();
+                            txtPhone.Text = reader["PhoneNumber"].ToString();
+                            txtAddress.Text = reader["Address"].ToString();
+                            txtBaseSalary.Text = reader["BaseSalary"].ToString() + " VND";
                         }
                     }
                 }
@@ -131,9 +132,9 @@ namespace Orderly
 
                 DateTime checkOutTime = DateTime.Now;
                 TimeSpan duration = checkOutTime - checkInTime;
-                double hoursWorked = duration.TotalHours;
-                decimal hourlyRate = GetHourlyRate(employeeID);
-                decimal salaryEarned = (decimal)hoursWorked * hourlyRate;
+                double hoursWorked = duration.TotalHours; // Chuyển khoảng thời gian thành số giờ bao gồm phần thập phân
+                decimal hourlyRate = GetHourlyRate(employeeID); // Lấy mức lương cơ bản của nhân viên theo giờ trong bảng Employees
+                decimal salaryEarned = (decimal)hoursWorked * hourlyRate; // Lấy lương theo số giờ làm việc * số giờ làm việc => Lương kiếm được trong ngày hôm đó
 
                 string updateQuery = "UPDATE Attendance SET TimeCheckOut = @TimeCheckOut, HoursWorked = @HoursWorked, SalaryEarned = @SalaryEarned WHERE EmployeeID = @EmployeeID AND TimeCheckOut IS NULL";
                 using (SqlCommand cmd = new SqlCommand(updateQuery, con))
@@ -170,13 +171,11 @@ namespace Orderly
             }
             return 0;
         }
-
-
         private void btnViewInfo_Click(object sender, EventArgs e)
         {
-           
+            LoadEmployeeInfo();    //Hiển thị lại thông tin nhân viên
+            LoadAttendanceHistory(); //Hiển thị lịch sử check-in/out
+            MessageBox.Show("Thông tin nhân viên và lịch sử chấm công đã được cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-
     }
 }

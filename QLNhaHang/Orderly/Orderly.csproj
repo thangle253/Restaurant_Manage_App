@@ -274,17 +274,17 @@
     <Compile Include="CustomMessageBox.Designer.cs">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employee_Infor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee_Infor.Designer.cs">
+      <DependentUpon>Employee_Infor.cs</DependentUpon>
+    </Compile>
     <Compile Include="fAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fAttendance.Designer.cs">
       <DependentUpon>fAttendance.cs</DependentUpon>
-    </Compile>
-    <Compile Include="fCheckInOut.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fCheckInOut.Designer.cs">
-      <DependentUpon>fCheckInOut.cs</DependentUpon>
     </Compile>
     <Compile Include="fNhanVien.cs">
       <SubType>Form</SubType>
@@ -380,11 +380,11 @@
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Employee_Infor.resx">
+      <DependentUpon>Employee_Infor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fAttendance.resx">
       <DependentUpon>fAttendance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fCheckInOut.resx">
-      <DependentUpon>fCheckInOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fNhanVien.resx">
       <DependentUpon>fNhanVien.cs</DependentUpon>

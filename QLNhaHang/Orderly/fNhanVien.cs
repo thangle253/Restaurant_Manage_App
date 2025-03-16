@@ -16,9 +16,6 @@ namespace Orderly
         {
             InitializeComponent();
         }
-      
-
-
         public void LoadFormNhanVien(Form form)
         {
             if (this.pnlMainContent.Controls.Count > 0)
@@ -36,21 +33,18 @@ namespace Orderly
 
             form.Show();
         }
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-
-            LoadFormNhanVien(new fAttendance(Session.EmployeeID));
-
-        }
-
         private void btnCheckInOut_Click(object sender, EventArgs e)
         {
-            LoadFormNhanVien(new fCheckInOut());
+            LoadFormNhanVien(new fAttendance(Session.EmployeeID));
+        }
+        private void btnEmployeeInfo_Click(object sender, EventArgs e)
+        {
+            LoadFormNhanVien(new Employee_Infor(Session.EmployeeID));
         }
 
-        private void pnlMainContent_Paint(object sender, PaintEventArgs e)
+        private void btnOrder_Click(object sender, EventArgs e)
         {
-
+            LoadFormNhanVien(new Order());
         }
     }
 }

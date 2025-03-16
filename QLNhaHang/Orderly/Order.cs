@@ -39,7 +39,8 @@ namespace Orderly
                     };
 
                     // Đặt hình ảnh bàn (có thể thay đổi theo trạng thái)
-                    uc.SetTableData(ban.MaBan, ban.TenBan, ban.TrangThai, Image.FromFile("C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Resources\\table_Oderr.png"));
+                   uc.SetTableData(ban.MaBan, ban.TenBan, ban.TrangThai, Image.FromFile("C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Resources\\table_Oderr.png"));
+
 
                     // Xử lý sự kiện khi chọn bàn
                     uc.TableSelected += Uc_TableSelected;

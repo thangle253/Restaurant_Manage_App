@@ -69,7 +69,7 @@ namespace Orderly
             {
                 con.Open();
 
-                // **1️⃣ Kiểm tra tài khoản hợp lệ**
+                // Kiểm tra tài khoản hợp lệ
                 string loginQuery = "SELECT Type FROM Login WHERE Username=@username AND Password=@password";
                 int userType = -1;
 
@@ -94,7 +94,7 @@ namespace Orderly
                     }
                 }
 
-                // **2️⃣ Lấy `EmployeeID` từ bảng Employees bằng `Username`**
+                //Lấy EmployeeID từ bảng Employees bằng Username
                 string employeeQuery = "SELECT EmployeeID FROM Employees WHERE Username = @username";
                 using (SqlCommand cmd = new SqlCommand(employeeQuery, con))
                 {
@@ -111,7 +111,7 @@ namespace Orderly
                     }
                 }
 
-                // **3️⃣ Cập nhật hoặc tạo phiên đăng nhập**
+                //Cập nhật hoặc tạo phiên đăng nhập
                 string checkUserSessionQuery = "SELECT COUNT(*) FROM UserSession WHERE Username=@username";
                 int sessionCount = 0;
                 using (SqlCommand checkCmd = new SqlCommand(checkUserSessionQuery, con))
@@ -139,7 +139,7 @@ namespace Orderly
                     }
                 }
 
-                // **4️⃣ Mở form tương ứng với quyền**
+                // Mở form tương ứng với quyền
                 if (userType == 1) // Admin
                 {
                     if (formApp == null || formApp.IsDisposed)
