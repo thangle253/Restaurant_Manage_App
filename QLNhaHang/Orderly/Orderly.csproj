@@ -497,6 +497,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <Content Include="Resources\trash-bin.png" />
     <None Include="Resources\OKhoaHome.png" />
     <None Include="Resources\thoat %281%29.png" />
     <None Include="Resources\HinhTron %282%29.png" />

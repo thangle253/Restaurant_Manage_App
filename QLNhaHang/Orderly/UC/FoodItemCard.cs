@@ -18,13 +18,11 @@ namespace Orderly
         public FoodItemCard()
         {
             InitializeComponent();
-            btnChoose.Click += BtnChoose_Click; // Bắt sự kiện chọn món
+            btnChoose.Click += btnChoose_Click; // Bắt sự kiện chọn món
 
         }
 
-        // 🔹 Tạo event để truyền dữ liệu khi chọn món
-        public event EventHandler FoodSelected;
-
+       
         // Các biến lưu thông tin món ăn
         public int foodID;
         public string foodName;
@@ -33,14 +31,18 @@ namespace Orderly
         public string imagePath;
 
         // 📌 Hiển thị event trong bảng Properties (Designer)
+        public event EventHandler<FoodEventArgs> FoodSelected;
+
         [Browsable(true)]
         [Category("Food Events")]
         [Description("Sự kiện xảy ra khi người dùng chọn món ăn.")]
-        public event EventHandler OnFoodSelected
+        public event EventHandler<FoodEventArgs> OnFoodSelected
         {
             add { FoodSelected += value; }
             remove { FoodSelected -= value; }
         }
+        // 🔹 Tạo event đúng kiểu dữ liệu
+
 
         // Phương thức này để set dữ liệu vào từng label trên UserControl
         public void SetData(int id, string name, string category, decimal price, string imagePath)
@@ -84,13 +86,37 @@ namespace Orderly
 
         private void btnChoose_Click(object sender, EventArgs e)
         {
+            // 🔹 Gọi event khi người dùng chọn món ăn
+            FoodSelected?.Invoke(this, new FoodEventArgs(foodID, foodName, foodPrice));
+
         }
 
-        private void BtnChoose_Click(object sender, EventArgs e)
+      
+        // ✅ Định nghĩa EventArgs để chứa dữ liệu món ăn
+        public class FoodEventArgs : EventArgs
         {
-            // 🔹 Gọi event khi người dùng chọn món ăn
-            FoodSelected?.Invoke(this, EventArgs.Empty);
+            public int FoodID { get; }
+            public string FoodName { get; }
+            public decimal FoodPrice { get; }
+
+            public FoodEventArgs(int id, string name, decimal price)
+            {
+                FoodID = id;
+                FoodName = name;
+                FoodPrice = price;
+            }
         }
+
+        public void SetFoodData(int id, string name, decimal price)
+        {
+            this.foodID = id;
+            this.foodName = name;
+            this.foodPrice = price;
+
+            lblName.Text = name;
+            lblPrice.Text = $"{price:N0} đ";
+        }
+
 
 
     }
