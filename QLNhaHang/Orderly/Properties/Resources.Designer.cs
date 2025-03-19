@@ -143,6 +143,16 @@ namespace Orderly.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap table_Oderr {
+            get {
+                object obj = ResourceManager.GetObject("table_Oderr", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap thoat__1_ {
             get {
                 object obj = ResourceManager.GetObject("thoat (1)", resourceCulture);
@@ -156,6 +166,16 @@ namespace Orderly.Properties {
         internal static System.Drawing.Bitmap tomi {
             get {
                 object obj = ResourceManager.GetObject("tomi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TrashBin {
+            get {
+                object obj = ResourceManager.GetObject("TrashBin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

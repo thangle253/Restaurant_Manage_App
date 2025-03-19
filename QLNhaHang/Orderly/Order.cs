@@ -14,17 +14,24 @@ namespace Orderly
         private QLNhaHangDB context; // Khai báo biến DbContext
         private int selectedTable = -1;  // Lưu bàn đã chọn
         private List<MonAn> listMonAn; // Danh sách món ăn
+        private Dictionary<int, List<Tuple<string, int, decimal, decimal>>> tableOrders = new Dictionary<int, List<Tuple<string, int, decimal, decimal>>>();
+        // 🔹 Lưu danh sách món ăn của từng bàn để tránh mất dữ liệu khi load lại UI
+
         public Order()
         {
             InitializeComponent();
             context = new QLNhaHangDB(); // Khởi tạo DbContext
             LoadTables();
+            LoadCategories();
+
+
         }
 
         private void LoadTables()
         {
             pnlMenuHeader.Visible = false; // Ẩn panel khi quay lại Order
             flpTable.Controls.Clear(); // Xóa bàn cũ trước khi load lại
+
             using (var context = new QLNhaHangDB())
             {
                 var banAnList = context.BanAns.ToList();
@@ -37,8 +44,7 @@ namespace Orderly
                         Status = ban.TrangThai
                     };
 
-                    uc.SetTableData(ban.MaBan, ban.TenBan, ban.TrangThai, Image.FromFile("C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Resources\\table_Oderr.png"));
-
+                    uc.SetTableData(ban.MaBan, ban.TenBan, ban.TrangThai, Properties.Resources.table_Oderr);
                     uc.TableSelected += Uc_TableSelected;
                     flpTable.Controls.Add(uc);
                 }
@@ -50,47 +56,109 @@ namespace Orderly
             var clickedTable = sender as ucTable;
             if (clickedTable != null)
             {
-                // Nếu đã có bàn được chọn trước đó, bỏ chọn bàn cũ
+                // ✅ Nếu đã có bàn được chọn trước đó
                 if (selectedTable != -1 && selectedTable != clickedTable.TableID)
                 {
+                    using (var context = new QLNhaHangDB())
+                    {
+                        var currentTable = context.BanAns.Find(selectedTable);
+                        if (currentTable != null && currentTable.TrangThai == "Da dat")
+                        {
+                            // 🔥 Nếu bàn cũ đang "Đã đặt", xóa sạch `dgvOderBill`
+                            dgvOderBill.Rows.Clear();
+                            TinhTongTien();
+                        }
+                    }
+
+                    // ✅ Hủy chọn bàn cũ và cập nhật lại màu gốc
                     var oldTable = flpTable.Controls.OfType<ucTable>()
                         .FirstOrDefault(t => t.TableID == selectedTable);
                     if (oldTable != null)
                     {
                         oldTable.IsSelected = false;
-                        oldTable.UpdateTableColor(); // ✅ Cập nhật màu bàn cũ
+
+                        // 🔥 Cập nhật lại màu theo trạng thái của bàn
+                        using (var context = new QLNhaHangDB())
+                        {
+                            var previousTable = context.BanAns.Find(selectedTable);
+                            if (previousTable != null)
+                            {
+                                oldTable.PanelTable.BackColor = (previousTable.TrangThai == "Da dat") ? Color.Red : Color.White;
+                            }
+                        }
+
+                        oldTable.UpdateTableColor();
                     }
                 }
 
-                // Cập nhật bàn mới
+                // ✅ Cập nhật bàn mới
                 selectedTable = clickedTable.TableID;
                 clickedTable.IsSelected = true;
-                clickedTable.UpdateTableColor(); // ✅ Cập nhật màu bàn mới
-                clickedTable.Invalidate(); // ✅ Vẽ lại để phản ánh thay đổi màu
-                                          
+                clickedTable.UpdateTableColor();
+                clickedTable.Invalidate();
+
                 lblTableName.Text = $"Bàn {selectedTable}";
-                // ✅ Cập nhật tên bàn trong label
-                LoadOrderForTable(selectedTable);
+
+                using (var context = new QLNhaHangDB())
+                {
+                    var newTable = context.BanAns.Find(selectedTable);
+                    if (newTable != null && newTable.TrangThai == "Da dat")
+                    {
+                        // ✅ Nếu bàn mới đã đặt, hiển thị món ăn đã đặt
+                        LoadOrderForTable(selectedTable);
+                    }
+                    else
+                    {
+                        // 🧹 Nếu bàn chưa đặt, xóa sạch `dgvOderBill`
+                        dgvOderBill.Rows.Clear();
+                        TinhTongTien();
+                    }
+                }
             }
         }
-        private Dictionary<int, List<Tuple<string, int, decimal, decimal>>> tableOrders = new Dictionary<int, List<Tuple<string, int, decimal, decimal>>>();
+
         private void LoadOrderForTable(int tableID)
         {
-            dgvOderBill.Rows.Clear(); // Xóa dữ liệu cũ trước khi hiển thị
+            dgvOderBill.Rows.Clear();
 
+            using (var context = new QLNhaHangDB())
+            {
+                var order = context.DonHangs
+                    .Where(dh => dh.MaBan == tableID && dh.TrangThai == "Da dat")
+                    .OrderByDescending(dh => dh.NgayDat)
+                    .FirstOrDefault();
+
+                if (order != null)
+                {
+                    var chiTietList = context.ChiTietDonHangs.Where(ct => ct.MaDonHang == order.MaDonHang).ToList();
+
+                    foreach (var chiTiet in chiTietList)
+                    {
+                        var food = context.MonAns.FirstOrDefault(m => m.MaMon == chiTiet.MaMon);
+                        if (food == null) continue;
+
+                        dgvOderBill.Rows.Add(null, food.TenMon, chiTiet.SoLuong, food.GiaTien, chiTiet.SoLuong * food.GiaTien);
+                    }
+                }
+            }
+
+            // ✅ Hiển thị dữ liệu từ `tableOrders`
             if (tableOrders.ContainsKey(tableID))
             {
                 foreach (var item in tableOrders[tableID])
                 {
-                    dgvOderBill.Rows.Add(Properties.Resources.tomi, item.Item1, item.Item2, item.Item3, item.Item4);
+                    bool exists = dgvOderBill.Rows.Cast<DataGridViewRow>().Any(row =>
+                        row.Cells["TenMon"].Value != null && row.Cells["TenMon"].Value.ToString() == item.Item1);
+
+                    if (!exists)
+                    {
+                        dgvOderBill.Rows.Add(null, item.Item1, item.Item2, item.Item3, item.Item4);
+                    }
                 }
             }
 
-            TinhTongTien(); // Cập nhật tổng tiền
+            TinhTongTien();
         }
-
-
-
 
 
         private void Order_Load(object sender, EventArgs e)
@@ -109,7 +177,6 @@ namespace Orderly
                 MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
             }
         }
-
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
@@ -138,10 +205,10 @@ namespace Orderly
                 {
                     FoodItemCard card = new FoodItemCard();
                     card.SetData(food.MaMon, food.TenMon, food.LoaiMon.TenLoaiMon, food.GiaTien, food.HinhAnh);
-                    
-                    card.FoodSelected -=FoodItem_FoodSelected;
 
-                    card.FoodSelected +=FoodItem_FoodSelected;
+                    card.FoodSelected -= FoodItem_FoodSelected;
+
+                    card.FoodSelected += FoodItem_FoodSelected;
 
                     flpTable.Controls.Add(card); // Thêm vào FlowLayoutPanel
                 }
@@ -166,7 +233,25 @@ namespace Orderly
                 tableOrders[tableID] = new List<Tuple<string, int, decimal, decimal>>();
             }
 
-            // ✅ Duyệt danh sách để cập nhật số lượng mà không xóa mục cũ
+            // ✅ Kiểm tra xem món đã có trong DataGridView chưa
+            bool isUpdated = false;
+            foreach (DataGridViewRow row in dgvOderBill.Rows)
+            {
+                if (row.Cells["TenMon"].Value != null && row.Cells["TenMon"].Value.ToString() == tenMon)
+                {
+                    // Nếu đã có -> Cập nhật số lượng
+                    int currentQuantity = Convert.ToInt32(row.Cells["SoLuong"].Value);
+                    int newQuantity = currentQuantity + 1;
+                    decimal newTotal = newQuantity * giaTien;
+
+                    row.Cells["SoLuong"].Value = newQuantity;
+                    row.Cells["ThanhTien"].Value = newTotal;
+
+                    isUpdated = true;
+                    break; // Ngừng vòng lặp ngay khi tìm thấy món
+                }
+            }
+
             for (int i = 0; i < tableOrders[tableID].Count; i++)
             {
                 if (tableOrders[tableID][i].Item1 == tenMon)
@@ -174,18 +259,23 @@ namespace Orderly
                     int newQuantity = tableOrders[tableID][i].Item2 + 1;
                     decimal newTotal = newQuantity * giaTien;
 
-                    // ✅ Cập nhật trực tiếp số lượng mà không xóa rồi thêm lại
                     tableOrders[tableID][i] = Tuple.Create(tenMon, newQuantity, giaTien, newTotal);
-
-                    LoadOrderForTable(tableID);
-                    return; // Thoát luôn để tránh thêm món mới lần thứ 2
+                    isUpdated = true;
+                    break;
                 }
             }
 
-            // ✅ Nếu món chưa có, thêm mới với số lượng 1
-            tableOrders[tableID].Add(Tuple.Create(tenMon, 1, giaTien, giaTien));
+        
+            // ✅ Nếu món chưa có -> Thêm mới vào DataGridView
+            if (!isUpdated)
+            {
+                dgvOderBill.Rows.Add(null, tenMon, 1, giaTien, giaTien);
+                tableOrders[tableID].Add(Tuple.Create(tenMon, 1, giaTien, giaTien));
 
-            LoadOrderForTable(tableID);
+            }
+
+            // ✅ Cập nhật tổng tiền
+            TinhTongTien();
         }
 
         private void TinhTongTien()
@@ -203,18 +293,6 @@ namespace Orderly
             // 🏆 Hiển thị tổng số tiền trên Label
             lblTotalAmount.Text = $"{tongTien:N0} VND";
         }
-
-
-
-
-
-
-        private void txbSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -228,9 +306,10 @@ namespace Orderly
             dgvOderBill.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvOderBill.RowTemplate.Height = 40; // Tăng chiều cao mỗi dòng
 
+
             // 👉 1. Cột icon xóa (thùng rác)
             DataGridViewImageColumn colXoa = new DataGridViewImageColumn();
-            colXoa.Image = Properties.Resources.tomi; // Hình ảnh từ Resources (Bạn phải thêm icon vào Resources)
+            colXoa.Image = Properties.Resources.TrashBin;
             colXoa.Name = "ColXoa";
             colXoa.HeaderText = "";
             colXoa.Width = 10; // Đặt chiều rộng nhỏ
@@ -260,6 +339,14 @@ namespace Orderly
             colThanhTien.Name = "ThanhTien";
             colThanhTien.HeaderText = "Tổng";
             dgvOderBill.Columns.Add(colThanhTien);
+
+            // Cột FoodID (Ẩn)
+            DataGridViewTextBoxColumn colFoodID = new DataGridViewTextBoxColumn();
+            colFoodID.Name = "ColFoodID";  // Đây là tên cột bạn đang dùng
+            colFoodID.HeaderText = "ID";
+            colFoodID.Visible = false;  // Không hiển thị trên UI
+
+            dgvOderBill.Columns.Add(colFoodID);
         }
 
         private void dgvOderBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -272,7 +359,7 @@ namespace Orderly
                     return;
                 }
 
-                if (!tableOrders.ContainsKey(selectedTable) || tableOrders[selectedTable].Count == 0)
+                if (dgvOderBill.Rows.Count == 0)
                 {
                     MessageBox.Show("Không có món nào để xóa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -280,15 +367,23 @@ namespace Orderly
 
                 string tenMon = dgvOderBill.Rows[e.RowIndex].Cells["TenMon"].Value.ToString();
 
-                // ✅ Xóa món khỏi danh sách của bàn
-                tableOrders[selectedTable].RemoveAll(item => item.Item1 == tenMon);
+                // ✅ Xóa món khỏi danh sách của bàn trong `tableOrders`
+                if (tableOrders.ContainsKey(selectedTable))
+                {
+                    tableOrders[selectedTable].RemoveAll(item => item.Item1 == tenMon);
+                }
 
-                // ✅ Xóa món khỏi `DataGridView`
+                // ✅ Xóa món khỏi `dgvOderBill`
                 dgvOderBill.Rows.RemoveAt(e.RowIndex);
+
+                // ✅ Nếu không còn món nào trong bàn -> Xóa hết danh sách
+                if (dgvOderBill.Rows.Count == 0)
+                {
+                    tableOrders.Remove(selectedTable);
+                }
 
                 // ✅ Cập nhật tổng tiền
                 TinhTongTien();
-
             }
         }
 
@@ -300,8 +395,10 @@ namespace Orderly
                 return;
             }
 
-            // 🏆 Kiểm tra xem bàn có món ăn nào không
-            if (!tableOrders.ContainsKey(selectedTable) || tableOrders[selectedTable].Count == 0)
+            // 🔥 Load lại để đảm bảo `dgvOderBill.Rows.Count` không bị lỗi
+            LoadOrderForTable(selectedTable);
+
+            if (dgvOderBill.Rows.Count == 0)
             {
                 MessageBox.Show("Không có món nào để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -327,6 +424,273 @@ namespace Orderly
                 TinhTongTien();
             }
         }
+
+        private void btnTable_Click(object sender, EventArgs e)
+        {
+            pnlMenuHeader.Visible = false; // Ẩn menu trên cùng
+            flpTable.Visible = true;  // Hiển thị danh sách bàn
+            LoadTables(); // Load lại danh sách bàn
+
+            // 🔥 Khi quay lại Table, nếu có bàn đã chọn trong lblTableName, đặt lại trạng thái
+            if (int.TryParse(lblTableName.Text.Replace("Bàn ", ""), out int tableID))
+            {
+                selectedTable = tableID;
+
+                // ✅ Tìm lại bàn trong danh sách và đặt màu nền xanh
+                var selectedUcTable = flpTable.Controls.OfType<ucTable>().FirstOrDefault(t => t.TableID == selectedTable);
+                if (selectedUcTable != null)
+                {
+                    selectedUcTable.IsSelected = true;
+                    selectedUcTable.UpdateTableColor(); // Gọi hàm cập nhật UI
+                }
+            }
+        }
+
+        private void txbSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // 🔹 Chỉ tìm khi ấn Enter
+            {
+                e.SuppressKeyPress = true; // 🔹 Ngăn tiếng *Beep* khi nhấn Enter
+
+                string searchTerm = txbSearch.Text.Trim().ToLower();
+
+                if (string.IsNullOrEmpty(searchTerm))
+                {
+                    LoadMenuItems(); // Nếu ô tìm kiếm trống, load lại toàn bộ danh sách
+                    return;
+                }
+
+                // 🔹 Truy vấn trực tiếp trên database để giảm lag
+                var filteredFoods = context.MonAns
+                    .Include(f => f.LoaiMon)
+                    .Where(food =>
+                        food.MaMon.ToString().Contains(searchTerm) || // Tìm theo ID món
+                        food.TenMon.ToLower().Contains(searchTerm) || // Tìm theo Tên món
+                        food.LoaiMon.TenLoaiMon.ToLower().Contains(searchTerm) || // Tìm theo Loại món
+                        food.GiaTien.ToString().Contains(searchTerm)) // Tìm theo Giá tiền
+                    .AsNoTracking() // ✅ Tăng tốc bằng cách không tracking entity
+                    .ToList();
+
+                // 🏆 Giảm render UI bằng BeginUpdate/EndUpdate
+                flpTable.SuspendLayout();
+                flpTable.Controls.Clear();
+
+                foreach (var food in filteredFoods)
+                {
+                    FoodItemCard card = new FoodItemCard();
+                    card.SetData(food.MaMon, food.TenMon, food.LoaiMon.TenLoaiMon, food.GiaTien, food.HinhAnh);
+                    card.FoodSelected -= FoodItem_FoodSelected;
+                    card.FoodSelected += FoodItem_FoodSelected;
+
+                    flpTable.Controls.Add(card);
+                }
+
+                flpTable.ResumeLayout();
+            }
+        }
+
+        private void LoadCategories()
+        {
+            using (var context = new QLNhaHangDB())
+            {
+                var categories = context.LoaiMons.ToList();
+
+                cbbCategory.DataSource = categories;
+                cbbCategory.DisplayMember = "TenLoaiMon"; // Hiển thị tên danh mục
+                cbbCategory.ValueMember = "MaLoaiMon"; // Giá trị là mã danh mục
+                cbbCategory.SelectedIndex = -1; // Không chọn gì ban đầu
+            }
+        }
+        private void cbbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbCategory.SelectedItem != null)
+            {
+                var selectedCategory = (LoaiMon)cbbCategory.SelectedItem;
+                int categoryId = selectedCategory.MaLoaiMon; // Lấy MaLoaiMon đúng cách
+                nbrudNumber.Value = 1;
+                LoadFoodItems(categoryId); // Load món ăn theo danh mục
+
+            }
+        }
+        private void LoadFoodItems(int categoryId)
+        {
+            using (var context = new QLNhaHangDB())
+            {
+                var foods = context.MonAns
+                    .Where(f => f.MaLoaiMon == categoryId) // Lọc theo danh mục đã chọn
+                    .OrderBy(f => f.TenMon) // Sắp xếp theo tên
+                    .ToList();
+
+                // Gán danh sách vào combobox món ăn
+                cbbFoodName.DataSource = foods;
+                cbbFoodName.DisplayMember = "TenMon"; // Hiển thị tên món ăn
+                cbbFoodName.ValueMember = "MaMon"; // Giá trị là mã món ăn
+                cbbFoodName.SelectedIndex = -1; // Không chọn gì ban đầu
+            }
+        }
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            if (selectedTable == -1)
+            {
+                MessageBox.Show("Vui lòng chọn bàn trước khi thêm món!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cbbFoodName.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn món ăn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (nbrudNumber.Value < 1)
+            {
+                MessageBox.Show("Số lượng phải lớn hơn 0!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // ✅ Lấy thông tin món ăn được chọn
+            var selectedFood = (MonAn)cbbFoodName.SelectedItem;
+            string foodName = selectedFood.TenMon;
+            decimal price = selectedFood.GiaTien;
+            int quantity = (int)nbrudNumber.Value;
+            decimal totalPrice = quantity * price; // ✅ Tính tổng tiền
+
+            // ✅ Đảm bảo `tableOrders[selectedTable]` tồn tại
+            if (!tableOrders.ContainsKey(selectedTable))
+            {
+                tableOrders[selectedTable] = new List<Tuple<string, int, decimal, decimal>>();
+            }
+
+            bool isUpdated = false;
+
+            // ✅ Cập nhật món trong `tableOrders`
+            for (int i = 0; i < tableOrders[selectedTable].Count; i++)
+            {
+                if (tableOrders[selectedTable][i].Item1 == foodName)
+                {
+                    int newQuantity = tableOrders[selectedTable][i].Item2 + quantity;
+                    decimal newTotal = newQuantity * price;
+
+                    // ✅ Cập nhật dữ liệu trong `tableOrders`
+                    tableOrders[selectedTable][i] = Tuple.Create(foodName, newQuantity, price, newTotal);
+                    isUpdated = true;
+                    break;
+                }
+            }
+
+            // ✅ Nếu món chưa có trong `tableOrders`, thêm mới
+            if (!isUpdated)
+            {
+                tableOrders[selectedTable].Add(Tuple.Create(foodName, quantity, price, totalPrice));
+            }
+
+            // ✅ Cập nhật `dgvOderBill` từ `tableOrders`
+            LoadOrderForTable(selectedTable);
+            nbrudNumber.Value = 1; // Reset số lượng
+        }
+
+
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (selectedTable == -1)
+                {
+                    MessageBox.Show("Vui lòng chọn bàn trước khi đặt món!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 🔥 Load lại dữ liệu để tránh lỗi `dgvOderBill.Rows.Count == 0`
+                LoadOrderForTable(selectedTable);
+
+                if (dgvOderBill.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không có món nào để đặt!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                using (var context = new QLNhaHangDB())
+                {
+                    // ✅ Tạo mã đơn hàng mới (tự động tăng dần)
+                    int newOrderID = context.DonHangs.Any() ? context.DonHangs.Max(dh => dh.MaDonHang) + 1 : 1;
+
+                    // ✅ Lấy ngày đặt từ DatePicker
+                    DateTime orderDate = dateOrderBill.Value;
+
+                    // ✅ Tạo đơn hàng mới
+                    var newOrder = new DonHang
+                    {
+                        MaDonHang = newOrderID,
+                        MaBan = selectedTable,
+                        NgayDat = orderDate,
+                        TongTien = 0,  // Cập nhật sau
+                        TrangThai = "Da dat"
+                    };
+
+                    context.DonHangs.Add(newOrder);
+                    context.SaveChanges(); // Lưu đơn hàng trước để lấy MaDonHang
+
+                    decimal totalAmount = 0;
+
+                    // ✅ Lấy dữ liệu từ `dgvOderBill`, không dùng `tableOrders`
+                    foreach (DataGridViewRow row in dgvOderBill.Rows)
+                    {
+                        if (row.Cells["TenMon"].Value == null || row.Cells["SoLuong"].Value == null) continue;
+
+                        string foodName = row.Cells["TenMon"].Value.ToString();
+                        int quantity = Convert.ToInt32(row.Cells["SoLuong"].Value);
+                        decimal price = Convert.ToDecimal(row.Cells["GiaTien"].Value);
+                        totalAmount += quantity * price;
+
+                        // ✅ Lấy MaMon từ database
+                        var food = context.MonAns.FirstOrDefault(f => f.TenMon == foodName);
+                        if (food == null) continue;
+
+                        var orderDetail = new ChiTietDonHang
+                        {
+                            MaChiTiet = context.ChiTietDonHangs.Any() ? context.ChiTietDonHangs.Max(ct => ct.MaChiTiet) + 1 : 1,
+                            MaDonHang = newOrderID,
+                            MaMon = food.MaMon,
+                            SoLuong = quantity
+                        };
+
+                        context.ChiTietDonHangs.Add(orderDetail);
+                    }
+
+                    // ✅ Cập nhật tổng tiền cho đơn hàng
+                    newOrder.TongTien = totalAmount;
+                    context.SaveChanges();
+
+                    // ✅ Cập nhật trạng thái bàn thành "Đã đặt" và đổi màu nền
+                    var table = context.BanAns.FirstOrDefault(b => b.MaBan == selectedTable);
+                    if (table != null)
+                    {
+                        table.TrangThai = "Da dat";
+                        context.SaveChanges();
+                    }
+
+                    // ✅ Đổi màu bàn trên UI
+                    var selectedUcTable = flpTable.Controls.OfType<ucTable>().FirstOrDefault(t => t.TableID == selectedTable);
+                    if (selectedUcTable != null)
+                    {
+                        selectedUcTable.UpdateTableColor();
+                    }
+
+                    MessageBox.Show("Đơn hàng đã được đặt thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // ✅ Load lại đơn hàng để kiểm tra
+                    LoadOrderForTable(selectedTable);
+                    LoadTables();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi đặt đơn hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        
+
 
     }
 }

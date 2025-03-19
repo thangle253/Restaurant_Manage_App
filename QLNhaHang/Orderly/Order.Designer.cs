@@ -29,42 +29,32 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Order));
-            this.numericUpDownSoLuong = new System.Windows.Forms.NumericUpDown();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
             this.btnMenu = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddFood = new Guna.UI2.WinForms.Guna2Button();
             this.pnlMenuHeader = new System.Windows.Forms.Panel();
             this.txbSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTable = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.btnClear = new Guna.UI2.WinForms.Guna2Button();
             this.lblTatalAmount = new System.Windows.Forms.Label();
             this.lblTotalAmount = new System.Windows.Forms.Label();
-            this.cmbMon = new System.Windows.Forms.ComboBox();
-            this.cmbLoai = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvOderBill = new System.Windows.Forms.DataGridView();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.Header = new System.Windows.Forms.Label();
-            this.dateOderBill = new System.Windows.Forms.DateTimePicker();
+            this.dateOrderBill = new System.Windows.Forms.DateTimePicker();
             this.lblTableName = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSoLuong)).BeginInit();
+            this.cbbCategory = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cbbFoodName = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.nbrudNumber = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.btnOrder = new Guna.UI2.WinForms.Guna2Button();
             this.pnlMenuHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOderBill)).BeginInit();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbrudNumber)).BeginInit();
             this.SuspendLayout();
-            // 
-            // numericUpDownSoLuong
-            // 
-            this.numericUpDownSoLuong.BackColor = System.Drawing.Color.White;
-            this.numericUpDownSoLuong.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownSoLuong.ForeColor = System.Drawing.Color.White;
-            this.numericUpDownSoLuong.Location = new System.Drawing.Point(1631, 3);
-            this.numericUpDownSoLuong.Margin = new System.Windows.Forms.Padding(5);
-            this.numericUpDownSoLuong.Name = "numericUpDownSoLuong";
-            this.numericUpDownSoLuong.Size = new System.Drawing.Size(141, 57);
-            this.numericUpDownSoLuong.TabIndex = 3;
             // 
             // flpTable
             // 
@@ -92,26 +82,27 @@
             this.btnMenu.Text = "Menu";
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
-            // guna2Button1
+            // btnAddFood
             // 
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.DeepSkyBlue;
-            this.guna2Button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(1599, 66);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(210, 58);
-            this.guna2Button1.TabIndex = 15;
-            this.guna2Button1.Text = "Add Food";
+            this.btnAddFood.BorderRadius = 10;
+            this.btnAddFood.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddFood.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddFood.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddFood.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddFood.FillColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnAddFood.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFood.ForeColor = System.Drawing.Color.White;
+            this.btnAddFood.Location = new System.Drawing.Point(1599, 66);
+            this.btnAddFood.Name = "btnAddFood";
+            this.btnAddFood.Size = new System.Drawing.Size(210, 58);
+            this.btnAddFood.TabIndex = 15;
+            this.btnAddFood.Text = "Add Food";
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // pnlMenuHeader
             // 
             this.pnlMenuHeader.Controls.Add(this.txbSearch);
-            this.pnlMenuHeader.Controls.Add(this.guna2Button2);
+            this.pnlMenuHeader.Controls.Add(this.btnTable);
             this.pnlMenuHeader.Location = new System.Drawing.Point(5, 3);
             this.pnlMenuHeader.Name = "pnlMenuHeader";
             this.pnlMenuHeader.Size = new System.Drawing.Size(912, 64);
@@ -140,23 +131,24 @@
             this.txbSearch.SelectedText = "";
             this.txbSearch.Size = new System.Drawing.Size(544, 56);
             this.txbSearch.TabIndex = 16;
-            this.txbSearch.TextChanged += new System.EventHandler(this.txbSearch_TextChanged);
+            this.txbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbSearch_KeyDown);
             // 
-            // guna2Button2
+            // btnTable
             // 
-            this.guna2Button2.BorderRadius = 10;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.DarkOrange;
-            this.guna2Button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(19, 2);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(195, 57);
-            this.guna2Button2.TabIndex = 15;
-            this.guna2Button2.Text = "Table";
+            this.btnTable.BorderRadius = 10;
+            this.btnTable.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTable.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTable.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTable.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTable.FillColor = System.Drawing.Color.DarkOrange;
+            this.btnTable.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTable.ForeColor = System.Drawing.Color.White;
+            this.btnTable.Location = new System.Drawing.Point(19, 2);
+            this.btnTable.Name = "btnTable";
+            this.btnTable.Size = new System.Drawing.Size(195, 57);
+            this.btnTable.TabIndex = 15;
+            this.btnTable.Text = "Table";
+            this.btnTable.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // guna2Button3
             // 
@@ -213,24 +205,6 @@
             this.lblTotalAmount.TabIndex = 26;
             this.lblTotalAmount.Text = "VND";
             // 
-            // cmbMon
-            // 
-            this.cmbMon.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbMon.Location = new System.Drawing.Point(1156, 69);
-            this.cmbMon.Margin = new System.Windows.Forms.Padding(5);
-            this.cmbMon.Name = "cmbMon";
-            this.cmbMon.Size = new System.Drawing.Size(437, 57);
-            this.cmbMon.TabIndex = 1;
-            // 
-            // cmbLoai
-            // 
-            this.cmbLoai.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbLoai.Location = new System.Drawing.Point(1154, 5);
-            this.cmbLoai.Margin = new System.Windows.Forms.Padding(5);
-            this.cmbLoai.Name = "cmbLoai";
-            this.cmbLoai.Size = new System.Drawing.Size(437, 57);
-            this.cmbLoai.TabIndex = 0;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dgvOderBill);
@@ -259,7 +233,7 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.Orange;
             this.guna2Panel1.BorderRadius = 15;
             this.guna2Panel1.Controls.Add(this.Header);
-            this.guna2Panel1.Controls.Add(this.dateOderBill);
+            this.guna2Panel1.Controls.Add(this.dateOrderBill);
             this.guna2Panel1.Controls.Add(this.lblTableName);
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(0);
@@ -278,20 +252,20 @@
             this.Header.TabIndex = 26;
             this.Header.Text = "Oder Bill";
             // 
-            // dateOderBill
+            // dateOrderBill
             // 
-            this.dateOderBill.CalendarFont = new System.Drawing.Font("Times New Roman", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateOderBill.CalendarForeColor = System.Drawing.Color.Transparent;
-            this.dateOderBill.CalendarMonthBackground = System.Drawing.Color.Transparent;
-            this.dateOderBill.CalendarTitleBackColor = System.Drawing.Color.Transparent;
-            this.dateOderBill.CalendarTitleForeColor = System.Drawing.Color.Transparent;
-            this.dateOderBill.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
-            this.dateOderBill.Font = new System.Drawing.Font("Times New Roman", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateOderBill.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateOderBill.Location = new System.Drawing.Point(34, 72);
-            this.dateOderBill.Name = "dateOderBill";
-            this.dateOderBill.Size = new System.Drawing.Size(183, 39);
-            this.dateOderBill.TabIndex = 25;
+            this.dateOrderBill.CalendarFont = new System.Drawing.Font("Times New Roman", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateOrderBill.CalendarForeColor = System.Drawing.Color.Transparent;
+            this.dateOrderBill.CalendarMonthBackground = System.Drawing.Color.Transparent;
+            this.dateOrderBill.CalendarTitleBackColor = System.Drawing.Color.Transparent;
+            this.dateOrderBill.CalendarTitleForeColor = System.Drawing.Color.Transparent;
+            this.dateOrderBill.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
+            this.dateOrderBill.Font = new System.Drawing.Font("Times New Roman", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateOrderBill.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateOrderBill.Location = new System.Drawing.Point(34, 72);
+            this.dateOrderBill.Name = "dateOrderBill";
+            this.dateOrderBill.Size = new System.Drawing.Size(183, 39);
+            this.dateOrderBill.TabIndex = 25;
             // 
             // lblTableName
             // 
@@ -304,6 +278,65 @@
             this.lblTableName.TabIndex = 24;
             this.lblTableName.Text = "Bàn";
             // 
+            // cbbCategory
+            // 
+            this.cbbCategory.BackColor = System.Drawing.Color.Transparent;
+            this.cbbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCategory.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbCategory.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbbCategory.ItemHeight = 30;
+            this.cbbCategory.Location = new System.Drawing.Point(1178, 6);
+            this.cbbCategory.Name = "cbbCategory";
+            this.cbbCategory.Size = new System.Drawing.Size(344, 36);
+            this.cbbCategory.TabIndex = 27;
+            this.cbbCategory.SelectedIndexChanged += new System.EventHandler(this.cbbCategory_SelectedIndexChanged);
+            // 
+            // cbbFoodName
+            // 
+            this.cbbFoodName.BackColor = System.Drawing.Color.Transparent;
+            this.cbbFoodName.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbFoodName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbFoodName.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbFoodName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbFoodName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbFoodName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbbFoodName.ItemHeight = 30;
+            this.cbbFoodName.Location = new System.Drawing.Point(1178, 66);
+            this.cbbFoodName.Name = "cbbFoodName";
+            this.cbbFoodName.Size = new System.Drawing.Size(344, 36);
+            this.cbbFoodName.TabIndex = 28;
+            // 
+            // nbrudNumber
+            // 
+            this.nbrudNumber.BackColor = System.Drawing.Color.Transparent;
+            this.nbrudNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nbrudNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.nbrudNumber.Location = new System.Drawing.Point(1599, 3);
+            this.nbrudNumber.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.nbrudNumber.Name = "nbrudNumber";
+            this.nbrudNumber.Size = new System.Drawing.Size(110, 51);
+            this.nbrudNumber.TabIndex = 29;
+            // 
+            // btnOrder
+            // 
+            this.btnOrder.BorderRadius = 10;
+            this.btnOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOrder.FillColor = System.Drawing.Color.SpringGreen;
+            this.btnOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOrder.ForeColor = System.Drawing.Color.White;
+            this.btnOrder.Location = new System.Drawing.Point(1431, 1139);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(210, 58);
+            this.btnOrder.TabIndex = 30;
+            this.btnOrder.Text = "Order";
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
@@ -311,54 +344,56 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1826, 1232);
+            this.Controls.Add(this.btnOrder);
+            this.Controls.Add(this.nbrudNumber);
+            this.Controls.Add(this.cbbFoodName);
+            this.Controls.Add(this.cbbCategory);
             this.Controls.Add(this.lblTotalAmount);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTatalAmount);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.pnlMenuHeader);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.btnAddFood);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.flpTable);
-            this.Controls.Add(this.numericUpDownSoLuong);
-            this.Controls.Add(this.cmbMon);
-            this.Controls.Add(this.cmbLoai);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Order";
             this.Text = "Order";
             this.Load += new System.EventHandler(this.Order_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSoLuong)).EndInit();
             this.pnlMenuHeader.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOderBill)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbrudNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.NumericUpDown numericUpDownSoLuong;
         private System.Windows.Forms.FlowLayoutPanel flpTable;
         private Guna.UI2.WinForms.Guna2Button btnMenu;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnAddFood;
         private System.Windows.Forms.Panel pnlMenuHeader;
         private Guna.UI2.WinForms.Guna2TextBox txbSearch;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnTable;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button btnClear;
         private System.Windows.Forms.Label lblTatalAmount;
         private System.Windows.Forms.Label lblTotalAmount;
-        private System.Windows.Forms.ComboBox cmbMon;
-        private System.Windows.Forms.ComboBox cmbLoai;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private System.Windows.Forms.DateTimePicker dateOderBill;
+        private System.Windows.Forms.DateTimePicker dateOrderBill;
         private System.Windows.Forms.Label lblTableName;
         private System.Windows.Forms.Label Header;
         private System.Windows.Forms.DataGridView dgvOderBill;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbCategory;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbFoodName;
+        private Guna.UI2.WinForms.Guna2NumericUpDown nbrudNumber;
+        private Guna.UI2.WinForms.Guna2Button btnOrder;
     }
 }

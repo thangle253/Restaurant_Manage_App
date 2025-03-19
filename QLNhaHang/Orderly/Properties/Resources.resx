@@ -142,7 +142,6 @@
   <data name="dangnhap2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dangnhap2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  
   <data name="welcomeApp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\welcomeApp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,5 +150,11 @@
   </data>
   <data name="OKhoaHome" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OKhoaHome.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="table_Oderr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table_Oderr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TrashBin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TrashBin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
