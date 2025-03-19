@@ -138,7 +138,11 @@ namespace Orderly
                 {
                     FoodItemCard card = new FoodItemCard();
                     card.SetData(food.MaMon, food.TenMon, food.LoaiMon.TenLoaiMon, food.GiaTien, food.HinhAnh);
-                    card.FoodSelected += new EventHandler<FoodItemCard.FoodEventArgs>(FoodItem_FoodSelected);
+                    
+                    card.FoodSelected -=FoodItem_FoodSelected;
+
+                    card.FoodSelected +=FoodItem_FoodSelected;
+
                     flpTable.Controls.Add(card); // Thêm vào FlowLayoutPanel
                 }
             }
@@ -162,54 +166,44 @@ namespace Orderly
                 tableOrders[tableID] = new List<Tuple<string, int, decimal, decimal>>();
             }
 
-            // ✅ Kiểm tra xem món đã có trong bàn chưa
-            bool found = false;
+            // ✅ Duyệt danh sách để cập nhật số lượng mà không xóa mục cũ
             for (int i = 0; i < tableOrders[tableID].Count; i++)
             {
                 if (tableOrders[tableID][i].Item1 == tenMon)
                 {
-                    int soLuongMoi = tableOrders[tableID][i].Item2 + 1;
-                    decimal thanhTienMoi = soLuongMoi * giaTien;
+                    int newQuantity = tableOrders[tableID][i].Item2 + 1;
+                    decimal newTotal = newQuantity * giaTien;
 
-                    tableOrders[tableID][i] = Tuple.Create(tenMon, soLuongMoi, giaTien, thanhTienMoi);
-                    found = true;
-                    break;
+                    // ✅ Cập nhật trực tiếp số lượng mà không xóa rồi thêm lại
+                    tableOrders[tableID][i] = Tuple.Create(tenMon, newQuantity, giaTien, newTotal);
+
+                    LoadOrderForTable(tableID);
+                    return; // Thoát luôn để tránh thêm món mới lần thứ 2
                 }
             }
 
-            // ✅ Nếu món chưa có, thêm mới vào danh sách
-            if (!found)
-            {
-                tableOrders[tableID].Add(Tuple.Create(tenMon, 1, giaTien, giaTien));
-            }
+            // ✅ Nếu món chưa có, thêm mới với số lượng 1
+            tableOrders[tableID].Add(Tuple.Create(tenMon, 1, giaTien, giaTien));
 
-            // ✅ Cập nhật hiển thị trên `DataGridView`
             LoadOrderForTable(tableID);
         }
-        private void dgvOderBill_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 0 && e.RowIndex >= 0) // Cột icon xóa
-            {
-                string tenMon = dgvOderBill.Rows[e.RowIndex].Cells["TenMon"].Value.ToString();
 
-                // ✅ Xóa món khỏi danh sách của bàn
-                tableOrders[selectedTable].RemoveAll(item => item.Item1 == tenMon);
-
-                // ✅ Xóa món khỏi `DataGridView`
-                dgvOderBill.Rows.RemoveAt(e.RowIndex);
-
-                TinhTongTien(); // Cập nhật tổng tiền
-            }
-        }
         private void TinhTongTien()
         {
             decimal tongTien = 0;
+
             foreach (DataGridViewRow row in dgvOderBill.Rows)
             {
-                tongTien += Convert.ToDecimal(row.Cells["ThanhTien"].Value);
+                if (row.Cells["ThanhTien"].Value != null)
+                {
+                    tongTien += Convert.ToDecimal(row.Cells["ThanhTien"].Value);
+                }
             }
-            //txtTongTien.Text = tongTien.ToString("N0") + " VND";
+
+            // 🏆 Hiển thị tổng số tiền trên Label
+            lblTotalAmount.Text = $"{tongTien:N0} VND";
         }
+
 
 
 
@@ -298,6 +292,41 @@ namespace Orderly
             }
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            if (selectedTable == -1)
+            {
+                MessageBox.Show("Vui lòng chọn bàn trước khi xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 🏆 Kiểm tra xem bàn có món ăn nào không
+            if (!tableOrders.ContainsKey(selectedTable) || tableOrders[selectedTable].Count == 0)
+            {
+                MessageBox.Show("Không có món nào để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // 🔥 Xác nhận trước khi xóa toàn bộ món ăn
+            DialogResult result = MessageBox.Show(
+                "Bạn có chắc chắn muốn xóa toàn bộ món ăn trong đơn hàng?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                // 🧹 Xóa toàn bộ món ăn của bàn đang chọn
+                tableOrders[selectedTable].Clear();
+
+                // 🧹 Xóa toàn bộ món trong DataGridView
+                dgvOderBill.Rows.Clear();
+
+                // ✅ Cập nhật tổng tiền về 0 VND bằng cách gọi lại `TinhTongTien()`
+                TinhTongTien();
+            }
+        }
 
     }
 }

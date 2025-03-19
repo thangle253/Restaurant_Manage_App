@@ -65,7 +65,7 @@ namespace Orderly
                 // Gọi phương thức SetData để gán dữ liệu lên từng label trong UserControl
                 card.SetData(food.MaMon, food.TenMon, food.LoaiMon.TenLoaiMon, food.GiaTien, food.HinhAnh);
 
-                card.OnFoodSelected += FoodItemCard_OnFoodSelected;
+                card.FoodSelected += FoodItemCard_OnFoodSelected;
 
                 flpFoodList.Controls.Add(card);
             }
@@ -302,7 +302,7 @@ namespace Orderly
                 // 🔹 Tạo Card mới để hiển thị món ăn
                 FoodItemCard newCard = new FoodItemCard();
                 newCard.SetData(newMon.MaMon, newMon.TenMon, cmbLoai.Text, newMon.GiaTien, newMon.HinhAnh);
-                newCard.OnFoodSelected += FoodItemCard_OnFoodSelected; // Lắng nghe sự kiện chọn món
+                newCard.FoodSelected += FoodItemCard_OnFoodSelected; // Lắng nghe sự kiện chọn món
 
                 // 🔹 Thêm vào `FlowLayoutPanel` ở cuối danh sách
                 flpFoodList.Controls.Add(newCard);
@@ -589,7 +589,7 @@ namespace Orderly
             {
                 FoodItemCard card = new FoodItemCard();
                 card.SetData(food.MaMon, food.TenMon, food.LoaiMon.TenLoaiMon, food.GiaTien, food.HinhAnh);
-                card.OnFoodSelected += FoodItemCard_OnFoodSelected;
+                card.FoodSelected += FoodItemCard_OnFoodSelected;
 
                 flpFoodList.Controls.Add(card);
             }

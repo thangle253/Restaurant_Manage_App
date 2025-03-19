@@ -18,8 +18,6 @@ namespace Orderly
         public FoodItemCard()
         {
             InitializeComponent();
-            btnChoose.Click += btnChoose_Click; // Bắt sự kiện chọn món
-
         }
 
        
@@ -41,7 +39,7 @@ namespace Orderly
             add { FoodSelected += value; }
             remove { FoodSelected -= value; }
         }
-        // 🔹 Tạo event đúng kiểu dữ liệu
+         //🔹 Tạo event đúng kiểu dữ liệu
 
 
         // Phương thức này để set dữ liệu vào từng label trên UserControl

@@ -38,23 +38,21 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.btnClear = new Guna.UI2.WinForms.Guna2Button();
-            this.lblSumMoney = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTatalAmount = new System.Windows.Forms.Label();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
             this.cmbMon = new System.Windows.Forms.ComboBox();
             this.cmbLoai = new System.Windows.Forms.ComboBox();
-            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dgvOderBill = new System.Windows.Forms.DataGridView();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Header = new System.Windows.Forms.Label();
             this.dateOderBill = new System.Windows.Forms.DateTimePicker();
             this.lblTableName = new System.Windows.Forms.Label();
-            this.Header = new System.Windows.Forms.Label();
-            this.dgvOderBill = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSoLuong)).BeginInit();
-            this.flpTable.SuspendLayout();
             this.pnlMenuHeader.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOderBill)).BeginInit();
+            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // numericUpDownSoLuong
@@ -71,7 +69,6 @@
             // flpTable
             // 
             this.flpTable.AutoScroll = true;
-            this.flpTable.Controls.Add(this.guna2CustomGradientPanel1);
             this.flpTable.Location = new System.Drawing.Point(2, 66);
             this.flpTable.Margin = new System.Windows.Forms.Padding(0);
             this.flpTable.Name = "flpTable";
@@ -171,7 +168,7 @@
             this.guna2Button3.FillColor = System.Drawing.Color.DarkSlateBlue;
             this.guna2Button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(1512, 1120);
+            this.guna2Button3.Location = new System.Drawing.Point(1692, 1139);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(210, 58);
             this.guna2Button3.TabIndex = 19;
@@ -187,33 +184,34 @@
             this.btnClear.FillColor = System.Drawing.Color.DeepPink;
             this.btnClear.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(1188, 1120);
+            this.btnClear.Location = new System.Drawing.Point(1178, 1139);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(210, 58);
             this.btnClear.TabIndex = 21;
             this.btnClear.Text = "Clear All";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // lblSumMoney
+            // lblTatalAmount
             // 
-            this.lblSumMoney.AutoSize = true;
-            this.lblSumMoney.Font = new System.Drawing.Font("Times New Roman", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSumMoney.ForeColor = System.Drawing.Color.Black;
-            this.lblSumMoney.Location = new System.Drawing.Point(1167, 1047);
-            this.lblSumMoney.Name = "lblSumMoney";
-            this.lblSumMoney.Size = new System.Drawing.Size(207, 42);
-            this.lblSumMoney.TabIndex = 25;
-            this.lblSumMoney.Text = "Sum Money";
+            this.lblTatalAmount.AutoSize = true;
+            this.lblTatalAmount.Font = new System.Drawing.Font("Times New Roman", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTatalAmount.ForeColor = System.Drawing.Color.Black;
+            this.lblTatalAmount.Location = new System.Drawing.Point(1165, 1057);
+            this.lblTatalAmount.Name = "lblTatalAmount";
+            this.lblTatalAmount.Size = new System.Drawing.Size(289, 49);
+            this.lblTatalAmount.TabIndex = 25;
+            this.lblTatalAmount.Text = "Total Amount:";
             // 
-            // label1
+            // lblTotalAmount
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(1650, 1047);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 42);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "VND";
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.Font = new System.Drawing.Font("Times New Roman", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmount.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalAmount.Location = new System.Drawing.Point(1640, 1057);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(115, 49);
+            this.lblTotalAmount.TabIndex = 26;
+            this.lblTotalAmount.Text = "VND";
             // 
             // cmbMon
             // 
@@ -233,13 +231,6 @@
             this.cmbLoai.Size = new System.Drawing.Size(437, 57);
             this.cmbLoai.TabIndex = 0;
             // 
-            // guna2CustomGradientPanel1
-            // 
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(3, 3);
-            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(200, 200);
-            this.guna2CustomGradientPanel1.TabIndex = 0;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dgvOderBill);
@@ -249,6 +240,19 @@
             this.panel1.Size = new System.Drawing.Size(790, 898);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // dgvOderBill
+            // 
+            this.dgvOderBill.BackgroundColor = System.Drawing.Color.White;
+            this.dgvOderBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOderBill.Location = new System.Drawing.Point(0, 128);
+            this.dgvOderBill.Name = "dgvOderBill";
+            this.dgvOderBill.RowHeadersVisible = false;
+            this.dgvOderBill.RowHeadersWidth = 82;
+            this.dgvOderBill.RowTemplate.Height = 33;
+            this.dgvOderBill.Size = new System.Drawing.Size(768, 770);
+            this.dgvOderBill.TabIndex = 27;
+            this.dgvOderBill.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOderBill_CellContentClick);
             // 
             // guna2Panel1
             // 
@@ -262,6 +266,17 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(768, 125);
             this.guna2Panel1.TabIndex = 21;
+            // 
+            // Header
+            // 
+            this.Header.AutoSize = true;
+            this.Header.Font = new System.Drawing.Font("Times New Roman", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Header.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Header.Location = new System.Drawing.Point(9, 8);
+            this.Header.Name = "Header";
+            this.Header.Size = new System.Drawing.Size(238, 61);
+            this.Header.TabIndex = 26;
+            this.Header.Text = "Oder Bill";
             // 
             // dateOderBill
             // 
@@ -289,30 +304,6 @@
             this.lblTableName.TabIndex = 24;
             this.lblTableName.Text = "Bàn";
             // 
-            // Header
-            // 
-            this.Header.AutoSize = true;
-            this.Header.Font = new System.Drawing.Font("Times New Roman", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Header.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Header.Location = new System.Drawing.Point(9, 8);
-            this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(238, 61);
-            this.Header.TabIndex = 26;
-            this.Header.Text = "Oder Bill";
-            // 
-            // dgvOderBill
-            // 
-            this.dgvOderBill.BackgroundColor = System.Drawing.Color.White;
-            this.dgvOderBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOderBill.Location = new System.Drawing.Point(0, 128);
-            this.dgvOderBill.Name = "dgvOderBill";
-            this.dgvOderBill.RowHeadersVisible = false;
-            this.dgvOderBill.RowHeadersWidth = 82;
-            this.dgvOderBill.RowTemplate.Height = 33;
-            this.dgvOderBill.Size = new System.Drawing.Size(768, 757);
-            this.dgvOderBill.TabIndex = 27;
-            this.dgvOderBill.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOderBill_CellContentClick);
-            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
@@ -320,9 +311,9 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1826, 1232);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTotalAmount);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lblSumMoney);
+            this.Controls.Add(this.lblTatalAmount);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.pnlMenuHeader);
@@ -339,12 +330,11 @@
             this.Text = "Order";
             this.Load += new System.EventHandler(this.Order_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSoLuong)).EndInit();
-            this.flpTable.ResumeLayout(false);
             this.pnlMenuHeader.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOderBill)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOderBill)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,11 +350,10 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button btnClear;
-        private System.Windows.Forms.Label lblSumMoney;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTatalAmount;
+        private System.Windows.Forms.Label lblTotalAmount;
         private System.Windows.Forms.ComboBox cmbMon;
         private System.Windows.Forms.ComboBox cmbLoai;
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.DateTimePicker dateOderBill;
