@@ -12,9 +12,12 @@ namespace Orderly
 {
     public partial class fNhanVien : Form
     {
-        public fNhanVien()
+        private Form1 _form1; // Biến tham chiếu đến Form1
+                              // Constructor mới nhận tham chiếu của Form1
+        public fNhanVien(Form1 form1)
         {
             InitializeComponent();
+            _form1 = form1;
         }
         public void LoadFormNhanVien(Form form)
         {
@@ -45,6 +48,41 @@ namespace Orderly
         private void btnOrder_Click(object sender, EventArgs e)
         {
             LoadFormNhanVien(new Order());
+        }
+
+        private void btnSalary_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            // Hiển thị lại Form1 nếu nó đã bị ẩn
+            if (_form1 != null && !_form1.IsDisposed)
+            {
+                _form1.Show();
+            }
+
+            // Đóng FormApp
+            this.Close();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+        "Bạn có chắc chắn muốn thoát ứng dụng ?",
+        "Thông báo",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit(); // Thoát hoàn toàn ứng dụng
+            }
         }
     }
 }

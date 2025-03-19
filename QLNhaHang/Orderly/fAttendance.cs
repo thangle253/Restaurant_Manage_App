@@ -20,50 +20,13 @@ namespace Orderly
             this.employeeID = empID; // Lưu EmployeeID vào biến instance
         }   
 
-        private void btnCheckIn_Click(object sender, EventArgs e)
-        {
-            // Kiểm tra EmployeeID hợp lệ trước khi check-in
-            if (employeeID <= 0) 
-            {
-                MessageBox.Show("Invalid EmployeeID. Please log in again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            using (SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=LoginDoAn;Integrated Security=True;TrustServerCertificate=True"))
-            {
-                con.Open();
-
-                // Kiểm tra xem nhân viên đã check-in hôm nay chưa
-                string checkQuery = "SELECT COUNT(*) FROM Attendance WHERE EmployeeID = @empID AND CAST(TimeCheckIn AS DATE) = CAST(GETDATE() AS DATE)";
-                using (SqlCommand checkCmd = new SqlCommand(checkQuery, con))
-                {
-                    checkCmd.Parameters.AddWithValue("@empID", employeeID);
-                    int count = (int)checkCmd.ExecuteScalar();
-
-                    if (count > 0)
-                    {
-                        MessageBox.Show("You have already checked in today!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                }
-
-                // Thực hiện Check-in
-                string insertQuery = "INSERT INTO Attendance (EmployeeID, TimeCheckIn) VALUES (@empID, GETDATE())";
-                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@empID", employeeID);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-
-            MessageBox.Show("Check-in successful!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadAttendanceHistory();
-        }
+        
 
         private void fAttendance_Load(object sender, EventArgs e)
         {
             LoadEmployeeInfo();  // Hiển thị thông tin nhân viên
             LoadAttendanceHistory(); // Hiển thị lịch sử check-in/out
+            CalculateTotalSalary(); // Gọi phương thức để cập nhật tổng lương
         }
         private void LoadEmployeeInfo()
         {
@@ -83,6 +46,30 @@ namespace Orderly
                             txtAddress.Text = reader["Address"].ToString();
                             txtBaseSalary.Text = reader["BaseSalary"].ToString() + " VND";
                         }
+                    }
+                }
+            }
+        }
+        private void CalculateTotalSalary()
+        {
+            using (SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=LoginDoAn;Integrated Security=True;TrustServerCertificate=True"))
+            {
+                con.Open();
+                string query = "SELECT SUM(SalaryEarned) FROM Attendance WHERE EmployeeID = @EmployeeID";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != DBNull.Value && result != null)
+                    {
+                        decimal totalSalary = Convert.ToDecimal(result);
+                        txtTotalSalary.Text = totalSalary.ToString("N0") + " VND"; // Hiển thị với định dạng tiền tệ
+                    }
+                    else
+                    {
+                        txtTotalSalary.Text = "0 VND";
                     }
                 }
             }
@@ -148,7 +135,7 @@ namespace Orderly
 
                 MessageBox.Show($"Check-out successful! You worked {hoursWorked:F2} hours. Salary Earned: {salaryEarned} VND", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
+            CalculateTotalSalary(); // Cập nhật lại tổng lương sau khi check-out
             LoadAttendanceHistory();
         }
         private decimal GetHourlyRate(int employeeID)
@@ -176,6 +163,46 @@ namespace Orderly
             LoadEmployeeInfo();    //Hiển thị lại thông tin nhân viên
             LoadAttendanceHistory(); //Hiển thị lịch sử check-in/out
             MessageBox.Show("Thông tin nhân viên và lịch sử chấm công đã được cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnCheckIn_Click_1(object sender, EventArgs e)
+        {
+            // Kiểm tra EmployeeID hợp lệ trước khi check-in
+            if (employeeID <= 0)
+            {
+                MessageBox.Show("Invalid EmployeeID. Please log in again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=LoginDoAn;Integrated Security=True;TrustServerCertificate=True"))
+            {
+                con.Open();
+
+                // Kiểm tra xem nhân viên đã check-in hôm nay chưa
+                string checkQuery = "SELECT COUNT(*) FROM Attendance WHERE EmployeeID = @empID AND CAST(TimeCheckIn AS DATE) = CAST(GETDATE() AS DATE)";
+                using (SqlCommand checkCmd = new SqlCommand(checkQuery, con))
+                {
+                    checkCmd.Parameters.AddWithValue("@empID", employeeID);
+                    int count = (int)checkCmd.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        MessageBox.Show("You have already checked in today!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
+                // Thực hiện Check-in
+                string insertQuery = "INSERT INTO Attendance (EmployeeID, TimeCheckIn) VALUES (@empID, GETDATE())";
+                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@empID", employeeID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            MessageBox.Show("Check-in successful!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadAttendanceHistory();
         }
     }
 }

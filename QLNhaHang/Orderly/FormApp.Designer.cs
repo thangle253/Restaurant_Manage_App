@@ -30,29 +30,29 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormApp));
             this.pnlSide = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.btnOrder = new System.Windows.Forms.Button();
+            this.btnFood = new System.Windows.Forms.Button();
+            this.btnTable = new System.Windows.Forms.Button();
+            this.btnCategogy = new System.Windows.Forms.Button();
+            this.btnRevenus = new System.Windows.Forms.Button();
+            this.btnAccount = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.lblQuayLai = new System.Windows.Forms.Label();
             this.lblThoat = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pnlGiaoDienChin = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btnAccount = new System.Windows.Forms.Button();
-            this.btnRevenus = new System.Windows.Forms.Button();
-            this.btnCategogy = new System.Windows.Forms.Button();
-            this.btnHome = new System.Windows.Forms.Button();
-            this.btnTable = new System.Windows.Forms.Button();
-            this.btnFood = new System.Windows.Forms.Button();
-            this.btnOrder = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlSide.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnlGiaoDienChin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSide
@@ -67,6 +67,150 @@
             this.pnlSide.Name = "pnlSide";
             this.pnlSide.Size = new System.Drawing.Size(233, 672);
             this.pnlSide.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel1.Controls.Add(this.btnHome);
+            this.flowLayoutPanel1.Controls.Add(this.btnOrder);
+            this.flowLayoutPanel1.Controls.Add(this.btnFood);
+            this.flowLayoutPanel1.Controls.Add(this.btnTable);
+            this.flowLayoutPanel1.Controls.Add(this.btnCategogy);
+            this.flowLayoutPanel1.Controls.Add(this.btnRevenus);
+            this.flowLayoutPanel1.Controls.Add(this.btnAccount);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 222);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(233, 450);
+            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.Transparent;
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnHome.Location = new System.Drawing.Point(3, 3);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(230, 55);
+            this.btnHome.TabIndex = 2;
+            this.btnHome.Text = "   Home";
+            this.btnHome.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // btnOrder
+            // 
+            this.btnOrder.BackColor = System.Drawing.Color.Transparent;
+            this.btnOrder.FlatAppearance.BorderSize = 0;
+            this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrder.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnOrder.Image")));
+            this.btnOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrder.Location = new System.Drawing.Point(3, 64);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(230, 55);
+            this.btnOrder.TabIndex = 3;
+            this.btnOrder.Text = "  Order";
+            this.btnOrder.UseVisualStyleBackColor = false;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            // 
+            // btnFood
+            // 
+            this.btnFood.BackColor = System.Drawing.Color.Transparent;
+            this.btnFood.FlatAppearance.BorderSize = 0;
+            this.btnFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFood.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFood.Image = ((System.Drawing.Image)(resources.GetObject("btnFood.Image")));
+            this.btnFood.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFood.Location = new System.Drawing.Point(3, 125);
+            this.btnFood.Name = "btnFood";
+            this.btnFood.Size = new System.Drawing.Size(230, 55);
+            this.btnFood.TabIndex = 4;
+            this.btnFood.Text = "  Food";
+            this.btnFood.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnFood.UseVisualStyleBackColor = false;
+            this.btnFood.Click += new System.EventHandler(this.btnFood_Click);
+            // 
+            // btnTable
+            // 
+            this.btnTable.BackColor = System.Drawing.Color.Transparent;
+            this.btnTable.FlatAppearance.BorderSize = 0;
+            this.btnTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTable.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTable.Image = ((System.Drawing.Image)(resources.GetObject("btnTable.Image")));
+            this.btnTable.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTable.Location = new System.Drawing.Point(3, 186);
+            this.btnTable.Name = "btnTable";
+            this.btnTable.Size = new System.Drawing.Size(230, 55);
+            this.btnTable.TabIndex = 5;
+            this.btnTable.Text = "  Table";
+            this.btnTable.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTable.UseVisualStyleBackColor = false;
+            this.btnTable.Click += new System.EventHandler(this.btnTable_Click);
+            // 
+            // btnCategogy
+            // 
+            this.btnCategogy.BackColor = System.Drawing.Color.Transparent;
+            this.btnCategogy.FlatAppearance.BorderSize = 0;
+            this.btnCategogy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCategogy.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCategogy.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnCategogy.Image = ((System.Drawing.Image)(resources.GetObject("btnCategogy.Image")));
+            this.btnCategogy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCategogy.Location = new System.Drawing.Point(3, 247);
+            this.btnCategogy.Name = "btnCategogy";
+            this.btnCategogy.Size = new System.Drawing.Size(230, 55);
+            this.btnCategogy.TabIndex = 8;
+            this.btnCategogy.Text = "     Categogy";
+            this.btnCategogy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCategogy.UseVisualStyleBackColor = false;
+            this.btnCategogy.Click += new System.EventHandler(this.btnCategogy_Click);
+            // 
+            // btnRevenus
+            // 
+            this.btnRevenus.BackColor = System.Drawing.Color.Transparent;
+            this.btnRevenus.FlatAppearance.BorderSize = 0;
+            this.btnRevenus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRevenus.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRevenus.Image = ((System.Drawing.Image)(resources.GetObject("btnRevenus.Image")));
+            this.btnRevenus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRevenus.Location = new System.Drawing.Point(3, 308);
+            this.btnRevenus.Name = "btnRevenus";
+            this.btnRevenus.Size = new System.Drawing.Size(230, 56);
+            this.btnRevenus.TabIndex = 9;
+            this.btnRevenus.Text = "    Revenus";
+            this.btnRevenus.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRevenus.UseVisualStyleBackColor = false;
+            this.btnRevenus.Click += new System.EventHandler(this.btnRevenus_Click);
+            // 
+            // btnAccount
+            // 
+            this.btnAccount.FlatAppearance.BorderSize = 0;
+            this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccount.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnAccount.Image")));
+            this.btnAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAccount.Location = new System.Drawing.Point(3, 370);
+            this.btnAccount.Name = "btnAccount";
+            this.btnAccount.Size = new System.Drawing.Size(230, 60);
+            this.btnAccount.TabIndex = 10;
+            this.btnAccount.Text = "     Account";
+            this.btnAccount.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAccount.UseVisualStyleBackColor = true;
+            this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(233, 234);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // pnlHeader
             // 
@@ -89,7 +233,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label4.Location = new System.Drawing.Point(96, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(773, 62);
+            this.label4.Size = new System.Drawing.Size(491, 38);
             this.label4.TabIndex = 7;
             this.label4.Text = "Restaurant Management System";
             // 
@@ -101,7 +245,7 @@
             this.lblQuayLai.ForeColor = System.Drawing.Color.White;
             this.lblQuayLai.Location = new System.Drawing.Point(849, 11);
             this.lblQuayLai.Name = "lblQuayLai";
-            this.lblQuayLai.Size = new System.Drawing.Size(48, 55);
+            this.lblQuayLai.Size = new System.Drawing.Size(30, 35);
             this.lblQuayLai.TabIndex = 6;
             this.lblQuayLai.Text = "–";
             this.lblQuayLai.Click += new System.EventHandler(this.lblQuayLai_Click);
@@ -114,10 +258,21 @@
             this.lblThoat.ForeColor = System.Drawing.Color.White;
             this.lblThoat.Location = new System.Drawing.Point(885, 12);
             this.lblThoat.Name = "lblThoat";
-            this.lblThoat.Size = new System.Drawing.Size(48, 55);
+            this.lblThoat.Size = new System.Drawing.Size(29, 34);
             this.lblThoat.TabIndex = 5;
             this.lblThoat.Text = "x";
             this.lblThoat.Click += new System.EventHandler(this.lblThoat_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(21, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(64, 51);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 4;
+            this.pictureBox4.TabStop = false;
             // 
             // pnlGiaoDienChin
             // 
@@ -140,164 +295,9 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(21, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(64, 51);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 4;
-            this.pictureBox4.TabStop = false;
-            // 
-            // btnAccount
-            // 
-            this.btnAccount.FlatAppearance.BorderSize = 0;
-            this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccount.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnAccount.Image")));
-            this.btnAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAccount.Location = new System.Drawing.Point(3, 370);
-            this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(230, 60);
-            this.btnAccount.TabIndex = 10;
-            this.btnAccount.Text = "     Account";
-            this.btnAccount.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAccount.UseVisualStyleBackColor = true;
-            this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
-            // 
-            // btnRevenus
-            // 
-            this.btnRevenus.BackColor = System.Drawing.Color.Transparent;
-            this.btnRevenus.FlatAppearance.BorderSize = 0;
-            this.btnRevenus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRevenus.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRevenus.Image = ((System.Drawing.Image)(resources.GetObject("btnRevenus.Image")));
-            this.btnRevenus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRevenus.Location = new System.Drawing.Point(3, 308);
-            this.btnRevenus.Name = "btnRevenus";
-            this.btnRevenus.Size = new System.Drawing.Size(230, 56);
-            this.btnRevenus.TabIndex = 9;
-            this.btnRevenus.Text = "    Revenus";
-            this.btnRevenus.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnRevenus.UseVisualStyleBackColor = false;
-            this.btnRevenus.Click += new System.EventHandler(this.btnRevenus_Click);
-            // 
-            // btnCategogy
-            // 
-            this.btnCategogy.BackColor = System.Drawing.Color.Transparent;
-            this.btnCategogy.FlatAppearance.BorderSize = 0;
-            this.btnCategogy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCategogy.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCategogy.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnCategogy.Image = ((System.Drawing.Image)(resources.GetObject("btnCategogy.Image")));
-            this.btnCategogy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategogy.Location = new System.Drawing.Point(3, 247);
-            this.btnCategogy.Name = "btnCategogy";
-            this.btnCategogy.Size = new System.Drawing.Size(230, 55);
-            this.btnCategogy.TabIndex = 8;
-            this.btnCategogy.Text = "     Categogy";
-            this.btnCategogy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCategogy.UseVisualStyleBackColor = false;
-            this.btnCategogy.Click += new System.EventHandler(this.btnCategogy_Click);
-            // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.Transparent;
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnHome.Location = new System.Drawing.Point(3, 3);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(230, 55);
-            this.btnHome.TabIndex = 2;
-            this.btnHome.Text = "   Home";
-            this.btnHome.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // btnTable
-            // 
-            this.btnTable.BackColor = System.Drawing.Color.Transparent;
-            this.btnTable.FlatAppearance.BorderSize = 0;
-            this.btnTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTable.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTable.Image = ((System.Drawing.Image)(resources.GetObject("btnTable.Image")));
-            this.btnTable.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTable.Location = new System.Drawing.Point(3, 186);
-            this.btnTable.Name = "btnTable";
-            this.btnTable.Size = new System.Drawing.Size(230, 55);
-            this.btnTable.TabIndex = 5;
-            this.btnTable.Text = "  Table";
-            this.btnTable.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnTable.UseVisualStyleBackColor = false;
-            this.btnTable.Click += new System.EventHandler(this.btnTable_Click);
-            // 
-            // btnFood
-            // 
-            this.btnFood.BackColor = System.Drawing.Color.Transparent;
-            this.btnFood.FlatAppearance.BorderSize = 0;
-            this.btnFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFood.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFood.Image = ((System.Drawing.Image)(resources.GetObject("btnFood.Image")));
-            this.btnFood.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFood.Location = new System.Drawing.Point(3, 125);
-            this.btnFood.Name = "btnFood";
-            this.btnFood.Size = new System.Drawing.Size(230, 55);
-            this.btnFood.TabIndex = 4;
-            this.btnFood.Text = "  Food";
-            this.btnFood.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnFood.UseVisualStyleBackColor = false;
-            this.btnFood.Click += new System.EventHandler(this.btnFood_Click);
-            // 
-            // btnOrder
-            // 
-            this.btnOrder.BackColor = System.Drawing.Color.Transparent;
-            this.btnOrder.FlatAppearance.BorderSize = 0;
-            this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrder.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnOrder.Image")));
-            this.btnOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrder.Location = new System.Drawing.Point(3, 64);
-            this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(230, 55);
-            this.btnOrder.TabIndex = 3;
-            this.btnOrder.Text = "  Order";
-            this.btnOrder.UseVisualStyleBackColor = false;
-            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(233, 234);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanel1.Controls.Add(this.btnHome);
-            this.flowLayoutPanel1.Controls.Add(this.btnOrder);
-            this.flowLayoutPanel1.Controls.Add(this.btnFood);
-            this.flowLayoutPanel1.Controls.Add(this.btnTable);
-            this.flowLayoutPanel1.Controls.Add(this.btnCategogy);
-            this.flowLayoutPanel1.Controls.Add(this.btnRevenus);
-            this.flowLayoutPanel1.Controls.Add(this.btnAccount);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 222);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(233, 450);
-            this.flowLayoutPanel1.TabIndex = 1;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
-            // 
             // FormApp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(36F, 87F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 55F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1159, 672);
@@ -312,13 +312,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormApp";
             this.pnlSide.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.pnlGiaoDienChin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

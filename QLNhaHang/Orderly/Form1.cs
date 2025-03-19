@@ -9,6 +9,7 @@ namespace Orderly
     public partial class Form1 : Form
     {
         private FormApp formApp; // Biến lưu instance của FormApp
+        private fNhanVien formNhanVien;
 
         public Form1()
         {
@@ -150,7 +151,7 @@ namespace Orderly
                 }
                 else // Nhân viên
                 {
-                    fNhanVien formNhanVien = new fNhanVien();
+                    fNhanVien formNhanVien = new fNhanVien(this);
                     formNhanVien.Show();
                 }
 
@@ -170,6 +171,11 @@ namespace Orderly
                 txtPassWord.Focus(); // Chuyển con trỏ sang ô mật khẩu khi nhấn Enter
                 e.SuppressKeyPress = true; // Ngăn âm báo phím Enter
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

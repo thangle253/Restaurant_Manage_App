@@ -138,5 +138,9 @@ namespace Orderly
             MessageBox.Show("Thông tin nhân viên đã được cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
