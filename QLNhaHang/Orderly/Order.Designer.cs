@@ -50,6 +50,7 @@
             this.pnlMenuHeader = new System.Windows.Forms.Panel();
             this.txbSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnTable = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDone = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOderBill)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -63,7 +64,7 @@
             this.flpTable.Location = new System.Drawing.Point(2, 66);
             this.flpTable.Margin = new System.Windows.Forms.Padding(0);
             this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(1133, 1163);
+            this.flpTable.Size = new System.Drawing.Size(1140, 1150);
             this.flpTable.TabIndex = 13;
             // 
             // btnMenu
@@ -110,9 +111,9 @@
             this.btnPay.FillColor = System.Drawing.Color.DarkSlateBlue;
             this.btnPay.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPay.ForeColor = System.Drawing.Color.White;
-            this.btnPay.Location = new System.Drawing.Point(1693, 1139);
+            this.btnPay.Location = new System.Drawing.Point(1563, 1139);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(210, 58);
+            this.btnPay.Size = new System.Drawing.Size(192, 58);
             this.btnPay.TabIndex = 19;
             this.btnPay.Text = "Pay";
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
@@ -127,9 +128,9 @@
             this.btnClear.FillColor = System.Drawing.Color.DeepPink;
             this.btnClear.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(1178, 1139);
+            this.btnClear.Location = new System.Drawing.Point(1175, 1139);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(210, 58);
+            this.btnClear.Size = new System.Drawing.Size(185, 58);
             this.btnClear.TabIndex = 21;
             this.btnClear.Text = "Clear All";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -278,12 +279,12 @@
             this.btnOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnOrder.FillColor = System.Drawing.Color.Green;
+            this.btnOrder.FillColor = System.Drawing.Color.Red;
             this.btnOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrder.ForeColor = System.Drawing.Color.White;
-            this.btnOrder.Location = new System.Drawing.Point(1430, 1139);
+            this.btnOrder.Location = new System.Drawing.Point(1366, 1139);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(210, 58);
+            this.btnOrder.Size = new System.Drawing.Size(184, 58);
             this.btnOrder.TabIndex = 30;
             this.btnOrder.Text = "Order";
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
@@ -349,6 +350,23 @@
             this.btnTable.Text = "Table";
             this.btnTable.Click += new System.EventHandler(this.btnTable_Click);
             // 
+            // btnDone
+            // 
+            this.btnDone.BorderRadius = 10;
+            this.btnDone.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDone.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDone.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDone.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDone.FillColor = System.Drawing.Color.SeaGreen;
+            this.btnDone.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDone.ForeColor = System.Drawing.Color.White;
+            this.btnDone.Location = new System.Drawing.Point(1761, 1139);
+            this.btnDone.Name = "btnDone";
+            this.btnDone.Size = new System.Drawing.Size(192, 58);
+            this.btnDone.TabIndex = 31;
+            this.btnDone.Text = "Done ";
+            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
@@ -356,6 +374,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1933, 1280);
+            this.Controls.Add(this.btnDone);
             this.Controls.Add(this.pnlMenuHeader);
             this.Controls.Add(this.lblHeaderTable);
             this.Controls.Add(this.btnOrder);
@@ -409,5 +428,6 @@
         private System.Windows.Forms.Panel pnlMenuHeader;
         private Guna.UI2.WinForms.Guna2TextBox txbSearch;
         private Guna.UI2.WinForms.Guna2Button btnTable;
+        private Guna.UI2.WinForms.Guna2Button btnDone;
     }
 }

@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
 using Orderly.Model;
 using Orderly.UC;
 namespace Orderly
@@ -679,19 +680,88 @@ namespace Orderly
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-
-            string amountText = lblTotalAmount.Text.Replace(",", "").Replace(" VND", "").Trim();
-            if (decimal.TryParse(amountText, out decimal soTien) && soTien > 0)
+            if (selectedTable == -1)
             {
-                fVietQRPay formQR = new fVietQRPay(soTien);
-                formQR.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng nhập số tiền hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                lblTotalAmount.Focus();
+                MessageBox.Show("Vui lòng chọn bàn để in hóa đơn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
+            using (var context = new QLNhaHangDB())
+            {
+                var donHang = context.DonHangs.FirstOrDefault(dh => dh.MaBan == selectedTable);
+                if (donHang == null)
+                {
+                    MessageBox.Show("Không có đơn hàng nào để in hóa đơn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // ✅ Mở form `Report.cs` và truyền `MaDonHang`
+                Report reportForm = new Report(donHang.MaDonHang);
+                reportForm.ShowDialog();
+            }
         }
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            if (selectedTable == -1)
+            {
+                MessageBox.Show("Vui lòng chọn bàn cần cập nhật trạng thái.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                using (var context = new QLNhaHangDB())
+                {
+                    // Lấy thông tin bàn ăn
+                    var banAn = context.BanAns.FirstOrDefault(b => b.MaBan == selectedTable);
+                    if (banAn == null)
+                    {
+                        MessageBox.Show($"Không tìm thấy bàn {selectedTable} trong hệ thống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Lấy đơn hàng của bàn
+                    var donHang = context.DonHangs
+                        .FirstOrDefault(dh => dh.MaBan == selectedTable && dh.TrangThai == "Da dat");
+
+                    if (donHang == null)
+                    {
+                        MessageBox.Show("Không có đơn hàng nào để cập nhật trạng thái.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // ✅ Cập nhật trạng thái bàn thành "Trống"
+                    banAn.TrangThai = "Trống";
+
+                    // ✅ Cập nhật trạng thái đơn hàng thành "Đã trả"
+                    donHang.TrangThai = "Đã trả";
+
+                    // ✅ Lưu thay đổi vào database
+                    context.SaveChanges();
+
+                    // ✅ Cập nhật giao diện
+                    dgvOderBill.Rows.Clear();
+                    lblTotalAmount.Text = "0 VND";
+                    var btn = this.Controls.Find($"btnBan{selectedTable}", true).FirstOrDefault() as Button;
+                    if (btn != null)
+                    {
+                        btn.BackColor = Color.Green; // Màu xanh thể hiện bàn trống
+                        btn.Text = $"Bàn {selectedTable}\nTrống";
+                    }
+
+                    // ✅ Thông báo hoàn tất
+                    MessageBox.Show($"Bàn {selectedTable} đã được thanh toán.");
+
+                    // Reset bàn đã chọn
+                    selectedTable = -1;
+                    LoadTables();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật trạng thái: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

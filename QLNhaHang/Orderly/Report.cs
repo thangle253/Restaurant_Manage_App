@@ -1,64 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
-using Microsoft.Reporting.WinForms;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace Orderly
 {
     public partial class Report : Form
     {
-        public Report()
+        private int maDonHang;
+
+        public Report(int maDonHang)
         {
             InitializeComponent();
+            this.maDonHang = maDonHang;
         }
-        // Phương thức để nhận dữ liệu từ form gọi
-        public void SetReportData(string tenBan, decimal tongTien, List<ChiTietHoaDon> chiTietHoaDonList)
-        {
-            // Đặt tham số cho báo cáo
-            ReportParameter[] parameters = new ReportParameter[]
-            {
-                new ReportParameter("TenBan", tenBan),
-                new ReportParameter("TongTien", tongTien.ToString("N0") + " VND")
-            };
 
-            reportViewer1.LocalReport.SetParameters(parameters);
-
-            // Đặt dữ liệu cho báo cáo
-            var reportDataSource = new ReportDataSource("DataSet1", chiTietHoaDonList);
-            reportViewer1.LocalReport.DataSources.Clear();
-            reportViewer1.LocalReport.DataSources.Add(reportDataSource);
-
-            // Làm mới báo cáo
-            reportViewer1.RefreshReport();
-        }
         private void Report_Load(object sender, EventArgs e)
-        {
-
-            this.reportViewer1.RefreshReport();
-        }
-        public void SetReportData(string reportTitle, DataTable data)
         {
             try
             {
-                ReportParameter[] parameters = new ReportParameter[]
+
+                // ✅ Khởi tạo đối tượng ReportBill
+                ReportBill reportBill = new ReportBill(maDonHang);
+
+                // ✅ Lấy dữ liệu từ Entity Framework
+                DataTable dt = reportBill.ConvertToDataTable();
+
+                if (dt.Rows.Count == 0)
                 {
-            new ReportParameter("ReportTitle", reportTitle)
-                };
-                reportViewer1.LocalReport.SetParameters(parameters);
+                    MessageBox.Show("Không có dữ liệu để hiển thị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-                ReportDataSource reportDataSource = new ReportDataSource("DataSet1", data);
-                reportViewer1.LocalReport.DataSources.Clear();
-                reportViewer1.LocalReport.DataSources.Add(reportDataSource);
+                // ✅ Load Crystal Report
+                ReportDocument rpt = new ReportDocument();
+                string reportPath = System.IO.Path.Combine(Application.StartupPath, "Bill.rpt");
 
-                reportViewer1.RefreshReport();
+
+                rpt.Load(reportPath);
+
+                rpt.SetDataSource(dt);
+
+                // ✅ Hiển thị báo cáo
+                crtrptBill.ReportSource = rpt;
+                crtrptBill.Refresh();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải dữ liệu vào báo cáo: " + ex.Message);
+                MessageBox.Show("Lỗi khi tải báo cáo: " + ex.Message + "\nStackTrace: " + ex.StackTrace, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
     }
 }

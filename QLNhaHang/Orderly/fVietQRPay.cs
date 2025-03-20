@@ -27,6 +27,7 @@ namespace Orderly
             GenerateQRCode();
             lblSoTien.Text = $"Số tài khoản: 0373611257\nNgân hàng: MBBANK \nSố tiền: {soTien:N0} VND";
         }
+
         private void GenerateQRCode()
         {
             try

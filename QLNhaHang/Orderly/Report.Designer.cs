@@ -28,27 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.crtrptBill = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.SuspendLayout();
             // 
-            // reportViewer1
+            // crtrptBill
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Orderly.Report.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(800, 495);
-            this.reportViewer1.TabIndex = 0;
-           
+            this.crtrptBill.ActiveViewIndex = -1;
+            this.crtrptBill.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crtrptBill.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crtrptBill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crtrptBill.Location = new System.Drawing.Point(0, 0);
+            this.crtrptBill.Name = "crtrptBill";
+            this.crtrptBill.Size = new System.Drawing.Size(1355, 1173);
+            this.crtrptBill.TabIndex = 0;
             // 
             // Report
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 495);
-            this.Controls.Add(this.reportViewer1);
+            this.ClientSize = new System.Drawing.Size(1355, 1173);
+            this.Controls.Add(this.crtrptBill);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Report";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Report";
             this.Load += new System.EventHandler(this.Report_Load);
             this.ResumeLayout(false);
@@ -57,6 +59,6 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crtrptBill;
     }
 }
