@@ -83,6 +83,9 @@ namespace Orderly
 
                     // Gán giá trị vào cmbType mà không thay đổi SelectedIndex
                     cmbType.Text = type;  // Truyền giá trị "0" hoặc "1" vào ComboBox
+
+                    Employee_Detail empDetailForm = new Employee_Detail(username);
+                    empDetailForm.ShowDialog();
                 }
             }
             catch (Exception ex)
@@ -332,5 +335,9 @@ namespace Orderly
         {
 
         }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+                    }
     }
 }
