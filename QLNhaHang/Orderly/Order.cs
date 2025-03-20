@@ -676,7 +676,20 @@ namespace Orderly
             }
         }
 
+        private void btnPay_Click(object sender, EventArgs e)
+        {
 
-
+            if (decimal.TryParse(txtSoTien.Text, out decimal soTien) && soTien > 0)
+            {
+                // Mở Form2 và truyền số tiền qua
+                Form3 formQR = new Form3(soTien);
+                formQR.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập số tiền hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSoTien.Focus();
+            }
+        }
     }
 }
