@@ -98,6 +98,8 @@
             this.dgvAttendance.EnableHeadersVisualStyles = false;
             this.dgvAttendance.Location = new System.Drawing.Point(147, 360);
             this.dgvAttendance.Name = "dgvAttendance";
+            this.dgvAttendance.ReadOnly = true;
+            this.dgvAttendance.RowHeadersVisible = false;
             this.dgvAttendance.RowHeadersWidth = 62;
             this.dgvAttendance.RowTemplate.Height = 28;
             this.dgvAttendance.Size = new System.Drawing.Size(656, 246);

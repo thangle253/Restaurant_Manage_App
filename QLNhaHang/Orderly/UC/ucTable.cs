@@ -18,6 +18,10 @@ namespace Orderly.UC
         private string _tableName;
         private string _status;
         private bool _isSelected = false; // Trạng thái bàn có đang được chọn không
+        public Panel PanelTable
+        {
+            get { return panelTable; }
+        }
 
 
         public string TableName
@@ -85,7 +89,7 @@ namespace Orderly.UC
             {
                 if (_status == "Trống")
                     panelTable.BackColor = Color.White;
-                else if (_status == "Đã đặt")
+                else if (_status == "Da dat")
                     panelTable.BackColor = Color.Crimson;
             }
 
@@ -111,33 +115,33 @@ namespace Orderly.UC
 
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-    {
-        int borderWidth = 1; // Độ dày viền
-        int borderRadius = 10; // Độ cong góc
-        Color borderColor = Color.Black; // Màu viền
-
-        Graphics g = e.Graphics;
-        g.SmoothingMode = SmoothingMode.AntiAlias;
-
-        // ⚠️ Tạo một khoảng trống nhỏ để viền không bị cắt mất
-        Rectangle rect = new Rectangle(borderWidth / 2, borderWidth / 2,
-                                       panelTable.Width - borderWidth - 1,
-                                       panelTable.Height - borderWidth - 1);
-
-        using (GraphicsPath path = new GraphicsPath())
         {
-            path.AddArc(rect.X, rect.Y, borderRadius * 2, borderRadius * 2, 180, 90); // Trên trái
-            path.AddArc(rect.Right - borderRadius * 2, rect.Y, borderRadius * 2, borderRadius * 2, 270, 90); // Trên phải
-            path.AddArc(rect.Right - borderRadius * 2, rect.Bottom - borderRadius * 2, borderRadius * 2, borderRadius * 2, 0, 90); // Dưới phải
-            path.AddArc(rect.X, rect.Bottom - borderRadius * 2, borderRadius * 2, borderRadius * 2, 90, 90); // Dưới trái
-            path.CloseFigure();
+            int borderWidth = 1; // Độ dày viền
+            int borderRadius = 10; // Độ cong góc
+            Color borderColor = Color.Black; // Màu viền
 
-            using (Pen pen = new Pen(borderColor, borderWidth))
+            Graphics g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+
+            // ⚠️ Tạo một khoảng trống nhỏ để viền không bị cắt mất
+            Rectangle rect = new Rectangle(borderWidth / 2, borderWidth / 2,
+                                           panelTable.Width - borderWidth - 1,
+                                           panelTable.Height - borderWidth - 1);
+
+            using (GraphicsPath path = new GraphicsPath())
             {
-                g.DrawPath(pen, path);
+                path.AddArc(rect.X, rect.Y, borderRadius * 2, borderRadius * 2, 180, 90); // Trên trái
+                path.AddArc(rect.Right - borderRadius * 2, rect.Y, borderRadius * 2, borderRadius * 2, 270, 90); // Trên phải
+                path.AddArc(rect.Right - borderRadius * 2, rect.Bottom - borderRadius * 2, borderRadius * 2, borderRadius * 2, 0, 90); // Dưới phải
+                path.AddArc(rect.X, rect.Bottom - borderRadius * 2, borderRadius * 2, borderRadius * 2, 90, 90); // Dưới trái
+                path.CloseFigure();
+
+                using (Pen pen = new Pen(borderColor, borderWidth))
+                {
+                    g.DrawPath(pen, path);
+                }
             }
         }
-    }
 
         private void PanelTable_Paint(object sender, PaintEventArgs e)
         {

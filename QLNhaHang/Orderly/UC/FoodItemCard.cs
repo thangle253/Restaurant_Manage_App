@@ -18,8 +18,6 @@ namespace Orderly
         public FoodItemCard()
         {
             InitializeComponent();
-            btnChoose.Click += btnChoose_Click; // Bắt sự kiện chọn món
-
         }
 
        
