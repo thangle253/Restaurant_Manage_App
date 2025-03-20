@@ -309,17 +309,17 @@
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="ChiTietHoaDon.cs" />
-    <Compile Include="CrystalReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="CustomMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CustomMessageBox.Designer.cs">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee_Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee_Detail.Designer.cs">
+      <DependentUpon>Employee_Detail.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee_Infor.cs">
       <SubType>Form</SubType>
@@ -427,9 +427,8 @@
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    <EmbeddedResource Include="Employee_Detail.resx">
+      <DependentUpon>Employee_Detail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employee_Infor.resx">
       <DependentUpon>Employee_Infor.cs</DependentUpon>
