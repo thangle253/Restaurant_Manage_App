@@ -597,72 +597,79 @@ namespace Orderly
             {
                 if (selectedTable == -1)
                 {
-                    MessageBox.Show("Vui lòng chọn bàn trước khi đặt món!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // 🔥 Load lại dữ liệu để tránh lỗi `dgvOderBill.Rows.Count == 0`
-                LoadOrderForTable(selectedTable);
+
+                LoadOrderForTable(selectedTable); // Đảm bảo dữ liệu cập nhật trước khi đặt món
 
                 if (dgvOderBill.Rows.Count == 0)
                 {
-                    MessageBox.Show("Không có món nào để đặt!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Không có món nào trong danh sách đặt hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 using (var context = new QLNhaHangDB())
                 {
-                    // ✅ Tạo mã đơn hàng mới (tự động tăng dần)
                     int newOrderID = context.DonHangs.Any() ? context.DonHangs.Max(dh => dh.MaDonHang) + 1 : 1;
+                    DateTime orderDate = DateTime.Now;
 
-                    // ✅ Lấy ngày đặt từ DatePicker
-                    DateTime orderDate = dateOrderBill.Value;
 
-                    // ✅ Tạo đơn hàng mới
                     var newOrder = new DonHang
                     {
                         MaDonHang = newOrderID,
                         MaBan = selectedTable,
                         NgayDat = orderDate,
-                        TongTien = 0,  // Cập nhật sau
+                        TongTien = 0,
                         TrangThai = "Da dat"
                     };
 
                     context.DonHangs.Add(newOrder);
-                    context.SaveChanges(); // Lưu đơn hàng trước để lấy MaDonHang
+                    context.SaveChanges();
 
                     decimal totalAmount = 0;
+                    int count = 0;
 
-                    // ✅ Lấy dữ liệu từ `dgvOderBill`, không dùng `tableOrders`
+                    // ✅ Duyệt tất cả món trong dgvOderBill
                     foreach (DataGridViewRow row in dgvOderBill.Rows)
                     {
-                        if (row.Cells["TenMon"].Value == null || row.Cells["SoLuong"].Value == null) continue;
+                        if (row.Cells["TenMon"].Value == null) continue;
 
                         string foodName = row.Cells["TenMon"].Value.ToString();
                         int quantity = Convert.ToInt32(row.Cells["SoLuong"].Value);
                         decimal price = Convert.ToDecimal(row.Cells["GiaTien"].Value);
                         totalAmount += quantity * price;
 
-                        // ✅ Lấy MaMon từ database
+                        // ✅ Lấy đúng MaMon từ database
                         var food = context.MonAns.FirstOrDefault(f => f.TenMon == foodName);
-                        if (food == null) continue;
+                        if (food == null)
+                        {
+                            continue;
+                        }
 
                         var orderDetail = new ChiTietDonHang
                         {
-                            MaChiTiet = context.ChiTietDonHangs.Any() ? context.ChiTietDonHangs.Max(ct => ct.MaChiTiet) + 1 : 1,
+                            MaChiTiet = context.ChiTietDonHangs.Any() ? context.ChiTietDonHangs.Max(ct => ct.MaChiTiet) + 1 + count : 1,
                             MaDonHang = newOrderID,
                             MaMon = food.MaMon,
                             SoLuong = quantity
                         };
 
                         context.ChiTietDonHangs.Add(orderDetail);
+                        count++;
+
                     }
 
-                    // ✅ Cập nhật tổng tiền cho đơn hàng
+                    if (count == 0)
+                    {
+                        return;
+                    }
+
+                    // ✅ Cập nhật tổng tiền của đơn hàng
                     newOrder.TongTien = totalAmount;
                     context.SaveChanges();
 
-                    // ✅ Cập nhật trạng thái bàn thành "Đã đặt" và đổi màu nền
+                    // ✅ Cập nhật trạng thái bàn
                     var table = context.BanAns.FirstOrDefault(b => b.MaBan == selectedTable);
                     if (table != null)
                     {
@@ -670,16 +677,8 @@ namespace Orderly
                         context.SaveChanges();
                     }
 
-                    // ✅ Đổi màu bàn trên UI
-                    var selectedUcTable = flpTable.Controls.OfType<ucTable>().FirstOrDefault(t => t.TableID == selectedTable);
-                    if (selectedUcTable != null)
-                    {
-                        selectedUcTable.UpdateTableColor();
-                    }
-
                     MessageBox.Show("Đơn hàng đã được đặt thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // ✅ Load lại đơn hàng để kiểm tra
                     LoadOrderForTable(selectedTable);
                     LoadTables();
                 }
@@ -689,7 +688,7 @@ namespace Orderly
                 MessageBox.Show("Lỗi khi đặt đơn hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
 
 
     }

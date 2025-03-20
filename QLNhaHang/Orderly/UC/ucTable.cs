@@ -83,14 +83,14 @@ namespace Orderly.UC
         {
             if (IsSelected)
             {
-                panelTable.BackColor = Color.LightGreen; // ✅ Giữ màu xanh nhưng không làm mất viền
+                panelTable.BackColor = Color.LimeGreen; // ✅ Giữ màu xanh nhưng không làm mất viền
             }
             else
             {
                 if (_status == "Trống")
                     panelTable.BackColor = Color.White;
                 else if (_status == "Da dat")
-                    panelTable.BackColor = Color.Crimson;
+                    panelTable.BackColor = Color.Gold;
             }
 
             panelTable.Invalidate(); // ✅ Vẽ lại UI để hiển thị viền bo tròn chính xác

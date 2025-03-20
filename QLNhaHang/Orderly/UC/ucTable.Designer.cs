@@ -49,7 +49,7 @@
             // 
             this.lblTableName.BackColor = System.Drawing.Color.Transparent;
             this.lblTableName.Font = new System.Drawing.Font("Times New Roman", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTableName.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lblTableName.ForeColor = System.Drawing.Color.Black;
             this.lblTableName.Location = new System.Drawing.Point(27, 4);
             this.lblTableName.Name = "lblTableName";
             this.lblTableName.Size = new System.Drawing.Size(175, 45);
