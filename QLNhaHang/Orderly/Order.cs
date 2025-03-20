@@ -160,7 +160,6 @@ namespace Orderly
             TinhTongTien();
         }
 
-
         private void Order_Load(object sender, EventArgs e)
         {
             try
@@ -168,9 +167,6 @@ namespace Orderly
 
                 LoadTables();
                 SetupDataGridView(); // Khởi tạo DataGridView
-
-
-
             }
             catch (Exception ex)
             {
@@ -181,35 +177,26 @@ namespace Orderly
         private void btnMenu_Click(object sender, EventArgs e)
         {
             pnlMenuHeader.Visible = true;
-
-
             LoadMenuItems(); // Load danh sách món ăn
         }
 
 
         private void LoadMenuItems()
         {
-
             flpTable.Controls.Clear(); // Xóa các item cũ
-
             using (var context = new QLNhaHangDB())
             {
                 var foodList = context.MonAns.Include(f => f.LoaiMon).ToList();
-
                 if (foodList.Count == 0)
                 {
                     MessageBox.Show("Không có món ăn nào trong database!");
                 }
-
                 foreach (var food in foodList)
                 {
                     FoodItemCard card = new FoodItemCard();
                     card.SetData(food.MaMon, food.TenMon, food.LoaiMon.TenLoaiMon, food.GiaTien, food.HinhAnh);
-
                     card.FoodSelected -= FoodItem_FoodSelected;
-
                     card.FoodSelected += FoodItem_FoodSelected;
-
                     flpTable.Controls.Add(card); // Thêm vào FlowLayoutPanel
                 }
             }
