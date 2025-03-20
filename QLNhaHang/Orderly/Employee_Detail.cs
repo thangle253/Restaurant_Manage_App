@@ -56,17 +56,39 @@ namespace Orderly
                             string imagePath = reader["ProfilePicture"].ToString();
                             if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
                             {
-                                pbProfilePicture.Image = Image.FromFile(imagePath);
+                                pbProfilePicture.Image = LoadImage(imagePath);
                             }
                             else
                             {
-                                pbProfilePicture.Image = Image.FromFile("Employee_Images/default.jpg");
+                                pbProfilePicture.Image = LoadImage("Employee_Images/default.jpg");
                             }
                         }
                     }
                 }
             }
         }
+        private Image LoadImage(string imagePath)
+        {
+            try
+            {
+                if (!File.Exists(imagePath))
+                {
+                    return Image.FromFile("Employee_Images/default.jpg"); // Trả về ảnh mặc định nếu không có ảnh
+                }
+
+                using (FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                {
+                    return Image.FromStream(fs);
+                }
+            }
+            catch (Exception ex)    
+            {
+                MessageBox.Show("Lỗi khi tải ảnh: " + ex.Message);
+                return null;
+            }
+        }
+
+
 
         private void Employee_Detail_Load(object sender, EventArgs e)
         {
@@ -89,6 +111,7 @@ namespace Orderly
 
                     cmd.ExecuteNonQuery();
                 }
+                MessageBox.Show("Thông tin nhân viên đã được cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -119,6 +142,7 @@ namespace Orderly
 
                 SaveImagePathToDatabase(destinationPath);
             }
+            MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void SaveImagePathToDatabase(string imagePath)

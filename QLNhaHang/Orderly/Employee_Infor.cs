@@ -101,6 +101,7 @@ namespace Orderly
                 // Lưu đường dẫn ảnh vào database
                 SaveImagePathToDatabase(destinationPath);
             }
+            MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void SaveImagePathToDatabase(string imagePath)
         {
