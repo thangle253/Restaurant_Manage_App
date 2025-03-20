@@ -176,6 +176,7 @@ namespace Orderly
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
+            lblHeaderTable.Visible = false; 
             pnlMenuHeader.Visible = true;
             LoadMenuItems(); // Load danh sách món ăn
         }
@@ -679,17 +680,18 @@ namespace Orderly
         private void btnPay_Click(object sender, EventArgs e)
         {
 
-            if (decimal.TryParse(txtSoTien.Text, out decimal soTien) && soTien > 0)
+            string amountText = lblTotalAmount.Text.Replace(",", "").Replace(" VND", "").Trim();
+            if (decimal.TryParse(amountText, out decimal soTien) && soTien > 0)
             {
-                // Mở Form2 và truyền số tiền qua
-                Form3 formQR = new Form3(soTien);
+                fVietQRPay formQR = new fVietQRPay(soTien);
                 formQR.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Vui lòng nhập số tiền hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSoTien.Focus();
+                lblTotalAmount.Focus();
             }
+
         }
     }
 }

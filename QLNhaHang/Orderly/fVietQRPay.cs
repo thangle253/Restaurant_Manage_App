@@ -15,23 +15,17 @@ using System.Timers;
 
 namespace Orderly
 {
-    public partial class Form3: Form
+    public partial class fVietQRPay: Form
     {
         private decimal soTien;
         private System.Timers.Timer timer;
         private bool thanhToanThanhCong = false;
-        public Form3(decimal tien)
+        public fVietQRPay(decimal tien)
         {
             InitializeComponent();
             soTien = tien;
             GenerateQRCode();
             lblSoTien.Text = $"Số tài khoản: 0373611257\nNgân hàng: MBBANK \nSố tiền: {soTien:N0} VND";
-
-            // Khởi động timer kiểm tra thanh toán mỗi 5 giây
-            timer = new System.Timers.Timer(5000);
-            timer.Elapsed += KiemTraThanhToan;
-            timer.AutoReset = true;
-            timer.Start();
         }
         private void GenerateQRCode()
         {
@@ -58,23 +52,7 @@ namespace Orderly
                 MessageBox.Show($"Lỗi khi tạo mã QR: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void KiemTraThanhToan(object sender, ElapsedEventArgs e)
-        {
-            // Giả lập kiểm tra trạng thái thanh toán
-            Random rnd = new Random();
-            thanhToanThanhCong = rnd.Next(0, 5) == 1; // Xác suất 20% thanh toán thành công (thay bằng API thật)
-
-            if (thanhToanThanhCong)
-            {
-                timer.Stop(); // Dừng kiểm tra nếu đã thanh toán
-                Invoke(new Action(() =>
-                {
-                    MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close(); // Đóng form sau khi thanh toán thành công
-                }));
-            }
-        }
-
+      
         private void Form3_Load(object sender, EventArgs e)
         {
           

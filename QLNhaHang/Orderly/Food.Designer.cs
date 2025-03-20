@@ -101,7 +101,7 @@
             this.txbSearchFood.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbSearchFood.ForeColor = System.Drawing.Color.Black;
             this.txbSearchFood.Location = new System.Drawing.Point(267, 21);
-            this.txbSearchFood.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txbSearchFood.Margin = new System.Windows.Forms.Padding(5);
             this.txbSearchFood.Name = "txbSearchFood";
             this.txbSearchFood.Size = new System.Drawing.Size(483, 37);
             this.txbSearchFood.TabIndex = 24;
@@ -110,7 +110,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(44)))), ((int)(((byte)(33)))));
             this.panel1.Location = new System.Drawing.Point(267, 67);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(483, 5);
             this.panel1.TabIndex = 23;
@@ -201,7 +201,7 @@
             this.txtGiaTien.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtGiaTien.ForeColor = System.Drawing.Color.GhostWhite;
             this.txtGiaTien.Location = new System.Drawing.Point(255, 1032);
-            this.txtGiaTien.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtGiaTien.Margin = new System.Windows.Forms.Padding(5);
             this.txtGiaTien.Name = "txtGiaTien";
             this.txtGiaTien.Size = new System.Drawing.Size(445, 37);
             this.txtGiaTien.TabIndex = 14;
@@ -214,7 +214,7 @@
             this.txtMaMon.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMaMon.ForeColor = System.Drawing.Color.GhostWhite;
             this.txtMaMon.Location = new System.Drawing.Point(252, 699);
-            this.txtMaMon.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtMaMon.Margin = new System.Windows.Forms.Padding(5);
             this.txtMaMon.Name = "txtMaMon";
             this.txtMaMon.Size = new System.Drawing.Size(448, 37);
             this.txtMaMon.TabIndex = 13;
@@ -263,7 +263,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(44)))), ((int)(((byte)(33)))));
             this.panel6.Location = new System.Drawing.Point(57, 1075);
-            this.panel6.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel6.Margin = new System.Windows.Forms.Padding(5);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(640, 5);
             this.panel6.TabIndex = 8;
@@ -272,7 +272,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(44)))), ((int)(((byte)(33)))));
             this.panel5.Location = new System.Drawing.Point(60, 960);
-            this.panel5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel5.Margin = new System.Windows.Forms.Padding(5);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(640, 5);
             this.panel5.TabIndex = 7;
@@ -281,7 +281,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(44)))), ((int)(((byte)(33)))));
             this.panel4.Location = new System.Drawing.Point(60, 859);
-            this.panel4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel4.Margin = new System.Windows.Forms.Padding(5);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(640, 5);
             this.panel4.TabIndex = 6;
@@ -292,7 +292,7 @@
             this.txtTenMon.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTenMon.ForeColor = System.Drawing.Color.GhostWhite;
             this.txtTenMon.Location = new System.Drawing.Point(252, 819);
-            this.txtTenMon.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtTenMon.Margin = new System.Windows.Forms.Padding(5);
             this.txtTenMon.Name = "txtTenMon";
             this.txtTenMon.Size = new System.Drawing.Size(448, 37);
             this.txtTenMon.TabIndex = 5;
@@ -301,7 +301,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(44)))), ((int)(((byte)(33)))));
             this.panel3.Location = new System.Drawing.Point(60, 739);
-            this.panel3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel3.Margin = new System.Windows.Forms.Padding(5);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(640, 5);
             this.panel3.TabIndex = 4;
@@ -336,7 +336,7 @@
             this.dgvFood.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFood.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvFood.Location = new System.Drawing.Point(3, 19);
-            this.dgvFood.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dgvFood.Margin = new System.Windows.Forms.Padding(5);
             this.dgvFood.Name = "dgvFood";
             this.dgvFood.RowHeadersVisible = false;
             this.dgvFood.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -482,7 +482,7 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Food";
             this.Text = "Food";
             this.Load += new System.EventHandler(this.Food_Load);
