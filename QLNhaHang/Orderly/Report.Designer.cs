@@ -39,14 +39,14 @@
             this.crtrptBill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crtrptBill.Location = new System.Drawing.Point(0, 0);
             this.crtrptBill.Name = "crtrptBill";
-            this.crtrptBill.Size = new System.Drawing.Size(1355, 1173);
+            this.crtrptBill.Size = new System.Drawing.Size(1058, 1385);
             this.crtrptBill.TabIndex = 0;
             // 
             // Report
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1355, 1173);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1058, 1385);
             this.Controls.Add(this.crtrptBill);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Report";

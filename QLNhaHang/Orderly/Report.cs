@@ -2,6 +2,9 @@
 using System.Data;
 using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
+using Microsoft.Reporting.WinForms;
+using System.Drawing;
+
 
 namespace Orderly
 {
@@ -12,7 +15,10 @@ namespace Orderly
         public Report(int maDonHang)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedDialog; // Không cho resize bất thường
+            this.Size = new Size(650, 700); // Đặt kích thước form lớn hơn
             this.maDonHang = maDonHang;
+
         }
 
         private void Report_Load(object sender, EventArgs e)
@@ -43,6 +49,12 @@ namespace Orderly
 
                 // ✅ Hiển thị báo cáo
                 crtrptBill.ReportSource = rpt;
+                crtrptBill.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None; // Ẩn thanh bên trái
+                crtrptBill.Dock = DockStyle.Fill; // ReportViewer mở rộng toàn bộ form
+                crtrptBill.Zoom(75); // Đặt mức Zoom là 100%
+
+
+
                 crtrptBill.Refresh();
             }
             catch (Exception ex)
