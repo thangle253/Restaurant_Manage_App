@@ -36,7 +36,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.btnEmployeeInfo = new System.Windows.Forms.Button();
-            this.btnSalary = new System.Windows.Forms.Button();
             this.gunaPictrueBoxLogo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnCheckInOut = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
@@ -54,9 +53,10 @@
             this.pnlTitle.Controls.Add(this.btnBack);
             this.pnlTitle.Controls.Add(this.pictureBox4);
             this.pnlTitle.Controls.Add(this.lblTitle);
-            this.pnlTitle.Location = new System.Drawing.Point(233, 0);
+            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(926, 103);
+            this.pnlTitle.Size = new System.Drawing.Size(1158, 103);
             this.pnlTitle.TabIndex = 9;
             // 
             // btnExit
@@ -67,7 +67,7 @@
             this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(879, 18);
+            this.btnExit.Location = new System.Drawing.Point(1058, 18);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(34, 34);
             this.btnExit.TabIndex = 12;
@@ -81,7 +81,7 @@
             this.btnBack.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(827, 18);
+            this.btnBack.Location = new System.Drawing.Point(995, 18);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(34, 34);
             this.btnBack.TabIndex = 11;
@@ -91,7 +91,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(45, 3);
+            this.pictureBox4.Location = new System.Drawing.Point(193, 12);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(97, 79);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -104,7 +104,7 @@
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblTitle.Location = new System.Drawing.Point(171, 18);
+            this.lblTitle.Location = new System.Drawing.Point(320, 18);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(635, 51);
             this.lblTitle.TabIndex = 6;
@@ -113,14 +113,13 @@
             // pnlMenu
             // 
             this.pnlMenu.Controls.Add(this.btnEmployeeInfo);
-            this.pnlMenu.Controls.Add(this.btnSalary);
             this.pnlMenu.Controls.Add(this.gunaPictrueBoxLogo);
             this.pnlMenu.Controls.Add(this.btnCheckInOut);
             this.pnlMenu.Controls.Add(this.btnOrder);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlMenu.Location = new System.Drawing.Point(0, 0);
+            this.pnlMenu.Location = new System.Drawing.Point(0, 103);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(233, 721);
+            this.pnlMenu.Size = new System.Drawing.Size(233, 618);
             this.pnlMenu.TabIndex = 10;
             // 
             // btnEmployeeInfo
@@ -131,30 +130,13 @@
             this.btnEmployeeInfo.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmployeeInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployeeInfo.Image")));
             this.btnEmployeeInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmployeeInfo.Location = new System.Drawing.Point(6, 249);
+            this.btnEmployeeInfo.Location = new System.Drawing.Point(12, 249);
             this.btnEmployeeInfo.Name = "btnEmployeeInfo";
             this.btnEmployeeInfo.Size = new System.Drawing.Size(215, 90);
             this.btnEmployeeInfo.TabIndex = 7;
             this.btnEmployeeInfo.Text = "        Employee Infor";
             this.btnEmployeeInfo.UseVisualStyleBackColor = false;
             this.btnEmployeeInfo.Click += new System.EventHandler(this.btnEmployeeInfo_Click);
-            // 
-            // btnSalary
-            // 
-            this.btnSalary.BackColor = System.Drawing.Color.Transparent;
-            this.btnSalary.FlatAppearance.BorderSize = 0;
-            this.btnSalary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalary.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalary.Image = ((System.Drawing.Image)(resources.GetObject("btnSalary.Image")));
-            this.btnSalary.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalary.Location = new System.Drawing.Point(6, 563);
-            this.btnSalary.Name = "btnSalary";
-            this.btnSalary.Size = new System.Drawing.Size(215, 71);
-            this.btnSalary.TabIndex = 6;
-            this.btnSalary.Text = "Salary";
-            this.btnSalary.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSalary.UseVisualStyleBackColor = false;
-            this.btnSalary.Click += new System.EventHandler(this.btnSalary_Click);
             // 
             // gunaPictrueBoxLogo
             // 
@@ -175,12 +157,11 @@
             this.btnCheckInOut.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckInOut.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckInOut.Image")));
             this.btnCheckInOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckInOut.Location = new System.Drawing.Point(6, 453);
+            this.btnCheckInOut.Location = new System.Drawing.Point(12, 484);
             this.btnCheckInOut.Name = "btnCheckInOut";
             this.btnCheckInOut.Size = new System.Drawing.Size(209, 83);
             this.btnCheckInOut.TabIndex = 5;
-            this.btnCheckInOut.Text = "  Check I/O";
-            this.btnCheckInOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCheckInOut.Text = "      Check I/O";
             this.btnCheckInOut.UseVisualStyleBackColor = false;
             this.btnCheckInOut.Click += new System.EventHandler(this.btnCheckInOut_Click);
             // 
@@ -192,7 +173,7 @@
             this.btnOrder.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnOrder.Image")));
             this.btnOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrder.Location = new System.Drawing.Point(6, 355);
+            this.btnOrder.Location = new System.Drawing.Point(12, 371);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(209, 68);
             this.btnOrder.TabIndex = 4;
@@ -202,10 +183,11 @@
             // 
             // pnlMainContent
             // 
+            this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContent.Location = new System.Drawing.Point(233, 103);
             this.pnlMainContent.Name = "pnlMainContent";
             this.pnlMainContent.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.pnlMainContent.Size = new System.Drawing.Size(926, 617);
+            this.pnlMainContent.Size = new System.Drawing.Size(925, 618);
             this.pnlMainContent.TabIndex = 11;
             // 
             // fNhanVien
@@ -233,7 +215,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox gunaPictrueBoxLogo;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Button btnCheckInOut;
-        private System.Windows.Forms.Button btnSalary;
         private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlMenu;
