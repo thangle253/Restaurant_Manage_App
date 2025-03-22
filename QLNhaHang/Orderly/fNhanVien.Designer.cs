@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fNhanVien));
             this.pnlTitle = new System.Windows.Forms.Panel();
+            this.btnExit = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
@@ -39,8 +41,6 @@
             this.btnCheckInOut = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.pnlMainContent = new System.Windows.Forms.Panel();
-            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
-            this.btnExit = new Guna.UI2.WinForms.Guna2Button();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnlMenu.SuspendLayout();
@@ -54,17 +54,44 @@
             this.pnlTitle.Controls.Add(this.btnBack);
             this.pnlTitle.Controls.Add(this.pictureBox4);
             this.pnlTitle.Controls.Add(this.lblTitle);
-            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTitle.Location = new System.Drawing.Point(0, 0);
+            this.pnlTitle.Location = new System.Drawing.Point(233, 0);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1245, 103);
+            this.pnlTitle.Size = new System.Drawing.Size(926, 103);
             this.pnlTitle.TabIndex = 9;
+            // 
+            // btnExit
+            // 
+            this.btnExit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(879, 18);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(34, 34);
+            this.btnExit.TabIndex = 12;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBack.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBack.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBack.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(827, 18);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(34, 34);
+            this.btnBack.TabIndex = 11;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(250, 3);
+            this.pictureBox4.Location = new System.Drawing.Point(45, 3);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(97, 79);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -77,9 +104,9 @@
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblTitle.Location = new System.Drawing.Point(367, 19);
+            this.lblTitle.Location = new System.Drawing.Point(171, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(525, 42);
+            this.lblTitle.Size = new System.Drawing.Size(635, 51);
             this.lblTitle.TabIndex = 6;
             this.lblTitle.Text = "Greetings, valued team member!";
             // 
@@ -91,9 +118,9 @@
             this.pnlMenu.Controls.Add(this.btnCheckInOut);
             this.pnlMenu.Controls.Add(this.btnOrder);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlMenu.Location = new System.Drawing.Point(0, 103);
+            this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(233, 657);
+            this.pnlMenu.Size = new System.Drawing.Size(233, 721);
             this.pnlMenu.TabIndex = 10;
             // 
             // btnEmployeeInfo
@@ -104,9 +131,9 @@
             this.btnEmployeeInfo.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmployeeInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployeeInfo.Image")));
             this.btnEmployeeInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmployeeInfo.Location = new System.Drawing.Point(9, 209);
+            this.btnEmployeeInfo.Location = new System.Drawing.Point(6, 249);
             this.btnEmployeeInfo.Name = "btnEmployeeInfo";
-            this.btnEmployeeInfo.Size = new System.Drawing.Size(209, 90);
+            this.btnEmployeeInfo.Size = new System.Drawing.Size(215, 90);
             this.btnEmployeeInfo.TabIndex = 7;
             this.btnEmployeeInfo.Text = "        Employee Infor";
             this.btnEmployeeInfo.UseVisualStyleBackColor = false;
@@ -120,7 +147,7 @@
             this.btnSalary.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalary.Image = ((System.Drawing.Image)(resources.GetObject("btnSalary.Image")));
             this.btnSalary.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalary.Location = new System.Drawing.Point(3, 501);
+            this.btnSalary.Location = new System.Drawing.Point(6, 563);
             this.btnSalary.Name = "btnSalary";
             this.btnSalary.Size = new System.Drawing.Size(215, 71);
             this.btnSalary.TabIndex = 6;
@@ -133,9 +160,9 @@
             // 
             this.gunaPictrueBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictrueBoxLogo.Image")));
             this.gunaPictrueBoxLogo.ImageRotate = 0F;
-            this.gunaPictrueBoxLogo.Location = new System.Drawing.Point(0, 0);
+            this.gunaPictrueBoxLogo.Location = new System.Drawing.Point(3, 0);
             this.gunaPictrueBoxLogo.Name = "gunaPictrueBoxLogo";
-            this.gunaPictrueBoxLogo.Size = new System.Drawing.Size(230, 203);
+            this.gunaPictrueBoxLogo.Size = new System.Drawing.Size(227, 230);
             this.gunaPictrueBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gunaPictrueBoxLogo.TabIndex = 0;
             this.gunaPictrueBoxLogo.TabStop = false;
@@ -148,7 +175,7 @@
             this.btnCheckInOut.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckInOut.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckInOut.Image")));
             this.btnCheckInOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckInOut.Location = new System.Drawing.Point(3, 412);
+            this.btnCheckInOut.Location = new System.Drawing.Point(6, 453);
             this.btnCheckInOut.Name = "btnCheckInOut";
             this.btnCheckInOut.Size = new System.Drawing.Size(209, 83);
             this.btnCheckInOut.TabIndex = 5;
@@ -165,7 +192,7 @@
             this.btnOrder.Font = new System.Drawing.Font("Times New Roman", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnOrder.Image")));
             this.btnOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrder.Location = new System.Drawing.Point(9, 322);
+            this.btnOrder.Location = new System.Drawing.Point(6, 355);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(209, 68);
             this.btnOrder.TabIndex = 4;
@@ -175,46 +202,17 @@
             // 
             // pnlMainContent
             // 
-            this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContent.Location = new System.Drawing.Point(233, 103);
             this.pnlMainContent.Name = "pnlMainContent";
             this.pnlMainContent.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.pnlMainContent.Size = new System.Drawing.Size(1012, 657);
+            this.pnlMainContent.Size = new System.Drawing.Size(926, 617);
             this.pnlMainContent.TabIndex = 11;
-            // 
-            // btnBack
-            // 
-            this.btnBack.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBack.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBack.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBack.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(1159, 3);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(34, 34);
-            this.btnBack.TabIndex = 11;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnExit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(1199, 3);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(34, 34);
-            this.btnExit.TabIndex = 12;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // fNhanVien
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.SandyBrown;
-            this.ClientSize = new System.Drawing.Size(1245, 760);
+            this.ClientSize = new System.Drawing.Size(1158, 721);
             this.Controls.Add(this.pnlMainContent);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlTitle);

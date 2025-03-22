@@ -69,7 +69,42 @@ namespace Orderly
             }
         }
 
-        private void btnUploadImage_Click(object sender, EventArgs e)
+        private void SaveImagePathToDatabase(string imagePath)
+        {
+            using (SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=LoginDoAn;Integrated Security=True;TrustServerCertificate=True"))
+            {
+                con.Open();
+                string query = "UPDATE Employees SET ProfilePicture = @ProfilePicture WHERE EmployeeID = @EmployeeID";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@ProfilePicture", imagePath);
+                    cmd.Parameters.AddWithValue("@EmployeeID", this.employeeID); // Make sure 'this.employeeID' is set properly
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        private void btnUpdate_Click_1(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=LoginDoAn;Integrated Security=True;TrustServerCertificate=True"))
+            {
+                con.Open();
+                string query = "UPDATE Employees SET FullName=@FullName, PhoneNumber=@PhoneNumber, Address=@Address, DateOfBirth=@DateOfBirth WHERE EmployeeID=@EmployeeID";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@FullName", txtFullName.Text);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", txtPhone.Text);
+                    cmd.Parameters.AddWithValue("@Address", txtAddress.Text);
+                    cmd.Parameters.AddWithValue("@DateOfBirth", dtpDateOfBirth.Value);
+                    cmd.Parameters.AddWithValue("@EmployeeID", Session.EmployeeID);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            MessageBox.Show("Thông tin nhân viên đã được cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnUploadImage_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -102,46 +137,6 @@ namespace Orderly
                 SaveImagePathToDatabase(destinationPath);
             }
             MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        private void SaveImagePathToDatabase(string imagePath)
-        {
-            using (SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=LoginDoAn;Integrated Security=True;TrustServerCertificate=True"))
-            {
-                con.Open();
-                string query = "UPDATE Employees SET ProfilePicture = @ProfilePicture WHERE EmployeeID = @EmployeeID";
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@ProfilePicture", imagePath);
-                    cmd.Parameters.AddWithValue("@EmployeeID", this.employeeID); // Make sure 'this.employeeID' is set properly
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            using (SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=LoginDoAn;Integrated Security=True;TrustServerCertificate=True"))
-            {
-                con.Open();
-                string query = "UPDATE Employees SET FullName=@FullName, PhoneNumber=@PhoneNumber, Address=@Address, DateOfBirth=@DateOfBirth WHERE EmployeeID=@EmployeeID";
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@FullName", txtFullName.Text);
-                    cmd.Parameters.AddWithValue("@PhoneNumber", txtPhone.Text);
-                    cmd.Parameters.AddWithValue("@Address", txtAddress.Text);
-                    cmd.Parameters.AddWithValue("@DateOfBirth", dtpDateOfBirth.Value);
-                    cmd.Parameters.AddWithValue("@EmployeeID", Session.EmployeeID);
-
-                    cmd.ExecuteNonQuery();
-                }
-            }
-
-            MessageBox.Show("Thông tin nhân viên đã được cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

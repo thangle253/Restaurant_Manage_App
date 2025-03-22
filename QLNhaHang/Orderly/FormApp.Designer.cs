@@ -233,7 +233,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label4.Location = new System.Drawing.Point(96, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(491, 38);
+            this.label4.Size = new System.Drawing.Size(574, 45);
             this.label4.TabIndex = 7;
             this.label4.Text = "Restaurant Management System";
             // 
@@ -245,7 +245,7 @@
             this.lblQuayLai.ForeColor = System.Drawing.Color.White;
             this.lblQuayLai.Location = new System.Drawing.Point(849, 11);
             this.lblQuayLai.Name = "lblQuayLai";
-            this.lblQuayLai.Size = new System.Drawing.Size(30, 35);
+            this.lblQuayLai.Size = new System.Drawing.Size(36, 41);
             this.lblQuayLai.TabIndex = 6;
             this.lblQuayLai.Text = "–";
             this.lblQuayLai.Click += new System.EventHandler(this.lblQuayLai_Click);
@@ -258,7 +258,7 @@
             this.lblThoat.ForeColor = System.Drawing.Color.White;
             this.lblThoat.Location = new System.Drawing.Point(885, 12);
             this.lblThoat.Name = "lblThoat";
-            this.lblThoat.Size = new System.Drawing.Size(29, 34);
+            this.lblThoat.Size = new System.Drawing.Size(36, 41);
             this.lblThoat.TabIndex = 5;
             this.lblThoat.Text = "x";
             this.lblThoat.Click += new System.EventHandler(this.lblThoat_Click);
@@ -297,7 +297,7 @@
             // 
             // FormApp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 55F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(27F, 67F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1159, 672);

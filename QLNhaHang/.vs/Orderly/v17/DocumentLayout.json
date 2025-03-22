@@ -1,36 +1,64 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\",
+  "WorkspaceRootPath": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|c:\\users\\apple\\documents\\restaurant_manage_app\\qlnhahang\\orderly\\bill.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}",
-      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\bill.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}"
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|d:\\restaurant_new\\restaurant_manage_app\\qlnhahang\\orderly\\employee_infor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\employee_infor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|c:\\users\\apple\\documents\\restaurant_manage_app\\qlnhahang\\orderly\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|d:\\restaurant_new\\restaurant_manage_app\\qlnhahang\\orderly\\fnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\fnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|c:\\users\\apple\\documents\\restaurant_manage_app\\qlnhahang\\orderly\\reportbill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|d:\\restaurant_new\\restaurant_manage_app\\qlnhahang\\orderly\\fattendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\fattendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|d:\\restaurant_new\\restaurant_manage_app\\qlnhahang\\orderly\\employee_infor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\employee_infor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\orderly\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|d:\\restaurant_new\\restaurant_manage_app\\qlnhahang\\orderly\\fnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\fnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|d:\\restaurant_new\\restaurant_manage_app\\qlnhahang\\orderly\\formapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\formapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|d:\\restaurant_new\\restaurant_manage_app\\qlnhahang\\orderly\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\orderly\\reportbill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\reportbill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\chitiethoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|d:\\restaurant_new\\restaurant_manage_app\\qlnhahang\\orderly\\bill.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\bill.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\orderly\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\orderly\\chitiethoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\chitiethoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\orderly\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Orderly||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\orderly\\uc\\uctable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\orderly\\uc\\uctable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F18919C-2ABF-4D8A-B3C5-01F4ABCB7E3C}|Orderly\\Orderly.csproj|solutionrelative:orderly\\uc\\uctable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -41,116 +69,187 @@
       "DocumentGroups": [
         {
           "DockedHeight": 110,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "Order.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Order.cs",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Order.cs",
               "RelativeDocumentMoniker": "Orderly\\Order.cs",
-              "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Order.cs [Design]",
+              "ToolTip": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Order.cs [Design]",
               "RelativeToolTip": "Orderly\\Order.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T10:27:32.826Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "fAttendance.cs [Design]",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\fAttendance.cs",
+              "RelativeDocumentMoniker": "Orderly\\fAttendance.cs",
+              "ToolTip": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\fAttendance.cs [Design]",
+              "RelativeToolTip": "Orderly\\fAttendance.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T08:47:25.485Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Employee_Infor.cs",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Employee_Infor.cs",
+              "RelativeDocumentMoniker": "Orderly\\Employee_Infor.cs",
+              "ToolTip": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Employee_Infor.cs",
+              "RelativeToolTip": "Orderly\\Employee_Infor.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAADgv4IAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T07:21:59.493Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Employee_Infor.cs [Design]",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Employee_Infor.cs",
+              "RelativeDocumentMoniker": "Orderly\\Employee_Infor.cs",
+              "ToolTip": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Employee_Infor.cs [Design]",
+              "RelativeToolTip": "Orderly\\Employee_Infor.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T07:15:49.543Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "fNhanVien.cs",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\fNhanVien.cs",
+              "RelativeDocumentMoniker": "Orderly\\fNhanVien.cs",
+              "ToolTip": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\fNhanVien.cs",
+              "RelativeToolTip": "Orderly\\fNhanVien.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAqwCwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T07:15:02.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "fNhanVien.cs [Design]",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\fNhanVien.cs",
+              "RelativeDocumentMoniker": "Orderly\\fNhanVien.cs",
+              "ToolTip": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\fNhanVien.cs [Design]",
+              "RelativeToolTip": "Orderly\\fNhanVien.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T06:58:42.637Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormApp.cs [Design]",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\FormApp.cs",
+              "RelativeDocumentMoniker": "Orderly\\FormApp.cs",
+              "ToolTip": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\FormApp.cs [Design]",
+              "RelativeToolTip": "Orderly\\FormApp.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T06:57:14.036Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Form1.cs",
+              "RelativeDocumentMoniker": "Orderly\\Form1.cs",
+              "ToolTip": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Form1.cs [Design]",
+              "RelativeToolTip": "Orderly\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T06:57:11.784Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Bill.rpt",
-              "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Bill.rpt",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Bill.rpt",
               "RelativeDocumentMoniker": "Orderly\\Bill.rpt",
-              "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Bill.rpt",
+              "ToolTip": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Bill.rpt",
               "RelativeToolTip": "Orderly\\Bill.rpt",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAXQSURBVFhH1VZZcBRVFD3T20x3z9KzZZIJxgAGBY1WwK2ECIqUJYJIuZU/Un5axrIorfLbD8FP3L/8UHArPwQDIgSVRUFBSgWFsGiCkECFmAVMMlv3eO/rTkwkMwnhg/L23Hnvdb13z3n3vr734apKsVj0eldPfF57ifzcenbK7Pr6/u5edGdd0htOTZjAVOW7H/8oNn99yPFMlRXJa6cs7CZXi3AopI5TRMgMIBYO\u002BoiELSaVkSsm4CN02jQpty6RoKkhEhYkpIlITJmAC0g7Ht4/O9wjEjL9rhei5oQkpkSAgQWSO3DBRQjon/4MQ0PQIBKkFfHgMIl\u002BMf8/chkE3N1xnL2R6PNQeMLtiH7Ar8JkEuSJYNCPqoowkwgTibxYPEomTcCFJREkBJboj8SfXoo\u002Bve4824fz3Rdx8eIQCjkbqiyhpsri1Qr/jZYJCbjGucM/9\u002BGX4vEAxRzRup6Ix8jtFP8oqWUZsCI6pqWjbO4SmYQHCISOukMkBCC3/JZa9kRHvhNLf1uGDzs\u002BGPGMGxqeS0eUXvLaUjIhAdeoa9ltXON8\u002BjNOBp8OfAbFp6DpSBPWn14Px7ZdUEHEmy8ojy/S3S/8tHnh6h9eaXxu1yONz7Zc6idey8a4ERapT4OcncPWoe2IyzGEpZCYuvr481h/ZgNsmuAM757J8roSIn3y0vTA0/dXN6RSFWugRXsWNO0\u002BNP\u002BZ7W\u002Bc7hoUE5j96BPOO886WWzL7oAs\u002BZBWKxGWXQIsL55cjQ1nKBwEKtaKUJUmIE\u002BvX/L93FlWYPntkdlLGqxKR9L1tm61cc/hHny8/QS6egYQDfnpM9KEwYydRXNmi0iBSSWJCtLW/qM42HvQMwm09G5DSk7jRrOeRkwcMHQNx9u78NF777zsznJFXrpyVebMud5jJ091bXXs/Le3zTLTjTeFam1JR9tfKo6cuoDPd7fhYGsX8shgb3QLcvTE5SgSShwpIvBr32Hs7dnnmXRlRx\u002BTqMQcQcIn8sJ4BEQ5fvP9r7jVSCOkVbXTEouqKqx1x89J2HRgEB3nB\u002BFk\u002BuGvOYHQPV8iZsYQ95T7bZ1teG3rOhQ5zRRou6IFZqVvwOYHW6CqCiqTEWz\u002B5jCW33vzmCvAmAER4a/CT5qon137Z9LS0X4\u002Bj40HCjjZkUGWSAxEt8FZsAlGzBjRU3vbcaz5GDBEKwfJ5ZkiZsTr8Pqqd1GdSiMUDKKmOjYugTGfYdNTix1SNnPW1P2IUyK5JiZjWYNCOV2Hpoehd98HZd9DLvVhU7RbAT70L/irj78FTdaRz9t0CEsngnHzAJEoKIqMSMgQVa0m4cMtNRLl\u002BADkgAWlczHslgcInx4fsWACBDwaPGREoOsB6AENkq90uimbiDRVpsPjF8VlXi0wUFAgq\u002BQJIwapfSFy\u002BxtcLxABAR6rw1oBHqZCpNOdIIhAwE8Exnh9jJQlwLuTFd65CqqqsEz6piUFkt\u002BEasSR27USQwdmCwIzrDqsIfAwgZuGIcD1QACSJMEukwfKEmCRaIsyVTMmo6sUS3anrEHRQ9BDcQxufBQPG09i7RNvI0xnZAw4rRFJ8EoIcBbja9dQjspsH/UlGT4ioFNootEQkskoVtQ\u002BhqQVp9NujoD7iKjI3LS\u002BDP7EBGzbQa5gY2drnsIhQ1E1hOmikbL8SNOXMb8\u002BKkCjVpjaEIWLYk5uFxWRH68elJKyBJh9NlfA/hND2PO7SruOIGEFMbNKQ22KtELBinl\u002BaJoGwzQRoE9XkmW3DtBabkeKWAkpSYANZLIFfPEL5f6jdKVKVGPOtWHcOlPF9WkF05MSVswFgkpOhEjmk16kmHs7FvcG0VL5KhOCMd\u002BHlwk1JBvuMLTizn7bQiYvgTyOUIAumyoBqlkkjBzlBpkKlB8qhUXkgknIZFKxTE3wrrnXNRLpZq5gPIF3wiCapojM1ts/iJ4Lg\u002BJ8XK5MphZwUTJIdVK\u002BRA7PYbQsKV8UOPHalDHLOPd/IcA/IO7txaB4mvAAAAAASUVORK5CYII=",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASDSURBVEhLtVVNTBx1FP/N98eyM/uBsLRACU0k0BYWsXw1xhAPHjQqpmptm/TQ2IMnDQcTTzXGmp5MqpFqNGkPjdWoSSvGxlStAYvaAlVLe1iIfC/QAmXZXZbdmR3fzE5QYKFe\u002Bpt5M29m3tf/vf97gwcKy7IYl11FadmOyt176hvdxy2RtbLZWzf/6psY/3vYfXV/tO8/eDR6J5ZdiCXvS5Mz94yPz14YUD0Fuqu\u002BAax7XwOPIkIvkPOS5pHh9UjwqhLxEhuuC9d98c3VOUEUZVd9DfI62AyUUtiHcxLPciwCfgWhQp398NOvrm8vrXjYFV3F/3ZgZcmqw5ALIvuRZRj4NBWF/gI01NdVHz9x6rwgiFJOMIf7OiBbyJK1LIXt3B2iJyIbHkWARqkrDBQwDQ314a8vXYs7H1xs6sA27JB7OKcd/eo3C4ZhIraUQsYwIPIcykM\u002BMAzD5SzksIWDXCrs1FgUrJ0SmwaTt9A50YmEkQTDslAVCYosQCby0kpYdu3OZ2V9e7GslWiSN8S77xzk8mwT8W5aFo1FXEx8Sw4\u002Bwsmhk4inl2DSezttdspsnfXgT3zSfeaP4aWRkemle8PdpyOekkdqDNPOuLsKip6umDXuoj/Th218CVTI\u002BGDifSTMJF4v70BQDJKsLbcR3KGXX5x8oqE43FoTOKKUNLcNxUJNv/wZFZPLKwgFyJTEUuQx9KZ/g8LJCHB\u002B9Mz2YHplGoOJm0gay2jW9oGzWAgCj5HJOZw70/mWax9cdW3rTCJl9prpxOWm6oJAVZlWGZnl5B8G7uK7q2OYTcyhr6gLFmMgyAfhZT34OXoFE7EJmBkTAwv9yBoWmv2tkEQeo\u002BsddP940TCNTFxU9el4Cj0BDyO1VOutgqhgfIHH4NQMhlM9GBP6McwM4zZzG4PXBjF3Yw7WUBbKqIxdehgNRXvhoe4em5pf48DZRd93fYZT73ak3nnz6FRqxYiUF6t4sk7CvhoNIlOO5d\u002BfQjQiYyQzgiEjgoXoPDCehTAl4KWyI3gm9AKWl9N5i7y6TZdiC5ieHLU\u002BP/ueqVN3FtEIqK9gEdQUiGwl2Ov7Yc0Wg6EBbKUsCGkB7eEDeL7xIHSvBkkS7B5wrf2LvH3A04xRabllhTwtmwMrqBDMKqQvt8OIBqFaKg41HsPhx16BX9Ph99FKRSHvLsrrwI6Eo4aRRBaaTPuU5cEpPoiJOjAXDuPV8Bt47tEDZNwHn88LUbCNU/R5PGzayXbzxCkV0UVS5UUoHgVFRTpqy6rxeEUbzR4/fLptXKQ5RfJO72xRg//CLtZyykBvxEDcVODXPdgZklFVquDZJorar1HkOqWFjJNsbhjaio76GmxwYEeRpv3ddWMFv04EULHtIbRUKairoKI2sNgZzNJg46lOXK7LbbI73iTK42C17Mdee5vZU9\u002BqFu7YdTzLKR1pUwD9uFBApPJpaOIKAl7OmZpUJFdrI/oHx/B0W\u002B1q4OsctCj089hLE3E3Fdr5RnyGUpBKrWTSX547bS3M33Hkt0L3T5fOu\u002ByDBvAPpv4NXXCfjRcAAAAASUVORK5CYII=",
               "WhenOpened": "2025-03-20T14:42:21.981Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
+              "Title": "Report.cs [Design]",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Report.cs",
+              "RelativeDocumentMoniker": "Orderly\\Report.cs",
+              "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Report.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T14:33:34.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "ReportBill.cs",
-              "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\ReportBill.cs",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\ReportBill.cs",
               "RelativeDocumentMoniker": "Orderly\\ReportBill.cs",
-              "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\ReportBill.cs",
+              "ToolTip": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\ReportBill.cs",
               "RelativeToolTip": "Orderly\\ReportBill.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAkwGUAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAFAAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-20T14:39:24.807Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Report.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Report.cs",
-              "RelativeDocumentMoniker": "Orderly\\Report.cs",
-              "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Report.cs [Design]",
-              "RelativeToolTip": "Orderly\\Report.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T14:33:34.59Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "Report.cs",
-              "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Report.cs",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Report.cs",
               "RelativeDocumentMoniker": "Orderly\\Report.cs",
               "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Report.cs*",
-              "RelativeToolTip": "Orderly\\Report.cs*",
               "ViewState": "AgIAAAYAAAAAAAAAAAAMwBoAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-20T13:45:53.177Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "ChiTietHoaDon.cs",
-              "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\ChiTietHoaDon.cs",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\ChiTietHoaDon.cs",
               "RelativeDocumentMoniker": "Orderly\\ChiTietHoaDon.cs",
-              "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\ChiTietHoaDon.cs",
+              "ToolTip": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\ChiTietHoaDon.cs",
               "RelativeToolTip": "Orderly\\ChiTietHoaDon.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAAAA0AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T13:08:01.697Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-20T13:08:01.697Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "Orderly",
-              "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Orderly.csproj",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Orderly.csproj",
               "RelativeDocumentMoniker": "Orderly\\Orderly.csproj",
-              "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Orderly.csproj",
+              "ToolTip": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\Orderly.csproj",
               "RelativeToolTip": "Orderly\\Orderly.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-03-19T17:39:47.998Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "ucTable.cs",
-              "DocumentMoniker": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\UC\\ucTable.cs",
+              "DocumentMoniker": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\UC\\ucTable.cs",
               "RelativeDocumentMoniker": "Orderly\\UC\\ucTable.cs",
-              "ToolTip": "C:\\Users\\APPLE\\Documents\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\UC\\ucTable.cs",
+              "ToolTip": "D:\\Restaurant_New\\Restaurant_Manage_App\\QLNhaHang\\Orderly\\UC\\ucTable.cs",
               "RelativeToolTip": "Orderly\\UC\\ucTable.cs",
               "ViewState": "AgIAADoAAAAAAAAAAAASwEYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T09:55:21.592Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             }
           ]
         }
